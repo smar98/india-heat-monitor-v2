@@ -1,0 +1,60 @@
+name: Update heat data
+
+on:
+  schedule:
+    # Every 3 hours. GitHub's scheduled runs are best-effort and frequently
+    # delayed or dropped under load, so we run more often than the ~9h stale
+    # threshold the frontend warns at -- if one cycle is skipped, the next
+    # still lands well inside the window. Free on public repos (unlimited
+    # Actions minutes), and one Open-Meteo call per run stays far under the
+    # 10k/day free tier.
+    - cron: "0 */3 * * *"
+  workflow_dispatch: {}  # lets us trigger a run manually from the Actions tab
+
+permissions:
+  contents: write  # needed so the workflow can commit the updated data file back
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Run formula test suite
+        run: python3 -m pytest tests/ -q
+
+      - name: Fetch latest forecast and compute heat metrics
+        run: python3 scripts/fetch_forecast.py
+
+      - name: Validate fetched data before committing
+        run: python3 scripts/validate_latest.py
+
+      - name: Log active official heat alerts (SACHET + IMD CAP)
+        # Data collection only -- nothing on the site reads this yet. The
+        # script always exits 0 (its own failure policy); continue-on-error
+        # is a second belt so alert logging can never block the heat data.
+        continue-on-error: true
+        run: python3 scripts/fetch_alerts.py
+
+      - name: Commit updated data if it changed
+        run: |
+          git config user.name "heat-monitor-bot"
+          git config user.email "actions@github.com"
+          git add heat/data/latest.json data/alerts
+          if git diff --cached --quiet; then
+            echo "No data changes, nothing to commit."
+          else
+            git commit -m "Update heat data: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            # Rebase after committing in case another workflow pushed mid-run.
+            git pull --rebase
+            git push
+          fi

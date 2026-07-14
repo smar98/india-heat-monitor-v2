@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methods &amp; sources — The Overlooked Hours</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='%2314171c'/%3E%3Ccircle cx='50' cy='50' r='17' fill='%23e0713a'/%3E%3Cg stroke='%23e0913a' stroke-width='3.4' stroke-linecap='round'%3E%3Cline x1='50' y1='18' x2='50' y2='27'/%3E%3Cline x1='50' y1='73' x2='50' y2='82'/%3E%3Cline x1='18' y1='50' x2='27' y2='50'/%3E%3Cline x1='73' y1='50' x2='82' y2='50'/%3E%3Cline x1='27' y1='27' x2='33' y2='33'/%3E%3Cline x1='67' y1='67' x2='73' y2='73'/%3E%3Cline x1='73' y1='27' x2='67' y2='33'/%3E%3Cline x1='33' y1='67' x2='27' y2='73'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">Methods &amp; sources</div>
+    <h1>How The Overlooked Hours is built</h1>
+    <p class="dek">
+      Every formula, threshold, and data source used on this dashboard,
+      with validity ranges and honest caveats. If a number on the main
+      dashboard can't be traced to something on this page, treat it as a
+      bug and <a href="https://github.com/smar98/india-heat-monitor/issues">report it</a>.
+    </p>
+    <div class="meta-row">
+      <span><a href="index.html">&larr; Back to dashboard</a></span>
+      <span><a href="https://github.com/smar98/india-heat-monitor">Source code</a></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>The central question</h2>
+    <p class="section-note">
+      India's Heat Action Plans tell outdoor workers to avoid the afternoon
+      (roughly 11am&ndash;5pm across states) and shift work to the morning
+      and evening. This dashboard asks: how often do those shifted-to
+      shoulder hours themselves cross the occupational heat-stress limit, once
+      humidity, sun, and wind are counted? Serious tools exist for
+      occupational heat stress, thermal comfort, and live weather &mdash;
+      but there is no public, India-specific, hourly view of outdoor-work
+      heat stress set against the fixed work-hour guidance. This dashboard
+      exists to fill that specific gap &mdash; not to claim no one tracks
+      heat risk in India, which official IMD/NDMA heat-wave communication
+      clearly does.
+    </p>
+  </section>
+
+  <section>
+    <h2>Three metrics, kept strictly separate</h2>
+    <p class="section-note">
+      These are different physical quantities with different risk
+      meanings. This dashboard never compares wet-bulb values against
+      WBGT-style thresholds, or vice versa.
+    </p>
+
+    <h3>1. Dry-bulb (air) temperature</h3>
+    <p>
+      The ordinary air temperature a thermometer reads, taken as-is from
+      Open-Meteo. Its daily maximum is the physical quantity IMD's
+      heat-wave declarations threshold on (IMD's own term is "maximum
+      temperature," not "dry-bulb"). Here it is used only as the
+      <code>T</code> input to the wet-bulb formula below and the WBGT model
+      &mdash; not as a ranking the dashboard sets itself against.
+    </p>
+
+    <h3>2. Wet-bulb temperature — Stull (2011) approximation</h3>
+    <p>
+      Wet-bulb temperature reflects how effectively the body can cool
+      itself by sweat evaporation; unlike dry-bulb temperature, it
+      accounts for humidity. Computed here via the empirical approximation
+      published in:
+    </p>
+    <p>
+      Stull, R., 2011: "Wet-Bulb Temperature from Relative Humidity and
+      Air Temperature." <em>Journal of Applied Meteorology and
+      Climatology</em>, 50(11), 2267&ndash;2269.
+      <a href="https://doi.org/10.1175/JAMC-D-11-0143.1">doi:10.1175/JAMC-D-11-0143.1</a>
+    </p>
+    <p>
+      <strong>Formula</strong> (T = dry-bulb temp in &deg;C, RH = relative
+      humidity in %):
+    </p>
+    <pre>Tw = T&middot;atan[0.151977&middot;(RH + 8.313659)^0.5]
+     + atan(T + RH) &minus; atan(RH &minus; 1.676331)
+     + 0.00391838&middot;RH^1.5&middot;atan(0.023101&middot;RH)
+     &minus; 4.686035</pre>
+    <p>
+      <strong>Validity range:</strong> RH 5&ndash;99%, T &minus;20&deg;C to
+      50&deg;C (accuracy degrades in the combined very-low-humidity /
+      very-cold corner of that range, which this dashboard's cities never
+      approach). <strong>Error bounds:</strong> &minus;1&deg;C to
+      +0.65&deg;C, mean absolute error under 0.3&deg;C. The approximation
+      assumes standard sea-level (101.325 kPa) pressure. Most of the ~50
+      cities here are low-elevation, but not all: for elevated cities
+      &mdash; Srinagar (~1,600m), Bengaluru (~900m), and a few others in
+      the 400&ndash;700m band &mdash; the wet-bulb values shown are
+      slightly less exact (the formula modestly overestimates wet-bulb as
+      pressure falls below sea level). The estimated WBGT is unaffected by
+      this particular caveat: the Liljegren model takes each city's actual
+      surface pressure as an input.
+    </p>
+
+    <h3>3. Estimated WBGT — Liljegren et al. (2008) method</h3>
+    <p>
+      Wet Bulb Globe Temperature (WBGT) is the internationally standard
+      metric for outdoor occupational heat-stress risk (ISO 7243), used by
+      militaries, sports governing bodies, and workplace-safety regulators
+      worldwide, and applied by Indian researchers in urban and
+      occupational heat-stress studies. It is not part of India's official
+      heat-warning vocabulary &mdash; which is precisely the gap this
+      dashboard examines: estimating WBGT from public weather data shows,
+      hour by hour, what maximum-temperature heat-wave criteria and fixed
+      afternoon work-hour windows leave out. Unlike wet-bulb temperature
+      alone, WBGT also incorporates radiant heat (solar radiation) and wind.
+      True WBGT requires a physical instrument (a black globe thermometer)
+      that this dashboard does not have access to. Instead, this is an
+      <strong>estimate</strong> derived purely from standard meteorological
+      variables (temperature, humidity, solar radiation, wind) &mdash;
+      supplied here by gridded forecast/reanalysis data, not physical
+      station instruments &mdash; using the method from:
+    </p>
+    <p>
+      Liljegren, J. C., R. A. Carhart, P. Lawday, S. Tschopp, and R. Sharp,
+      2008: "Modeling the Wet Bulb Globe Temperature Using Standard
+      Meteorological Measurements." <em>The Journal of Occupational and
+      Environmental Hygiene</em>, 5(10), 645&ndash;655.
+      <a href="https://doi.org/10.1080/15459620802310770">doi:10.1080/15459620802310770</a>
+    </p>
+    <p>
+      The implementation here is a Python port of James Liljegren's
+      original 1.1 C code (originally published by UChicago Argonne, LLC
+      under contract with the U.S. Department of Energy), obtained via the
+      MIT-licensed <a href="https://github.com/mdljts/wbgt">mdljts/wbgt</a>
+      R package wrapper. The final combining formula, taken directly from
+      that source code:
+    </p>
+    <pre>WBGT = 0.1&middot;T_air + 0.2&middot;T_globe + 0.7&middot;T_natural_wet_bulb</pre>
+    <p>
+      <strong>Verification:</strong> rather than trust the port by
+      inspection, the original C code (with its own demo driver) was
+      compiled directly with <code>gcc</code> and run on two test cases (a
+      hot/humid daytime scenario and a nighttime scenario). The Python
+      port's output matched the compiled C binary's actual output to
+      within about 0.02&ndash;0.1&deg;C &mdash; consistent with ordinary
+      floating-point precision differences, not a translation error. Both
+      test cases are kept as permanent automated regression tests in the
+      public repository.
+    </p>
+    <p>
+      <strong>Caveat:</strong> this is an estimate from meteorological
+      inputs, not a physical measurement. Liljegren et al. (2008) report
+      agreement with measured WBGT to within about 1&deg;C at the U.S.
+      sites they validated against; no equivalent validation against
+      measured WBGT exists for this dashboard's Indian grid data, which is
+      why every count here carries the &plusmn;1&deg;C sensitivity band.
+    </p>
+  </section>
+
+  <section>
+    <h2>Outdoor-work risk reference — NIOSH RAL/REL</h2>
+    <p class="section-note">
+      This dashboard does <strong>not</strong> use a flat "safe/moderate/
+      danger" WBGT scale. The commonly cited ACGIH and ISO 7243 threshold
+      tables vary continuously by workload and work/rest duty cycle, and
+      their exact values are not freely published (OSHA's Technical Manual
+      notes the ACGIH heat-stress tables are copyrighted and not publicly
+      available). So the limits here come from NIOSH's own public formula:
+    </p>
+    <p>
+      NIOSH, 2016: "Criteria for a Recommended Standard: Occupational
+      Exposure to Heat and Hot Environments." DHHS (NIOSH) Publication
+      2016-106, Chapter 8.1 (equations, p.93&ndash;94) and Table 5-1
+      (cross-standard comparison, p.101).
+      <a href="https://www.cdc.gov/niosh/docs/2016-106/">cdc.gov/niosh/docs/2016-106</a>
+    </p>
+    <pre>RAL [&deg;C-WBGT] = 59.9 &minus; 14.1&middot;log10(M)   (unacclimatized workers)
+REL [&deg;C-WBGT] = 56.7 &minus; 11.5&middot;log10(M)   (acclimatized workers)</pre>
+    <p>
+      where M is the 1-hour time-weighted-average metabolic rate, in
+      watts, for a "standard" 70kg/1.8m&sup2; worker doing continuous
+      (60 min/h) work. The dashboard's workload selector uses four levels
+      on NIOSH's own kcal/h basis (converted at 1 kcal/h = 1.163 W), and
+      reports the <strong>REL</strong> (acclimatized) line by default. The
+      same four values are used everywhere on the site:
+    </p>
+    <table class="method-table">
+      <thead><tr><th>Workload</th><th>Metabolic rate</th><th>REL (&deg;C WBGT)</th><th>Illustrative task</th></tr></thead>
+      <tbody>
+        <tr><td>Light</td><td>180 kcal/h &asymp; 209 W</td><td>30.0</td><td>standing supervision, light assembly</td></tr>
+        <tr><td>Moderate</td><td>300 kcal/h &asymp; 349 W</td><td>27.5</td><td>brisk walking with a load, street vending</td></tr>
+        <tr><td>Heavy <em>(default)</em></td><td>400 kcal/h &asymp; 465 W</td><td>26.0</td><td>digging, brick-carrying, most farm labour</td></tr>
+        <tr><td>Very heavy</td><td>500 kcal/h &asymp; 581 W</td><td>24.9</td><td>sustained shovelling, peak harvest/construction</td></tr>
+      </tbody>
+    </table>
+    <p>
+      The moderate row (349&nbsp;W &rarr; REL 27.5&deg;C) is the exact
+      value NIOSH's own worked example uses. Occupation labels are
+      <em>illustrative task intensities</em>, not fixed per-job values &mdash;
+      the same job spans a wide range depending on the specific task.
+      <strong>Why REL, not RAL:</strong> India's outdoor laborers are among
+      the most chronically heat-acclimatized workers anywhere, and Indian
+      occupational-health field studies measured real heat strain
+      (core-temperature rise, dehydration markers) in such workers around
+      these WBGT limits &mdash; so the acclimatized line is the defensible
+      default, and RAL would understate their tolerance. See Venugopal et
+      al., "Occupational Heat Stress Profiles in Selected Workplaces in
+      India," <em>Int. J. Environ. Res. Public Health</em>, 2016
+      (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4730480/">PMC4730480</a>),
+      and related work on heat strain in Tamil Nadu salt-pan and
+      agricultural workers
+      (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10334398/">PMC10334398</a>).
+    </p>
+    <p class="caveat">
+      These are NOT flat "safe/danger" cutoffs. They vary continuously
+      with workload, and depend on acclimatization, clothing, and work/rest
+      scheduling &mdash; none of which this dashboard measures directly.
+      Language on this site always says "lower-risk outdoor work windows
+      under estimated WBGT assumptions," never "safe hours," and every
+      threshold shown is labeled with the specific NIOSH reference it
+      corresponds to.
+    </p>
+  </section>
+
+  <section>
+    <h2>Data sources</h2>
+    <h3>Live forecast</h3>
+    <p>
+      <a href="https://open-meteo.com/">Open-Meteo</a> Forecast API:
+      hourly temperature, relative humidity, shortwave solar radiation,
+      wind speed, and surface pressure for all ~50 cities, refreshed
+      automatically every 3 hours.
+    </p>
+    <h3>City list</h3>
+    <p>
+      50 large Indian cities: the top 50 by population, with exactly
+      <strong>three substitutions</strong>, named so the choice can be
+      audited &mdash; Kota, Bareilly, and Solapur (each climatically
+      redundant with cities already on the list) were swapped for
+      Bhubaneswar, Kochi, and Puducherry, so humid coastal and eastern
+      India are represented rather than a strict population cutoff drying
+      out the sample. The swaps were made when the list was built, before
+      any results existed, and at most those three cities of any day's
+      count can be substitutes &mdash; they cannot drive a headline that
+      moves by tens of cities. Coordinates from
+      <a href="https://github.com/Vynex/indian-cities-geodata">Vynex/indian-cities-geodata</a>
+      (Apache 2.0; based on Census 2011 and Google Maps).
+    </p>
+    <h3>Map boundaries</h3>
+    <p>
+      India state/UT boundaries from the
+      <a href="https://github.com/datameet/maps">DataMeet India community's "maps" repository</a>
+      (MIT licensed), simplified for faster loading with all boundary
+      shapes otherwise unmodified
+      (<a href="data/india_states.geojson.LICENSE.txt">license/attribution</a>).
+    </p>
+    <h3>Official heat alerts (logged, not yet published)</h3>
+    <p>
+      Since July 2026, each data refresh also records which official heat
+      alerts are active for each monitored city, from two public sources:
+      the India Meteorological Department's
+      <a href="https://cap-sources.s3.amazonaws.com/in-imd-en/rss.xml">Common
+      Alerting Protocol (CAP) feed</a> (IMD-signed alerts carrying the actual
+      warning areas) and NDMA's
+      <a href="https://sachet.ndma.gov.in/">SACHET national alert portal</a>
+      (which also carries state-SDMA alerts). The record is kept so a future
+      update can compare official warnings against these estimates using
+      <em>real</em> alerts rather than a reconstruction of declaration
+      criteria. <strong>No such comparison is published yet.</strong>
+    </p>
+  </section>
+
+  <section>
+    <h2>What "overlooked hours" means</h2>
+    <p>
+      For each city, every hour of today is classified against the NIOSH
+      REL heat-stress limit for the selected workload (acclimatized
+      workers). An hour is an <strong>overlooked hour</strong> when it
+      crosses that limit, falls <em>outside</em> the 11am&ndash;5pm
+      afternoon-avoidance window, and has the sun up (shortwave radiation
+      above ~50&nbsp;W/m&sup2;). Those are the morning and evening
+      &ldquo;shoulder&rdquo; hours that guidance tells workers to shift
+      into &mdash; yet on hot days they can carry real, solar-driven heat
+      stress. Hours that cross the limit <em>after dark</em> are counted
+      and reported separately, because after sunset WBGT's globe/solar term
+      is near zero, so a high night value is essentially humid heat
+      (wet-bulb) &mdash; which IMD's &ldquo;warm night&rdquo; category
+      already speaks to.
+    </p>
+    <p>
+      <strong>The city count's bar is one hour.</strong> A city enters the
+      headline count with a single overlooked hour, and the KPI label says
+      so, alongside how many cities have three or more. That
+      three-hour figure is descriptive, not a risk threshold: NIOSH's REL
+      is a ceiling for each hour of continuous work (a 1-hour
+      time-weighted average) &mdash; the criteria document prescribes
+      work/rest cycling and controls whenever an hour exceeds it, and
+      defines no hours-per-day dose above which risk steps up. Inventing
+      such a cutoff here would be unsourced, so depth of exposure is
+      reported as plain counts (total city-hours, the per-city clock)
+      instead.
+    </p>
+    <p>
+      The 11am&ndash;5pm window is the <strong>union</strong> of the
+      documented outdoor-work windows in the table below: the earliest start
+      any of them uses (Odisha, 11:00) to the latest end (Delhi and
+      Ahmedabad, 17:00). Using that union makes the overlooked-hours count a
+      <em>conservative lower bound</em>: an hour flagged as overlooked falls
+      outside <em>every</em> one of these documented windows, so under any
+      single state's (narrower) window the count could only be higher. The
+      claim is scoped to the windows audited here, not to every HAP in
+      India. The per-city policy card shows each audited state's window as
+      written, but <em>computing</em> the count against each city's own
+      (narrower) window is deferred to a later version &mdash; the union is
+      the conservative choice.
+    </p>
+
+    <h3>The afternoon-avoidance windows, as written</h3>
+    <p>
+      Each row is a verbatim quotation from the primary document, with the
+      page or section where it appears. All are outdoor-worker /
+      labour-rescheduling provisions except the first, which is the
+      national do's-and-don'ts line reproduced across HAPs.
+    </p>
+    <div class="table-scroll">
+    <table class="method-table">
+      <thead><tr><th>Jurisdiction / document</th><th>Window</th><th>Exact wording (source)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>NDMA / IMD national do's &amp; don'ts</td>
+          <td>avoid<br>12&ndash;3&nbsp;pm</td>
+          <td>&ldquo;Avoid going out in the sun, especially between 12.00 noon and 3.00 p.m.&rdquo; &mdash; standard NDMA/IMD advisory, reproduced verbatim in the <a href="https://ddma.delhi.gov.in/sites/default/files/ddma/generic_multiple_files/final_hap_12.04.2024.pdf">DDMA Delhi HAP 2024&ndash;25</a>, p.&nbsp;54.</td>
+        </tr>
+        <tr>
+          <td>Odisha &mdash; OSDMA Heat Action Plan 2018, Ch.&nbsp;3 (SOP)</td>
+          <td>work 6&ndash;11&nbsp;am &amp; 3:30&ndash;6&nbsp;pm<br>(avoid 11&nbsp;am&ndash;3:30&nbsp;pm)</td>
+          <td>&ldquo;The working hours for daily labourers need to be re-scheduled i.e. from 6 a.m. to 11 a.m. and 3.30 pm to 6 pm.&rdquo; (<a href="https://www.osdma.org/heat-wave/">OSDMA</a>; accessed via a document mirror as the OSDMA PDF did not serve directly.)</td>
+        </tr>
+        <tr>
+          <td>Andhra Pradesh &mdash; APSDMA Heat Wave Action Plan 2020</td>
+          <td>avoid<br>12&ndash;4&nbsp;pm</td>
+          <td>&ldquo;Encourage employers to shift outdoor workers schedules away from peak afternoon hours (12 &ndash; 4pm) during a heat alert.&rdquo; &mdash; <a href="https://apsdma.ap.gov.in/latestupdate_pdfs/heatwave/Heat_Wave_Action_Plan_2020.pdf">APSDMA HAP 2020</a>, p.&nbsp;36.</td>
+        </tr>
+        <tr>
+          <td>Ahmedabad (Gujarat) &mdash; AMC Heat Action Plan, 2019 Update</td>
+          <td>avoid<br>1&ndash;5&nbsp;pm</td>
+          <td>&ldquo;Change working hours of labourers. Encourage employers to shift outdoor workers' schedules away from peak afternoon hours (1pm &ndash; 5pm) during a heat alert.&rdquo; &mdash; <a href="https://www.nrdc.org/sites/default/files/ahmedabad-heat-action-plan-2019-update.pdf">Ahmedabad HAP 2019 Update</a>, p.&nbsp;17.</td>
+        </tr>
+        <tr>
+          <td>Delhi &mdash; DDMA Heat Action Plan 2024&ndash;25</td>
+          <td>work 7&nbsp;am&ndash;1&nbsp;pm &amp; 4&ndash;6&nbsp;pm<br>(avoid 1&ndash;5&nbsp;pm)</td>
+          <td>&ldquo;Encourage employers to shift outdoor workers' schedules away from peak afternoon hours (1pm&ndash;5pm) during Heat alert. Working Hours will be from 7:00am to 1:00pm, 4:00pm to 6:00pm.&rdquo; &mdash; <a href="https://ddma.delhi.gov.in/sites/default/files/ddma/generic_multiple_files/final_hap_12.04.2024.pdf">DDMA Delhi HAP 2024&ndash;25</a>, p.&nbsp;34.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="caveat">
+      Windows are stated as clock hours; the dashboard's hourly cells are
+      labelled by the hour they begin in IST, and Open-Meteo's solar input
+      for an hour is the mean over the preceding hour &mdash; so a cell at,
+      say, 5&nbsp;pm reflects roughly 4&ndash;5&nbsp;pm conditions. Boundary
+      hours can therefore shift a count by an hour either way; the headline
+      figure should be read as approximate, not to-the-hour exact.
+    </p>
+    <p class="caveat">
+      Which cities have the most overlooked hours changes day to day with
+      the weather &mdash; because estimated WBGT weighs sun and wind, some
+      days it is inland northern cities, other days humid coastal ones.
+      This dashboard does not claim any fixed set of cities is always
+      underrated; the claim is that fixed afternoon-only work-hour guidance
+      systematically misses solar-driven stress in the shoulder hours, and
+      a live view is the only way to show where and when.
+    </p>
+
+    <h3>Do the plans have teeth? The CPR 2023 assessment</h3>
+    <p>
+      The dashboard's per-city policy card and map popups cite the Centre
+      for Policy Research's March 2023 review,
+      <a href="https://cprindia.org/wp-content/uploads/2023/03/Heat-Report_27March-23_Updated-Table.pdf"><em>How
+      Is India Adapting to Heatwaves?</em></a>, which analysed 37 heat
+      action plans (9 city, 13 district, 15 state, published
+      2016&ndash;2022). Two of its findings are quoted on the dashboard,
+      both from the executive summary (p.&nbsp;3):
+    </p>
+    <ul>
+      <li>&ldquo;HAPs are underfunded. Only 11 of 37 HAPs discuss funding
+        sources. Of these, eight asked implementing departments to
+        self-allocate resources, indicating a serious funding
+        constraint.&rdquo;</li>
+      <li>&ldquo;HAPs have weak legal foundations. None of the HAPs
+        indicate the legal sources of their authority.&rdquo;</li>
+    </ul>
+    <p class="caveat">
+      CPR reports these findings in aggregate and does not publish a
+      per-plan scorecard, so the dashboard shows them as context about
+      India's heat plans overall &mdash; never as a grade of any specific
+      plan quoted above. The policy card is descriptive and display-only:
+      the computed avoidance window everywhere on this site remains the
+      11am&ndash;5pm union described earlier, regardless of what any single
+      plan says.
+    </p>
+  </section>
+
+  <section>
+    <h2>The long view: overlooked hours per year, 1980&ndash;2024</h2>
+    <p>
+      The trend panel applies <em>exactly the same definition and code
+      path</em> as today's count &mdash; Stull wet-bulb, the Liljegren WBGT
+      model, the NIOSH REL for the selected workload, the 11am&ndash;5pm
+      window, the sun-up rule &mdash; to 45 years of hourly history, and
+      counts the overlooked hours in each calendar year (IST).
+    </p>
+    <p>
+      <strong>Data.</strong> Hourly ERA5 reanalysis (temperature, relative
+      humidity, shortwave radiation, wind, surface pressure) from the
+      <a href="https://open-meteo.com/en/docs/historical-weather-api">Open-Meteo
+      Historical Weather API</a>. Computed once and published as a static
+      dataset; the script that builds it is in the public repository.
+    </p>
+    <p>
+      <strong>Why 1980, not 1940.</strong> ERA5 extends back to 1940, but
+      its pre-satellite-era quality is weakest in exactly the variables
+      WBGT leans on most &mdash; solar radiation and wind. Starting at 1980
+      keeps the whole series inside the satellite era; 45 years is ample
+      for the trend question.
+    </p>
+    <p>
+      <strong>Why 2025 is excluded.</strong> It is incomplete: a half year
+      would render as a collapse in an annual-count chart. The series ends
+      with the last complete year, 2024.
+    </p>
+    <p>
+      <strong>The window anachronism, stated plainly.</strong> The
+      11am&ndash;5pm avoidance window is <em>today's</em> audited HAP union
+      applied to every year since 1980 &mdash; the chart answers &ldquo;how
+      many hours would today's guidance overlook,&rdquo; not &ldquo;what did
+      guidance overlook at the time&rdquo; (most of the period predates any
+      HAP; the first Indian HAP is Ahmedabad's, 2013).
+    </p>
+    <p>
+      <strong>Two data products, never mixed.</strong> The live dashboard
+      runs on forecast data; the trend runs on reanalysis. They differ in
+      kind (a reanalysis assimilates observations after the fact) and the
+      page never reads one against the other &mdash; the trend panel carries
+      its own caveat saying so.
+    </p>
+    <p class="caveat">
+      Computation notes: the sensitivity band shown is the same
+      &plusmn;1&deg;C WBGT-error convention as the headline. Hours with
+      missing variables are dropped, not filled; hours provably too cool to
+      approach any limit are counted as below it (the derivation of that
+      bound is documented in the build script); solver non-convergence
+      yields no estimate, not a zero. All counts are model estimates on a
+      ~25&thinsp;km grid, not observations.
+    </p>
+  </section>
+
+  <section>
+    <h2>The district layer: workers at risk</h2>
+    <p>
+      The "Workers at risk, by district" map layer answers a different
+      question than the city dots: not just <em>where is it hot</em>, but
+      <em>how many outdoor workers does the advice overlook, and where</em>.
+      Each of the 640 districts (2011 Census frame) is shaded by
+      <strong>worker-hours at risk</strong>: its outdoor workforce
+      multiplied by today's forecast overlooked hours at the selected
+      workload.
+    </p>
+    <p>
+      <strong>Workforce data.</strong> Census of India 2011, table B-04
+      (main workers by industrial category), per district. "Outdoor
+      workers" counts main workers in the predominantly-outdoor categories:
+      NIC&nbsp;A (cultivators, agricultural labourers, and
+      plantation/livestock/forestry/fishing), NIC&nbsp;B (mining), and
+      NIC&nbsp;F (construction) &mdash; about 212 million people nationally.
+      This deliberately <em>under-counts</em> outdoor exposure (street
+      vendors sit in retail, brick-kiln workers partly in manufacturing);
+      erring low is the honest direction. The per-state totals were
+      verified to equal the sum of their districts exactly, and every
+      mapped district joins a workforce record. (State-level registration
+      counts under the BOCW Act, published on
+      <a href="https://www.data.gov.in/resource/state-wise-number-registered-building-and-other-construction-boc-workers-and-cess-under">data.gov.in</a>
+      as of March 2024, offer a more recent &mdash; though
+      registration-based and state-level &mdash; view of the construction
+      workforce.)
+    </p>
+    <p>
+      <strong>Heat data.</strong> One forecast point per district (a
+      representative interior point), refreshed once daily in the early
+      morning IST, scored with the same estimated-WBGT-vs-REL definition as
+      everything else on this page. The layer is labeled with its data date
+      if a refresh is missed.
+    </p>
+    <p>
+      <strong>Boundaries.</strong> 2011 Census district boundaries from the
+      <a href="https://github.com/datameet/maps">DataMeet India community</a>
+      (simplified for the browser; shapes otherwise unmodified &mdash;
+      <a href="data/india_districts_2011.geojson.LICENSE.txt">license/attribution</a>).
+      The 2011 frame is used deliberately so the Census join is exact;
+      districts created after 2011 appear within their parent boundaries.
+    </p>
+    <p class="caveat">
+      Read the shading as <em>scale of exposure</em>, not precision: the
+      workforce shares are from 2011 (India's last completed census &mdash;
+      occupational structure moves slowly, but it is 15 years old); the heat
+      value is one model grid point (~25&nbsp;km) per district, and large
+      districts span more microclimates than one point can carry; and the
+      hours are forecast, not observed. Worker-hours multiply those
+      uncertainties together &mdash; the layer ranks districts against each
+      other; it does not measure any district's true exposure.
+    </p>
+
+    <h3>The e-Shram registry cross-check</h3>
+    <p>
+      Because the census workforce shares are 15 years old, the map offers
+      a second, recent view: the &ldquo;Outdoor workforce &mdash; e-Shram
+      registry&rdquo; layer shades each district by its registrations on
+      <a href="https://eshram.gov.in/">e-Shram</a>, the Ministry of Labour
+      and Employment's national registry of unorganised workers, in the
+      two predominantly-outdoor occupation sectors it records
+      (agriculture and construction). Counts come from the ministry's
+      <a href="https://www.data.gov.in/resource/district-wise-demographic-data-unorganised-workers-registered-eshram-previous-day">district-wise
+      dataset on data.gov.in</a>, refreshed daily by the ministry; each
+      district's figure is an exact filtered count of individual
+      registration records, queried &mdash; not estimated &mdash; from the
+      full registry.
+    </p>
+    <p>
+      e-Shram reports today's ~780 districts; the map uses the 640
+      districts of the 2011 census. We fold every post-2011 district back
+      into its 2011 parent using a documented rename-and-split table
+      (<a href="https://github.com/smar98/india-heat-monitor/blob/main/scripts/build_district_eshram.py">205
+      entries in the public build script</a>) &mdash; things like Prayagraj&rarr;Allahabad,
+      Gurugram&rarr;Gurgaon, and Karnataka's 2014 renames (Bengaluru&larr;Bangalore,
+      Mysuru&larr;Mysore, and others). All 640 census districts join: 100% coverage,
+      0% of registrations unmatched.
+    </p>
+    <p>
+      <strong>Telangana is a special case.</strong> Created in 2014, it does
+      not exist in the 2011 census frame: its registrations are counted
+      under the undivided Andhra Pradesh districts they were carved from,
+      so the polygon labelled &ldquo;Warangal, Andhra Pradesh&rdquo; on this
+      layer includes today's Warangal Urban, Warangal Rural, Mahabubabad,
+      Jayashankar Bhupalpally, Jangaon, and Mulugu &mdash; the map popup
+      says so for every affected district. Separately, 22 newer districts
+      nationwide were carved from more than one 2011 parent; each is
+      assigned wholly to its majority parent, a modeling choice that
+      totals about 1% of national registrations, too small to move the map.
+    </p>
+    <p>
+      The point of the layer is the cross-check itself: district-for-district,
+      the current registration geography agrees with the Census-2011
+      outdoor-workforce map at a rank correlation of about 0.81 (recomputed
+      at every build and shown on the layer) &mdash; broad agreement, not
+      identity, and evidence that the worker-hours risk layer is not
+      leaning on a stale picture of where outdoor workers are. One caution
+      in reading that number: both series are absolute counts, so part of
+      the agreement is district size &mdash; big districts have more of
+      everything. The check is still the right one for this layer, which
+      ranks districts by absolute worker-hours; the correlation says that
+      ranking would look broadly the same against the recent registry.
+    </p>
+    <p class="caveat">
+      Registrations are not a workforce count. e-Shram covers unorganised
+      workers aged 16&ndash;59 who have registered since 2021 &mdash;
+      enrollment is incentive-driven and its completeness varies by state
+      &mdash; and it excludes the organised/formal workforce (which is why
+      mining, largely formal, is not part of this layer's definition). That
+      is also why the layer is read by rank correlation, not by level: the
+      risk layer's weights remain the Census 2011 main-worker counts; the
+      registry layer is a corroborating view, never an input to any
+      computed number.
+    </p>
+  </section>
+
+  <section>
+    <h2>AI-transparency note</h2>
+    <p>
+      This dashboard's data pipeline, scientific-formula implementations,
+      and frontend code were built with AI assistance (Claude, Anthropic),
+      working from a project brief and editorial decisions set by the
+      site's author. Where that matters for trusting the numbers on this
+      page:
+    </p>
+    <ul>
+      <li>
+        Every formula was checked against a primary source (the original
+        paper or standard, or a citation of it that could itself be
+        verified) rather than accepted from a first-pass summary. Where a
+        primary source could not be reached (the ACGIH/ISO 7243 exact
+        tables, which are genuinely paywalled), that gap is stated above
+        rather than papered over with an invented number presented as
+        authoritative.
+      </li>
+      <li>
+        The Liljegren WBGT port was verified by compiling the original
+        author's C code directly and comparing outputs numerically, not
+        just by reading the ported code and judging it plausible.
+      </li>
+      <li>
+        All reproducible pipeline scripts (data fetching, the wet-bulb
+        and WBGT calculations, the historical builders) are in the
+        <a href="https://github.com/smar98/india-heat-monitor">public repository</a>,
+        along with an automated test suite.
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <p><a href="index.html">&larr; Back to dashboard</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
