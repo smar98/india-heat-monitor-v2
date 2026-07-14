@@ -38,7 +38,7 @@ limit," never "safe hours."
 
 - Static site: plain HTML/CSS/JS, no build step. Hosted on GitHub Pages.
 - Data: Open-Meteo Forecast API (no key). A GitHub Actions workflow targets a
-  refresh every 6 hours; scheduled runs are best-effort, so the page shows a
+  refresh every 3 hours; scheduled runs are best-effort, so the page shows a
   stale-data warning if the data is more than ~9 hours old.
 - 1991–2020 climatological normals (ERA5) are computed once for the map's
   anomaly layer.
@@ -48,5 +48,8 @@ caveats, and `BUILD_LOG.md` for the build history and decisions.
 
 > Framing note: this is an exploratory, transparent, live policy dashboard
 > highlighting a plausible blind spot in fixed work-hour guidance — not
-> validated occupational-exposure evidence. Figures are forecast, on a ~25km
-> grid, for a 50-city sample, and are not a national estimate.
+> validated occupational-exposure evidence. Figures are forecast, on a
+> ~9–13 km model grid (whichever global model Open-Meteo's "best match"
+> selects for India — ECMWF IFS ~9 km, ICON Global ~11 km, GFS ~13 km; a
+> grid cell, not street level), for a 50-city sample, and are not a national
+> estimate.

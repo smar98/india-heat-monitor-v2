@@ -31,7 +31,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CITIES_PATH = os.path.join(HERE, "..", "heat", "data", "cities.json")
 LATEST_PATH = os.path.join(HERE, "..", "heat", "data", "latest.json")
 
-MAX_AGE_HOURS = 12          # a 6-hourly pipeline should never produce older data
+MAX_AGE_HOURS = 12          # deliberately loose gate for the 3-hourly pipeline: tolerates missed best-effort runs
 MIN_HOURS_PER_CITY = 24
 MAX_SOLVER_FAILURE_FRACTION = 0.05
 

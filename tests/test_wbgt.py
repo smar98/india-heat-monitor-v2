@@ -50,7 +50,8 @@ def test_niosh_rel_exceeds_ral_at_same_workload():
 
 def test_niosh_moderate_workload_matches_documented_worked_example():
     """
-    NIOSH 2016-106 p.35 works this exact example: a 70kg acclimatized
+    NIOSH 2016-106 pp.3-4 (the document's own pagination) works this exact
+    example: a 70kg acclimatized
     worker at moderate workload (300 kcal/h = 348.9W, continuous 60 min/h)
     has their REL curve at a WBGT of 27.8C (82F); the unacclimatized RAL
     is at 25C (77F). The document itself derives these two figures by

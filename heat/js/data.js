@@ -109,8 +109,10 @@ function formatWorkerCount(x) {
 // Workload levels + the REL work-stress threshold that depends on them.
 //
 // The NIOSH REL/RAL limits are not single numbers -- they slide with how hard
-// the work is (heavier work => lower WBGT limit). Metabolic rates follow the
-// ISO 8996 activity classes (average W/m^2 x a standard ~1.8 m^2 worker).
+// the work is (heavier work => lower WBGT limit). Metabolic rates use the
+// kcal/h category anchors quoted in NIOSH 2016-106 (the light-work 180 kcal/h
+// anchor is ACGIH's category boundary as quoted there; moderate/heavy/very
+// heavy follow NIOSH's own Table 5-1 -- see methods.html).
 // Occupation examples are ILLUSTRATIVE task intensities, not fixed per-job
 // values -- the same job spans a wide range depending on the specific task.
 // We report the REL (acclimatized-worker) line, because India's chronically
@@ -236,6 +238,40 @@ function computeOverlookedSummary(cities, latest, relThreshold) {
     totalDarkHumid,
     relThreshold,
   };
+}
+
+/**
+ * For one city today: the contiguous sun-up hour ranges BELOW the selected
+ * REL -- "the hours a heat-following window would point workers to instead."
+ * Powers the constructive closing exhibit. Returns { ranges, sunUpHours,
+ * sunUpBelow } where ranges is a list of {startHour, endHour} (endHour
+ * exclusive), or null if the city has no valid hours today. An empty ranges
+ * list on a valid day is itself the finding: no daylight hour is under the
+ * limit at this workload.
+ */
+function computeWorkableRanges(cityId, latest, relThreshold, todayDateKey) {
+  const dateKey = todayDateKey || nowInIst().dateKey;
+  const series = buildHourlySeriesForCity(cityId, latest, relThreshold).filter(
+    (h) => h.istDateKey === dateKey && h.wbgt_status === 0 && h.wbgt_c != null && h.sunUp
+  );
+  if (series.length === 0) return null;
+
+  const ranges = [];
+  let run = null;
+  let sunUpBelow = 0;
+  for (const h of series) {
+    const below = h.wbgt_c < relThreshold;
+    if (below) sunUpBelow++;
+    if (below && run && run.endHour === h.istHour) {
+      run.endHour = h.istHour + 1;
+    } else if (below) {
+      run = { startHour: h.istHour, endHour: h.istHour + 1 };
+      ranges.push(run);
+    } else {
+      run = null;
+    }
+  }
+  return { ranges, sunUpHours: series.length, sunUpBelow };
 }
 
 /**

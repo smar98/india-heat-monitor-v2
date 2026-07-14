@@ -7,7 +7,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='%2314171c'/%3E%3Ccircle cx='50' cy='50' r='17' fill='%23e0713a'/%3E%3Cg stroke='%23e0913a' stroke-width='3.4' stroke-linecap='round'%3E%3Cline x1='50' y1='18' x2='50' y2='27'/%3E%3Cline x1='50' y1='73' x2='50' y2='82'/%3E%3Cline x1='18' y1='50' x2='27' y2='50'/%3E%3Cline x1='73' y1='50' x2='82' y2='50'/%3E%3Cline x1='27' y1='27' x2='33' y2='33'/%3E%3Cline x1='67' y1='67' x2='73' y2='73'/%3E%3Cline x1='73' y1='27' x2='67' y2='33'/%3E%3Cline x1='33' y1='67' x2='27' y2='73'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -58,7 +58,17 @@
       The ordinary air temperature a thermometer reads, taken as-is from
       Open-Meteo. Its daily maximum is the physical quantity IMD's
       heat-wave declarations threshold on (IMD's own term is "maximum
-      temperature," not "dry-bulb"). Here it is used only as the
+      temperature," not "dry-bulb"). Per IMD's published criteria
+      (<a href="https://internal.imd.gov.in/section/nhac/dynamic/FAQ_heat_wave.pdf">IMD
+      heat-wave FAQ</a>), a heat wave is considered only once a station's
+      maximum reaches 40&deg;C (plains) or 30&deg;C (hills), and is then
+      declared on departure from normal (4.5&ndash;6.4&deg;C = heat wave,
+      &gt;6.4&deg;C = severe) or on absolute maximum (&ge;45&deg;C = heat
+      wave, &ge;47&deg;C = severe), when met at &ge;2 stations in a
+      meteorological sub-division for 2 consecutive days. For coastal
+      stations the bar is conditional: a heat wave may be described at
+      &ge;37&deg;C only when the departure from normal is also
+      &ge;4.5&deg;C. Here the dry-bulb value is used only as the
       <code>T</code> input to the wet-bulb formula below and the WBGT model
       &mdash; not as a ranking the dashboard sets itself against.
     </p>
@@ -148,11 +158,15 @@
     </p>
     <p>
       <strong>Caveat:</strong> this is an estimate from meteorological
-      inputs, not a physical measurement. Liljegren et al. (2008) report
-      agreement with measured WBGT to within about 1&deg;C at the U.S.
-      sites they validated against; no equivalent validation against
-      measured WBGT exists for this dashboard's Indian grid data, which is
-      why every count here carries the &plusmn;1&deg;C sensitivity band.
+      inputs, not a physical measurement. The &plusmn;1&deg;C figure is
+      the Liljegren model's reported agreement with measured WBGT when
+      fed <em>measured</em> meteorological inputs at the U.S. sites it
+      was validated against. Here the inputs are themselves forecasts, so
+      total uncertainty is plausibly wider, and no equivalent validation
+      against measured WBGT exists for this dashboard's Indian grid data.
+      The band shown with every count is therefore a <em>sensitivity of
+      the city count to a uniform &plusmn;1&deg;C WBGT shift</em> &mdash;
+      not a full error bar.
     </p>
   </section>
 
@@ -169,8 +183,9 @@
     <p>
       NIOSH, 2016: "Criteria for a Recommended Standard: Occupational
       Exposure to Heat and Hot Environments." DHHS (NIOSH) Publication
-      2016-106, Chapter 8.1 (equations, p.93&ndash;94) and Table 5-1
-      (cross-standard comparison, p.101).
+      2016-106, Chapter 8.1 (equations, pp.&nbsp;93&ndash;94 of the
+      document's own pagination) and Table 5-1 (cross-standard
+      comparison, p.&nbsp;70 of the document's own pagination).
       <a href="https://www.cdc.gov/niosh/docs/2016-106/">cdc.gov/niosh/docs/2016-106</a>
     </p>
     <pre>RAL [&deg;C-WBGT] = 59.9 &minus; 14.1&middot;log10(M)   (unacclimatized workers)
@@ -179,14 +194,20 @@ REL [&deg;C-WBGT] = 56.7 &minus; 11.5&middot;log10(M)   (acclimatized workers)</
       where M is the 1-hour time-weighted-average metabolic rate, in
       watts, for a "standard" 70kg/1.8m&sup2; worker doing continuous
       (60 min/h) work. The dashboard's workload selector uses four levels
-      on NIOSH's own kcal/h basis (converted at 1 kcal/h = 1.163 W), and
-      reports the <strong>REL</strong> (acclimatized) line by default. The
-      same four values are used everywhere on the site:
+      of kcal/h category anchors quoted in NIOSH 2016-106 (converted at
+      1 kcal/h = 1.163 W), and reports the <strong>REL</strong>
+      (acclimatized) line by default. The moderate, heavy, and very-heavy
+      anchors follow NIOSH's own Table 5-1 category boundaries; the
+      light-work anchor (180 kcal/h) follows the ACGIH category boundary
+      as quoted in NIOSH 2016-106 &sect;8.5.1 (pp.&nbsp;100&ndash;101 of
+      the document's own pagination) &mdash; NIOSH's own Table 5-1 light
+      boundary is &lt;200 kcal/h (&asymp;233&nbsp;W). The same four
+      values are used everywhere on the site:
     </p>
     <table class="method-table">
       <thead><tr><th>Workload</th><th>Metabolic rate</th><th>REL (&deg;C WBGT)</th><th>Illustrative task</th></tr></thead>
       <tbody>
-        <tr><td>Light</td><td>180 kcal/h &asymp; 209 W</td><td>30.0</td><td>standing supervision, light assembly</td></tr>
+        <tr><td>Light <em>(ACGIH boundary, as quoted in NIOSH 2016-106)</em></td><td>180 kcal/h &asymp; 209 W</td><td>30.0</td><td>standing supervision, light assembly</td></tr>
         <tr><td>Moderate</td><td>300 kcal/h &asymp; 349 W</td><td>27.5</td><td>brisk walking with a load, street vending</td></tr>
         <tr><td>Heavy <em>(default)</em></td><td>400 kcal/h &asymp; 465 W</td><td>26.0</td><td>digging, brick-carrying, most farm labour</td></tr>
         <tr><td>Very heavy</td><td>500 kcal/h &asymp; 581 W</td><td>24.9</td><td>sustained shovelling, peak harvest/construction</td></tr>
@@ -194,7 +215,8 @@ REL [&deg;C-WBGT] = 56.7 &minus; 11.5&middot;log10(M)   (acclimatized workers)</
     </table>
     <p>
       The moderate row (349&nbsp;W &rarr; REL 27.5&deg;C) is the exact
-      value NIOSH's own worked example uses. Occupation labels are
+      value NIOSH's own worked example uses (pp.&nbsp;3&ndash;4 of the
+      document's own pagination). Occupation labels are
       <em>illustrative task intensities</em>, not fixed per-job values &mdash;
       the same job spans a wide range depending on the specific task.
       <strong>Why REL, not RAL:</strong> India's outdoor laborers are among
@@ -206,8 +228,7 @@ REL [&deg;C-WBGT] = 56.7 &minus; 11.5&middot;log10(M)   (acclimatized workers)</
       al., "Occupational Heat Stress Profiles in Selected Workplaces in
       India," <em>Int. J. Environ. Res. Public Health</em>, 2016
       (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4730480/">PMC4730480</a>),
-      and related work on heat strain in Tamil Nadu salt-pan and
-      agricultural workers
+      and related work on heat strain in Tamil Nadu salt-pan workers
       (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10334398/">PMC10334398</a>).
     </p>
     <p class="caveat">
@@ -228,7 +249,21 @@ REL [&deg;C-WBGT] = 56.7 &minus; 11.5&middot;log10(M)   (acclimatized workers)</
       <a href="https://open-meteo.com/">Open-Meteo</a> Forecast API:
       hourly temperature, relative humidity, shortwave solar radiation,
       wind speed, and surface pressure for all ~50 cities, refreshed
-      automatically every 3 hours.
+      automatically every 3 hours. Values come from a gridded weather
+      model at roughly 9&ndash;13&thinsp;km per grid cell, depending on
+      which model Open-Meteo's &ldquo;best match&rdquo; selects for India
+      (the global models it draws on: ECMWF IFS ~9&thinsp;km, ICON Global
+      ~11&thinsp;km, GFS ~13&thinsp;km) &mdash; a grid cell, not street
+      level.
+    </p>
+    <p class="caveat">
+      A gridded forecast averages urban and rural land within each cell,
+      so the urban heat island &mdash; the extra warmth a built-up city
+      core holds relative to its surroundings &mdash; is largely absent
+      from these values. UHI is strongest in exactly the morning and
+      evening shoulder hours this dashboard counts. Omitting it biases
+      the estimated urban-core WBGT low, so the overlooked-hour counts
+      here are a lower bound for city centres.
     </p>
     <h3>City list</h3>
     <p>
@@ -317,7 +352,8 @@ REL [&deg;C-WBGT] = 56.7 &minus; 11.5&middot;log10(M)   (acclimatized workers)</
     <h3>The afternoon-avoidance windows, as written</h3>
     <p>
       Each row is a verbatim quotation from the primary document, with the
-      page or section where it appears. All are outdoor-worker /
+      page or section where it appears (except where a row notes
+      otherwise). All are outdoor-worker /
       labour-rescheduling provisions except the first, which is the
       national do's-and-don'ts line reproduced across HAPs.
     </p>
@@ -348,7 +384,7 @@ REL [&deg;C-WBGT] = 56.7 &minus; 11.5&middot;log10(M)   (acclimatized workers)</
         <tr>
           <td>Delhi &mdash; DDMA Heat Action Plan 2024&ndash;25</td>
           <td>work 7&nbsp;am&ndash;1&nbsp;pm &amp; 4&ndash;6&nbsp;pm<br>(avoid 1&ndash;5&nbsp;pm)</td>
-          <td>&ldquo;Encourage employers to shift outdoor workers' schedules away from peak afternoon hours (1pm&ndash;5pm) during Heat alert. Working Hours will be from 7:00am to 1:00pm, 4:00pm to 6:00pm.&rdquo; &mdash; <a href="https://ddma.delhi.gov.in/sites/default/files/ddma/generic_multiple_files/final_hap_12.04.2024.pdf">DDMA Delhi HAP 2024&ndash;25</a>, p.&nbsp;34.</td>
+          <td>&ldquo;Encourage employers to shift outdoor workers' schedules away from peak afternoon hours (1pm&ndash;5pm) during Heat alert. Working Hours will be from 7:00am to 1:00pm, 4:00pm to 6:00pm.&rdquo; &mdash; <a href="https://ddma.delhi.gov.in/sites/default/files/ddma/generic_multiple_files/final_hap_12.04.2024.pdf">DDMA Delhi HAP 2024&ndash;25</a>, p.&nbsp;34 (quoted with punctuation normalized; wording unchanged).</td>
         </tr>
       </tbody>
     </table>
@@ -418,10 +454,12 @@ REL [&deg;C-WBGT] = 56.7 &minus; 11.5&middot;log10(M)   (acclimatized workers)</
     </p>
     <p>
       <strong>Why 1980, not 1940.</strong> ERA5 extends back to 1940, but
-      its pre-satellite-era quality is weakest in exactly the variables
-      WBGT leans on most &mdash; solar radiation and wind. Starting at 1980
-      keeps the whole series inside the satellite era; 45 years is ample
-      for the trend question.
+      ECMWF's ERA5 documentation treats 1979 as the start of the
+      satellite era: before it, far fewer observations were assimilated
+      and the reanalysis is correspondingly more uncertain (ECMWF's
+      pre-1979 back extension was published separately as a preliminary
+      product for that reason). Starting at 1980 keeps the whole series
+      inside the satellite era; 45 years is ample for the trend question.
     </p>
     <p>
       <strong>Why 2025 is excluded.</strong> It is incomplete: a half year
@@ -445,12 +483,13 @@ REL [&deg;C-WBGT] = 56.7 &minus; 11.5&middot;log10(M)   (acclimatized workers)</
     </p>
     <p class="caveat">
       Computation notes: the sensitivity band shown is the same
-      &plusmn;1&deg;C WBGT-error convention as the headline. Hours with
+      convention as the headline &mdash; the count's sensitivity to a
+      uniform &plusmn;1&deg;C WBGT shift, not a full error bar. Hours with
       missing variables are dropped, not filled; hours provably too cool to
       approach any limit are counted as below it (the derivation of that
       bound is documented in the build script); solver non-convergence
-      yields no estimate, not a zero. All counts are model estimates on a
-      ~25&thinsp;km grid, not observations.
+      yields no estimate, not a zero. All counts are model estimates on
+      ERA5's ~25&thinsp;km (0.25&deg;) reanalysis grid, not observations.
     </p>
   </section>
 
@@ -488,7 +527,11 @@ REL [&deg;C-WBGT] = 56.7 &minus; 11.5&middot;log10(M)   (acclimatized workers)</
       representative interior point), refreshed once daily in the early
       morning IST, scored with the same estimated-WBGT-vs-REL definition as
       everything else on this page. The layer is labeled with its data date
-      if a refresh is missed.
+      if a refresh is missed. The representative point is geometric, not
+      population-weighted: a large, heterogeneous district (plains plus
+      hills) is represented by a single microclimate, and the direction of
+      the resulting bias is uncontrolled &mdash; it can run high or low
+      relative to where the district's people actually live and work.
     </p>
     <p>
       <strong>Boundaries.</strong> 2011 Census district boundaries from the
@@ -499,14 +542,20 @@ REL [&deg;C-WBGT] = 56.7 &minus; 11.5&middot;log10(M)   (acclimatized workers)</
       districts created after 2011 appear within their parent boundaries.
     </p>
     <p class="caveat">
-      Read the shading as <em>scale of exposure</em>, not precision: the
-      workforce shares are from 2011 (India's last completed census &mdash;
-      occupational structure moves slowly, but it is 15 years old); the heat
-      value is one model grid point (~25&nbsp;km) per district, and large
-      districts span more microclimates than one point can carry; and the
-      hours are forecast, not observed. Worker-hours multiply those
-      uncertainties together &mdash; the layer ranks districts against each
-      other; it does not measure any district's true exposure.
+      Read the shading as <em>scale of exposure</em>, not precision.
+      Worker-hours is a <strong>workforce-weighted index</strong>: the
+      district's entire Census-2011 outdoor workforce multiplied by
+      today's overlooked hours &mdash; an upper-bound product that
+      assumes every one of those workers works outdoors through every
+      overlooked hour, on a 2011 denominator. It is suitable for ranking
+      districts against each other, not for counting exposed people. The
+      workforce shares are from 2011 (India's last completed census
+      &mdash; occupational structure moves slowly, but it is 15 years
+      old); the heat value is one model grid point (~9&ndash;13&nbsp;km
+      forecast grid) per district, and large districts span more
+      microclimates than one point can carry; and the hours are forecast,
+      not observed. Worker-hours multiply those uncertainties together
+      &mdash; the layer does not measure any district's true exposure.
     </p>
 
     <h3>The e-Shram registry cross-check</h3>

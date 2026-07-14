@@ -29,8 +29,11 @@ from liljegren_wbgt import calc_wbgt as _liljegren_calc_wbgt
 # Validity range: RH 5%-99%, T from -20C to 50C (accuracy degrades in the
 # combined very-low-RH / very-cold-T corner).
 # Error bounds: -1C to +0.65C, mean absolute error < 0.3C.
-# Assumes sea-level (101.325 kPa) pressure -- all ~50 cities in this project
-# are lowland/coastal, so this assumption holds; stated here for transparency.
+# Assumes sea-level (101.325 kPa) pressure. Not all ~50 cities are lowland:
+# Srinagar (~1,585 m), Bengaluru (~920 m), and several 400-700 m cities
+# (Pune, Hyderabad, Bhopal, Ranchi) sit above sea level, where the formula
+# reads the displayed wet-bulb slightly high. Estimated WBGT is unaffected:
+# the Liljegren model takes each city's actual surface pressure as an input.
 
 STULL_VALID_T_RANGE_C = (-20.0, 50.0)
 STULL_VALID_RH_RANGE_PCT = (5.0, 99.0)
@@ -111,7 +114,8 @@ def estimated_wbgt(
 #
 # Source: NIOSH, "Criteria for a Recommended Standard: Occupational Exposure
 # to Heat and Hot Environments," DHHS (NIOSH) Publication 2016-106, Chapter
-# 8.1, p.93-94 (equations) and Table 5-1, p.101 (cross-standard comparison).
+# 8.1, pp.93-94 (equations) and Table 5-1, p.70 (cross-standard comparison);
+# page numbers are the document's own pagination, not PDF-viewer pages.
 # https://www.cdc.gov/niosh/docs/2016-106/ (PDF verified directly, not via a
 # secondary paraphrase -- see this project's build notes).
 #
@@ -126,16 +130,23 @@ def estimated_wbgt(
 # never as a universal cutoff, and always as "estimated WBGT relative to
 # NIOSH's own limit for continuous moderate work" -- never as "safe hours."
 #
-# Representative metabolic rates (NIOSH 2016-106 Sec. 8.5.1, p.132, and the
-# worked example on p.35 using 300 kcal/h moderate work):
-#   light work    ~180 kcal/h ~= 209 W
-#   moderate work ~300 kcal/h ~= 349 W  (NIOSH's own worked example uses this)
-#   heavy work    ~400 kcal/h ~= 465 W
+# Representative metabolic rates. The moderate/heavy/very-heavy anchors
+# follow NIOSH's own Table 5-1 category boundaries (p.70, document's own
+# pagination); the light anchor (180 kcal/h) follows the ACGIH category
+# boundary as quoted in NIOSH 2016-106 Sec. 8.5.1 (pp.100-101, document's
+# own pagination) -- NIOSH's own Table 5-1 light boundary is <200 kcal/h
+# (~233 W). The 300 kcal/h moderate value is NIOSH's own worked example
+# (pp.3-4, document's own pagination).
+#   light work      ~180 kcal/h ~= 209 W  (ACGIH boundary, quoted in NIOSH)
+#   moderate work   ~300 kcal/h ~= 349 W  (NIOSH's own worked example)
+#   heavy work      ~400 kcal/h ~= 465 W
+#   very heavy work ~500 kcal/h ~= 581 W
 KCAL_H_TO_WATT = 1.163
 METABOLIC_RATE_W = {
     "light": 180 * KCAL_H_TO_WATT,
     "moderate": 300 * KCAL_H_TO_WATT,
     "heavy": 400 * KCAL_H_TO_WATT,
+    "very-heavy": 500 * KCAL_H_TO_WATT,
 }
 
 

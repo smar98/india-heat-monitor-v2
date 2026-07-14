@@ -1,0 +1,7546 @@
+{
+ "meta": {
+  "method": "Mann-Kendall trend test (two-sided, normal approximation, tie-corrected variance per Gilbert 1987 ch.16) on each city's annual overlooked-hours series (ovl), plus its REL+/-1C sensitivity band (ovl_hi, ovl_lo). Theil-Sen slope (median of all pairwise slopes) with a 95% CI via the Sen (1968)/Gilbert (1987) rank method. verdict is increasing/decreasing only if mk_p < 0.05; robust_to_band is true if ovl, ovl_hi and ovl_lo all agree on the verdict. Years with valid hours < 95% of the calendar total are excluded per-city (see excluded_years).",
+  "generated_note": "Derived from heat/data/trends.json; re-run this script whenever that file is regenerated.",
+  "trends_generated_at_utc": "2026-07-10T09:26:47+00:00",
+  "years": [
+   1980,
+   2024
+  ],
+  "min_coverage_fraction": 0.95,
+  "alpha": 0.05,
+  "cities_with_excluded_years": []
+ },
+ "aggregate": {
+  "light": {
+   "n_cities": 50,
+   "median_slope_per_decade": 14.61,
+   "n_increasing": 45,
+   "n_decreasing": 0,
+   "n_no_detectable_trend": 5
+  },
+  "moderate": {
+   "n_cities": 50,
+   "median_slope_per_decade": 29.52,
+   "n_increasing": 47,
+   "n_decreasing": 0,
+   "n_no_detectable_trend": 3
+  },
+  "heavy": {
+   "n_cities": 50,
+   "median_slope_per_decade": 30.0,
+   "n_increasing": 45,
+   "n_decreasing": 0,
+   "n_no_detectable_trend": 5
+  },
+  "very-high": {
+   "n_cities": 50,
+   "median_slope_per_decade": 22.69,
+   "n_increasing": 44,
+   "n_decreasing": 0,
+   "n_no_detectable_trend": 6
+  }
+ },
+ "cities": {
+  "1": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 234,
+    "mk_z": 2.28,
+    "mk_p": 0.0226,
+    "sen_slope_per_decade": 10.0,
+    "sen_ci_low_per_decade": 2.0,
+    "sen_ci_high_per_decade": 17.5,
+    "early_mean": 189.2,
+    "late_mean": 226.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 241,
+      "mk_z": 2.349,
+      "mk_p": 0.0188,
+      "sen_slope_per_decade": 5.0,
+      "sen_ci_low_per_decade": 0.83,
+      "sen_ci_high_per_decade": 10.71,
+      "early_mean": 85.3,
+      "late_mean": 114.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 221,
+      "mk_z": 2.152,
+      "mk_p": 0.0314,
+      "sen_slope_per_decade": 14.33,
+      "sen_ci_low_per_decade": 1.33,
+      "sen_ci_high_per_decade": 25.2,
+      "early_mean": 342.2,
+      "late_mean": 390.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 175,
+    "mk_z": 1.702,
+    "mk_p": 0.0887,
+    "sen_slope_per_decade": 13.07,
+    "sen_ci_low_per_decade": -3.2,
+    "sen_ci_high_per_decade": 25.45,
+    "early_mean": 631.0,
+    "late_mean": 679.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 194,
+      "mk_z": 1.888,
+      "mk_p": 0.059,
+      "sen_slope_per_decade": 14.27,
+      "sen_ci_low_per_decade": -0.51,
+      "sen_ci_high_per_decade": 27.5,
+      "early_mean": 446.8,
+      "late_mean": 493.6
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 166,
+      "mk_z": 1.614,
+      "mk_p": 0.1064,
+      "sen_slope_per_decade": 12.2,
+      "sen_ci_low_per_decade": -3.33,
+      "sen_ci_high_per_decade": 25.83,
+      "early_mean": 797.5,
+      "late_mean": 840.8
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 154,
+    "mk_z": 1.497,
+    "mk_p": 0.1344,
+    "sen_slope_per_decade": 11.25,
+    "sen_ci_low_per_decade": -4.38,
+    "sen_ci_high_per_decade": 25.0,
+    "early_mean": 855.6,
+    "late_mean": 897.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 163,
+      "mk_z": 1.586,
+      "mk_p": 0.1128,
+      "sen_slope_per_decade": 10.59,
+      "sen_ci_low_per_decade": -2.5,
+      "sen_ci_high_per_decade": 25.0,
+      "early_mean": 705.3,
+      "late_mean": 749.7
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 176,
+      "mk_z": 1.712,
+      "mk_p": 0.0868,
+      "sen_slope_per_decade": 11.86,
+      "sen_ci_low_per_decade": -2.4,
+      "sen_ci_high_per_decade": 24.8,
+      "early_mean": 976.6,
+      "late_mean": 1005.8
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 182,
+    "mk_z": 1.771,
+    "mk_p": 0.0766,
+    "sen_slope_per_decade": 12.5,
+    "sen_ci_low_per_decade": -1.88,
+    "sen_ci_high_per_decade": 24.67,
+    "early_mean": 987.5,
+    "late_mean": 1017.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 154,
+      "mk_z": 1.497,
+      "mk_p": 0.1344,
+      "sen_slope_per_decade": 10.89,
+      "sen_ci_low_per_decade": -5.0,
+      "sen_ci_high_per_decade": 24.07,
+      "early_mean": 870.6,
+      "late_mean": 908.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 209,
+      "mk_z": 2.036,
+      "mk_p": 0.0417,
+      "sen_slope_per_decade": 12.34,
+      "sen_ci_low_per_decade": 0.0,
+      "sen_ci_high_per_decade": 23.12,
+      "early_mean": 1078.7,
+      "late_mean": 1106.8
+     }
+    },
+    "robust_to_band": false
+   }
+  },
+  "2": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 414,
+    "mk_z": 4.041,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 29.26,
+    "sen_ci_low_per_decade": 16.59,
+    "sen_ci_high_per_decade": 43.81,
+    "early_mean": 413.5,
+    "late_mean": 507.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 439,
+      "mk_z": 4.287,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 25.0,
+      "sen_ci_low_per_decade": 14.71,
+      "sen_ci_high_per_decade": 37.81,
+      "early_mean": 234.2,
+      "late_mean": 313.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 454,
+      "mk_z": 4.432,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 36.01,
+      "sen_ci_low_per_decade": 21.67,
+      "sen_ci_high_per_decade": 53.08,
+      "early_mean": 622.0,
+      "late_mean": 744.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 392,
+    "mk_z": 3.826,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 34.56,
+    "sen_ci_low_per_decade": 17.14,
+    "sen_ci_high_per_decade": 47.5,
+    "early_mean": 992.2,
+    "late_mean": 1102.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 447,
+      "mk_z": 4.364,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 40.0,
+      "sen_ci_low_per_decade": 21.36,
+      "sen_ci_high_per_decade": 57.5,
+      "early_mean": 753.2,
+      "late_mean": 886.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 371,
+      "mk_z": 3.62,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 22.6,
+      "sen_ci_low_per_decade": 11.25,
+      "sen_ci_high_per_decade": 32.31,
+      "early_mean": 1182.0,
+      "late_mean": 1253.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 314,
+    "mk_z": 3.062,
+    "mk_p": 0.0022,
+    "sen_slope_per_decade": 17.57,
+    "sen_ci_low_per_decade": 7.14,
+    "sen_ci_high_per_decade": 26.09,
+    "early_mean": 1243.3,
+    "late_mean": 1295.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 378,
+      "mk_z": 3.689,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 28.09,
+      "sen_ci_low_per_decade": 13.53,
+      "sen_ci_high_per_decade": 40.29,
+      "early_mean": 1082.7,
+      "late_mean": 1174.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 307,
+      "mk_z": 2.994,
+      "mk_p": 0.0028,
+      "sen_slope_per_decade": 13.83,
+      "sen_ci_low_per_decade": 5.0,
+      "sen_ci_high_per_decade": 22.22,
+      "early_mean": 1340.4,
+      "late_mean": 1382.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 304,
+    "mk_z": 2.965,
+    "mk_p": 0.003,
+    "sen_slope_per_decade": 13.65,
+    "sen_ci_low_per_decade": 4.84,
+    "sen_ci_high_per_decade": 22.0,
+    "early_mean": 1349.3,
+    "late_mean": 1390.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 310,
+      "mk_z": 3.024,
+      "mk_p": 0.0025,
+      "sen_slope_per_decade": 17.69,
+      "sen_ci_low_per_decade": 6.67,
+      "sen_ci_high_per_decade": 25.38,
+      "early_mean": 1254.9,
+      "late_mean": 1306.8
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 199,
+      "mk_z": 1.937,
+      "mk_p": 0.0527,
+      "sen_slope_per_decade": 9.2,
+      "sen_ci_low_per_decade": 0.0,
+      "sen_ci_high_per_decade": 17.5,
+      "early_mean": 1429.0,
+      "late_mean": 1455.9
+     }
+    },
+    "robust_to_band": false
+   }
+  },
+  "3": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 312,
+    "mk_z": 3.043,
+    "mk_p": 0.0023,
+    "sen_slope_per_decade": 16.71,
+    "sen_ci_low_per_decade": 6.5,
+    "sen_ci_high_per_decade": 26.67,
+    "early_mean": 125.8,
+    "late_mean": 188.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 224,
+      "mk_z": 2.183,
+      "mk_p": 0.0291,
+      "sen_slope_per_decade": 6.32,
+      "sen_ci_low_per_decade": 0.69,
+      "sen_ci_high_per_decade": 12.31,
+      "early_mean": 55.8,
+      "late_mean": 81.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 319,
+      "mk_z": 3.111,
+      "mk_p": 0.0019,
+      "sen_slope_per_decade": 23.58,
+      "sen_ci_low_per_decade": 7.73,
+      "sen_ci_high_per_decade": 36.43,
+      "early_mean": 259.1,
+      "late_mean": 346.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 305,
+    "mk_z": 2.974,
+    "mk_p": 0.0029,
+    "sen_slope_per_decade": 30.0,
+    "sen_ci_low_per_decade": 12.5,
+    "sen_ci_high_per_decade": 47.0,
+    "early_mean": 614.0,
+    "late_mean": 721.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 304,
+      "mk_z": 2.965,
+      "mk_p": 0.003,
+      "sen_slope_per_decade": 26.32,
+      "sen_ci_low_per_decade": 10.0,
+      "sen_ci_high_per_decade": 40.62,
+      "early_mean": 371.2,
+      "late_mean": 464.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 358,
+      "mk_z": 3.493,
+      "mk_p": 0.0005,
+      "sen_slope_per_decade": 31.86,
+      "sen_ci_low_per_decade": 16.82,
+      "sen_ci_high_per_decade": 47.33,
+      "early_mean": 910.7,
+      "late_mean": 1023.9
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 365,
+    "mk_z": 3.561,
+    "mk_p": 0.0004,
+    "sen_slope_per_decade": 32.0,
+    "sen_ci_low_per_decade": 16.3,
+    "sen_ci_high_per_decade": 47.86,
+    "early_mean": 1042.7,
+    "late_mean": 1150.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 340,
+      "mk_z": 3.317,
+      "mk_p": 0.0009,
+      "sen_slope_per_decade": 32.03,
+      "sen_ci_low_per_decade": 14.55,
+      "sen_ci_high_per_decade": 49.26,
+      "early_mean": 735.9,
+      "late_mean": 848.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 343,
+      "mk_z": 3.346,
+      "mk_p": 0.0008,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 8.5,
+      "sen_ci_high_per_decade": 31.71,
+      "early_mean": 1296.6,
+      "late_mean": 1368.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 310,
+    "mk_z": 3.024,
+    "mk_p": 0.0025,
+    "sen_slope_per_decade": 16.83,
+    "sen_ci_low_per_decade": 5.45,
+    "sen_ci_high_per_decade": 27.0,
+    "early_mean": 1318.4,
+    "late_mean": 1383.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 380,
+      "mk_z": 3.708,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 31.02,
+      "sen_ci_low_per_decade": 16.36,
+      "sen_ci_high_per_decade": 47.18,
+      "early_mean": 1077.0,
+      "late_mean": 1181.4
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 182,
+      "mk_z": 1.771,
+      "mk_p": 0.0765,
+      "sen_slope_per_decade": 10.0,
+      "sen_ci_low_per_decade": -1.18,
+      "sen_ci_high_per_decade": 20.77,
+      "early_mean": 1459.8,
+      "late_mean": 1499.1
+     }
+    },
+    "robust_to_band": false
+   }
+  },
+  "4": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 263,
+    "mk_z": 2.567,
+    "mk_p": 0.0103,
+    "sen_slope_per_decade": 4.06,
+    "sen_ci_low_per_decade": 0.77,
+    "sen_ci_high_per_decade": 7.43,
+    "early_mean": 25.8,
+    "late_mean": 47.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 265,
+      "mk_z": 2.59,
+      "mk_p": 0.0096,
+      "sen_slope_per_decade": 1.76,
+      "sen_ci_low_per_decade": 0.43,
+      "sen_ci_high_per_decade": 3.33,
+      "early_mean": 8.4,
+      "late_mean": 17.7
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 312,
+      "mk_z": 3.044,
+      "mk_p": 0.0023,
+      "sen_slope_per_decade": 8.79,
+      "sen_ci_low_per_decade": 3.33,
+      "sen_ci_high_per_decade": 14.76,
+      "early_mean": 72.2,
+      "late_mean": 111.9
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 304,
+    "mk_z": 2.965,
+    "mk_p": 0.003,
+    "sen_slope_per_decade": 19.15,
+    "sen_ci_low_per_decade": 7.0,
+    "sen_ci_high_per_decade": 29.32,
+    "early_mean": 230.4,
+    "late_mean": 302.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 296,
+      "mk_z": 2.887,
+      "mk_p": 0.0039,
+      "sen_slope_per_decade": 12.73,
+      "sen_ci_low_per_decade": 4.58,
+      "sen_ci_high_per_decade": 20.79,
+      "early_mean": 114.0,
+      "late_mean": 166.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 316,
+      "mk_z": 3.082,
+      "mk_p": 0.0021,
+      "sen_slope_per_decade": 25.0,
+      "sen_ci_low_per_decade": 8.57,
+      "sen_ci_high_per_decade": 41.67,
+      "early_mean": 406.1,
+      "late_mean": 502.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 338,
+    "mk_z": 3.297,
+    "mk_p": 0.001,
+    "sen_slope_per_decade": 28.94,
+    "sen_ci_low_per_decade": 11.48,
+    "sen_ci_high_per_decade": 48.14,
+    "early_mean": 502.2,
+    "late_mean": 614.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 312,
+      "mk_z": 3.043,
+      "mk_p": 0.0023,
+      "sen_slope_per_decade": 22.29,
+      "sen_ci_low_per_decade": 8.95,
+      "sen_ci_high_per_decade": 34.29,
+      "early_mean": 298.5,
+      "late_mean": 379.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 387,
+      "mk_z": 3.777,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 35.0,
+      "sen_ci_low_per_decade": 17.58,
+      "sen_ci_high_per_decade": 55.0,
+      "early_mean": 774.5,
+      "late_mean": 904.8
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 389,
+    "mk_z": 3.796,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 34.91,
+    "sen_ci_low_per_decade": 17.5,
+    "sen_ci_high_per_decade": 53.33,
+    "early_mean": 806.0,
+    "late_mean": 934.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 340,
+      "mk_z": 3.317,
+      "mk_p": 0.0009,
+      "sen_slope_per_decade": 31.67,
+      "sen_ci_low_per_decade": 14.71,
+      "sen_ci_high_per_decade": 49.5,
+      "early_mean": 528.0,
+      "late_mean": 643.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 364,
+      "mk_z": 3.552,
+      "mk_p": 0.0004,
+      "sen_slope_per_decade": 33.14,
+      "sen_ci_low_per_decade": 16.94,
+      "sen_ci_high_per_decade": 48.57,
+      "early_mean": 1098.8,
+      "late_mean": 1214.4
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "5": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 216,
+    "mk_z": 2.115,
+    "mk_p": 0.0344,
+    "sen_slope_per_decade": 0.95,
+    "sen_ci_low_per_decade": 0.0,
+    "sen_ci_high_per_decade": 2.0,
+    "early_mean": 6.0,
+    "late_mean": 10.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 295,
+      "mk_z": 2.918,
+      "mk_p": 0.0035,
+      "sen_slope_per_decade": 0.77,
+      "sen_ci_low_per_decade": 0.0,
+      "sen_ci_high_per_decade": 1.25,
+      "early_mean": 2.4,
+      "late_mean": 5.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 216,
+      "mk_z": 2.111,
+      "mk_p": 0.0348,
+      "sen_slope_per_decade": 1.52,
+      "sen_ci_low_per_decade": 0.0,
+      "sen_ci_high_per_decade": 3.57,
+      "early_mean": 13.8,
+      "late_mean": 22.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 217,
+    "mk_z": 2.115,
+    "mk_p": 0.0344,
+    "sen_slope_per_decade": 4.75,
+    "sen_ci_low_per_decade": 0.32,
+    "sen_ci_high_per_decade": 10.0,
+    "early_mean": 56.8,
+    "late_mean": 83.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 194,
+      "mk_z": 1.891,
+      "mk_p": 0.0586,
+      "sen_slope_per_decade": 2.71,
+      "sen_ci_low_per_decade": 0.0,
+      "sen_ci_high_per_decade": 5.6,
+      "early_mean": 23.7,
+      "late_mean": 39.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 226,
+      "mk_z": 2.202,
+      "mk_p": 0.0277,
+      "sen_slope_per_decade": 9.41,
+      "sen_ci_low_per_decade": 1.33,
+      "sen_ci_high_per_decade": 17.5,
+      "early_mean": 116.2,
+      "late_mean": 159.9
+     }
+    },
+    "robust_to_band": false
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 242,
+    "mk_z": 2.358,
+    "mk_p": 0.0184,
+    "sen_slope_per_decade": 11.08,
+    "sen_ci_low_per_decade": 2.5,
+    "sen_ci_high_per_decade": 20.38,
+    "early_mean": 152.0,
+    "late_mean": 206.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 220,
+      "mk_z": 2.144,
+      "mk_p": 0.0321,
+      "sen_slope_per_decade": 6.67,
+      "sen_ci_low_per_decade": 0.65,
+      "sen_ci_high_per_decade": 12.81,
+      "early_mean": 79.5,
+      "late_mean": 114.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 271,
+      "mk_z": 2.642,
+      "mk_p": 0.0082,
+      "sen_slope_per_decade": 18.39,
+      "sen_ci_low_per_decade": 5.6,
+      "sen_ci_high_per_decade": 33.81,
+      "early_mean": 261.2,
+      "late_mean": 344.9
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 283,
+    "mk_z": 2.76,
+    "mk_p": 0.0058,
+    "sen_slope_per_decade": 20.57,
+    "sen_ci_low_per_decade": 6.36,
+    "sen_ci_high_per_decade": 35.45,
+    "early_mean": 275.0,
+    "late_mean": 364.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 233,
+      "mk_z": 2.271,
+      "mk_p": 0.0232,
+      "sen_slope_per_decade": 11.46,
+      "sen_ci_low_per_decade": 1.43,
+      "sen_ci_high_per_decade": 20.83,
+      "early_mean": 161.5,
+      "late_mean": 216.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 291,
+      "mk_z": 2.838,
+      "mk_p": 0.0045,
+      "sen_slope_per_decade": 30.37,
+      "sen_ci_low_per_decade": 9.55,
+      "sen_ci_high_per_decade": 50.36,
+      "early_mean": 447.2,
+      "late_mean": 588.3
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "6": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 441,
+    "mk_z": 4.305,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 25.64,
+    "sen_ci_low_per_decade": 12.59,
+    "sen_ci_high_per_decade": 40.0,
+    "early_mean": 206.4,
+    "late_mean": 309.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 376,
+      "mk_z": 3.67,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 11.78,
+      "sen_ci_low_per_decade": 5.5,
+      "sen_ci_high_per_decade": 18.57,
+      "early_mean": 86.3,
+      "late_mean": 132.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 422,
+      "mk_z": 4.119,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 38.75,
+      "sen_ci_low_per_decade": 19.33,
+      "sen_ci_high_per_decade": 57.5,
+      "early_mean": 409.8,
+      "late_mean": 572.8
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 394,
+    "mk_z": 3.845,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 51.91,
+    "sen_ci_low_per_decade": 27.73,
+    "sen_ci_high_per_decade": 73.57,
+    "early_mean": 890.7,
+    "late_mean": 1095.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 422,
+      "mk_z": 4.119,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 47.3,
+      "sen_ci_low_per_decade": 24.55,
+      "sen_ci_high_per_decade": 70.62,
+      "early_mean": 569.3,
+      "late_mean": 757.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 414,
+      "mk_z": 4.041,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 50.83,
+      "sen_ci_low_per_decade": 29.23,
+      "sen_ci_high_per_decade": 70.0,
+      "early_mean": 1179.8,
+      "late_mean": 1374.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 418,
+    "mk_z": 4.08,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 46.52,
+    "sen_ci_low_per_decade": 27.35,
+    "sen_ci_high_per_decade": 64.84,
+    "early_mean": 1284.3,
+    "late_mean": 1462.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 408,
+      "mk_z": 3.982,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 51.4,
+      "sen_ci_low_per_decade": 27.93,
+      "sen_ci_high_per_decade": 74.44,
+      "early_mean": 1021.5,
+      "late_mean": 1227.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 411,
+      "mk_z": 4.011,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 33.33,
+      "sen_ci_low_per_decade": 18.42,
+      "sen_ci_high_per_decade": 45.6,
+      "early_mean": 1493.0,
+      "late_mean": 1621.7
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 403,
+    "mk_z": 3.933,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 31.97,
+    "sen_ci_low_per_decade": 18.4,
+    "sen_ci_high_per_decade": 43.57,
+    "early_mean": 1511.6,
+    "late_mean": 1634.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 426,
+      "mk_z": 4.158,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 45.51,
+      "sen_ci_low_per_decade": 26.25,
+      "sen_ci_high_per_decade": 63.24,
+      "early_mean": 1309.9,
+      "late_mean": 1482.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 371,
+      "mk_z": 3.621,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 17.5,
+      "sen_ci_low_per_decade": 8.0,
+      "sen_ci_high_per_decade": 27.5,
+      "early_mean": 1645.0,
+      "late_mean": 1714.1
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "7": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 266,
+    "mk_z": 2.593,
+    "mk_p": 0.0095,
+    "sen_slope_per_decade": 14.44,
+    "sen_ci_low_per_decade": 3.12,
+    "sen_ci_high_per_decade": 25.33,
+    "early_mean": 111.6,
+    "late_mean": 170.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 268,
+      "mk_z": 2.613,
+      "mk_p": 0.009,
+      "sen_slope_per_decade": 6.94,
+      "sen_ci_low_per_decade": 1.88,
+      "sen_ci_high_per_decade": 11.61,
+      "early_mean": 33.7,
+      "late_mean": 62.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 287,
+      "mk_z": 2.798,
+      "mk_p": 0.0051,
+      "sen_slope_per_decade": 25.0,
+      "sen_ci_low_per_decade": 8.57,
+      "sen_ci_high_per_decade": 42.86,
+      "early_mean": 258.2,
+      "late_mean": 355.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 318,
+    "mk_z": 3.101,
+    "mk_p": 0.0019,
+    "sen_slope_per_decade": 34.25,
+    "sen_ci_low_per_decade": 12.57,
+    "sen_ci_high_per_decade": 55.45,
+    "early_mean": 619.7,
+    "late_mean": 741.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 342,
+      "mk_z": 3.337,
+      "mk_p": 0.0008,
+      "sen_slope_per_decade": 32.53,
+      "sen_ci_low_per_decade": 12.78,
+      "sen_ci_high_per_decade": 52.14,
+      "early_mean": 372.6,
+      "late_mean": 486.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 351,
+      "mk_z": 3.424,
+      "mk_p": 0.0006,
+      "sen_slope_per_decade": 30.89,
+      "sen_ci_low_per_decade": 11.05,
+      "sen_ci_high_per_decade": 48.75,
+      "early_mean": 867.2,
+      "late_mean": 965.8
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 345,
+    "mk_z": 3.366,
+    "mk_p": 0.0008,
+    "sen_slope_per_decade": 24.43,
+    "sen_ci_low_per_decade": 10.0,
+    "sen_ci_high_per_decade": 40.42,
+    "early_mean": 955.7,
+    "late_mean": 1037.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 347,
+      "mk_z": 3.385,
+      "mk_p": 0.0007,
+      "sen_slope_per_decade": 34.81,
+      "sen_ci_low_per_decade": 14.0,
+      "sen_ci_high_per_decade": 54.62,
+      "early_mean": 729.5,
+      "late_mean": 848.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 357,
+      "mk_z": 3.483,
+      "mk_p": 0.0005,
+      "sen_slope_per_decade": 18.7,
+      "sen_ci_low_per_decade": 9.0,
+      "sen_ci_high_per_decade": 29.5,
+      "early_mean": 1101.0,
+      "late_mean": 1158.8
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 369,
+    "mk_z": 3.601,
+    "mk_p": 0.0003,
+    "sen_slope_per_decade": 18.0,
+    "sen_ci_low_per_decade": 10.0,
+    "sen_ci_high_per_decade": 28.89,
+    "early_mean": 1112.1,
+    "late_mean": 1169.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 346,
+      "mk_z": 3.375,
+      "mk_p": 0.0007,
+      "sen_slope_per_decade": 23.72,
+      "sen_ci_low_per_decade": 10.0,
+      "sen_ci_high_per_decade": 40.0,
+      "early_mean": 976.3,
+      "late_mean": 1053.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 416,
+      "mk_z": 4.06,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 21.88,
+      "sen_ci_low_per_decade": 12.5,
+      "sen_ci_high_per_decade": 30.34,
+      "early_mean": 1198.4,
+      "late_mean": 1261.9
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "8": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 384,
+    "mk_z": 3.748,
+    "mk_p": 0.0002,
+    "sen_slope_per_decade": 21.85,
+    "sen_ci_low_per_decade": 9.29,
+    "sen_ci_high_per_decade": 33.18,
+    "early_mean": 69.2,
+    "late_mean": 175.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 395,
+      "mk_z": 3.86,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 9.68,
+      "sen_ci_low_per_decade": 4.38,
+      "sen_ci_high_per_decade": 14.62,
+      "early_mean": 22.3,
+      "late_mean": 74.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 364,
+      "mk_z": 3.552,
+      "mk_p": 0.0004,
+      "sen_slope_per_decade": 35.51,
+      "sen_ci_low_per_decade": 16.0,
+      "sen_ci_high_per_decade": 56.36,
+      "early_mean": 196.2,
+      "late_mean": 363.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 350,
+    "mk_z": 3.415,
+    "mk_p": 0.0006,
+    "sen_slope_per_decade": 47.2,
+    "sen_ci_low_per_decade": 21.3,
+    "sen_ci_high_per_decade": 72.5,
+    "early_mean": 609.6,
+    "late_mean": 788.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 364,
+      "mk_z": 3.551,
+      "mk_p": 0.0004,
+      "sen_slope_per_decade": 41.24,
+      "sen_ci_low_per_decade": 18.75,
+      "sen_ci_high_per_decade": 63.85,
+      "early_mean": 314.5,
+      "late_mean": 496.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 403,
+      "mk_z": 3.933,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 41.46,
+      "sen_ci_low_per_decade": 21.56,
+      "sen_ci_high_per_decade": 57.86,
+      "early_mean": 912.4,
+      "late_mean": 1059.8
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 402,
+    "mk_z": 3.923,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 36.42,
+    "sen_ci_low_per_decade": 21.11,
+    "sen_ci_high_per_decade": 50.67,
+    "early_mean": 1027.6,
+    "late_mean": 1150.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 361,
+      "mk_z": 3.522,
+      "mk_p": 0.0004,
+      "sen_slope_per_decade": 44.32,
+      "sen_ci_low_per_decade": 19.5,
+      "sen_ci_high_per_decade": 63.85,
+      "early_mean": 743.8,
+      "late_mean": 910.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 428,
+      "mk_z": 4.179,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 25.0,
+      "sen_ci_low_per_decade": 14.85,
+      "sen_ci_high_per_decade": 36.4,
+      "early_mean": 1197.8,
+      "late_mean": 1287.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 440,
+    "mk_z": 4.295,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 24.77,
+    "sen_ci_low_per_decade": 14.71,
+    "sen_ci_high_per_decade": 35.0,
+    "early_mean": 1208.8,
+    "late_mean": 1298.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 422,
+      "mk_z": 4.12,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 34.62,
+      "sen_ci_low_per_decade": 20.0,
+      "sen_ci_high_per_decade": 48.75,
+      "early_mean": 1050.8,
+      "late_mean": 1170.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 443,
+      "mk_z": 4.325,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 24.74,
+      "sen_ci_low_per_decade": 15.71,
+      "sen_ci_high_per_decade": 33.33,
+      "early_mean": 1310.2,
+      "late_mean": 1399.9
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "9": {
+   "light": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 194,
+    "mk_z": 1.895,
+    "mk_p": 0.0581,
+    "sen_slope_per_decade": 1.13,
+    "sen_ci_low_per_decade": 0.0,
+    "sen_ci_high_per_decade": 2.19,
+    "early_mean": 9.2,
+    "late_mean": 14.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 41,
+      "mk_z": 0.397,
+      "mk_p": 0.6911,
+      "sen_slope_per_decade": 0.0,
+      "sen_ci_low_per_decade": -0.34,
+      "sen_ci_high_per_decade": 0.65,
+      "early_mean": 3.6,
+      "late_mean": 5.1
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 153,
+      "mk_z": 1.49,
+      "mk_p": 0.1363,
+      "sen_slope_per_decade": 2.0,
+      "sen_ci_low_per_decade": -0.5,
+      "sen_ci_high_per_decade": 4.48,
+      "early_mean": 27.8,
+      "late_mean": 37.1
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 192,
+    "mk_z": 1.87,
+    "mk_p": 0.0615,
+    "sen_slope_per_decade": 7.36,
+    "sen_ci_low_per_decade": 0.0,
+    "sen_ci_high_per_decade": 15.42,
+    "early_mean": 105.3,
+    "late_mean": 140.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 156,
+      "mk_z": 1.518,
+      "mk_p": 0.129,
+      "sen_slope_per_decade": 3.2,
+      "sen_ci_low_per_decade": -0.71,
+      "sen_ci_high_per_decade": 7.84,
+      "early_mean": 43.8,
+      "late_mean": 61.8
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 172,
+      "mk_z": 1.673,
+      "mk_p": 0.0943,
+      "sen_slope_per_decade": 10.35,
+      "sen_ci_low_per_decade": -1.67,
+      "sen_ci_high_per_decade": 24.8,
+      "early_mean": 227.5,
+      "late_mean": 275.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 173,
+    "mk_z": 1.683,
+    "mk_p": 0.0923,
+    "sen_slope_per_decade": 12.23,
+    "sen_ci_low_per_decade": -1.43,
+    "sen_ci_high_per_decade": 27.14,
+    "early_mean": 303.7,
+    "late_mean": 356.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 170,
+      "mk_z": 1.654,
+      "mk_p": 0.0982,
+      "sen_slope_per_decade": 8.86,
+      "sen_ci_low_per_decade": -1.33,
+      "sen_ci_high_per_decade": 19.05,
+      "early_mean": 148.3,
+      "late_mean": 191.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 264,
+      "mk_z": 2.574,
+      "mk_p": 0.0101,
+      "sen_slope_per_decade": 24.4,
+      "sen_ci_low_per_decade": 4.29,
+      "sen_ci_high_per_decade": 40.91,
+      "early_mean": 520.4,
+      "late_mean": 608.4
+     }
+    },
+    "robust_to_band": false
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 276,
+    "mk_z": 2.691,
+    "mk_p": 0.0071,
+    "sen_slope_per_decade": 25.23,
+    "sen_ci_low_per_decade": 7.31,
+    "sen_ci_high_per_decade": 43.16,
+    "early_mean": 547.5,
+    "late_mean": 638.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 191,
+      "mk_z": 1.859,
+      "mk_p": 0.063,
+      "sen_slope_per_decade": 13.51,
+      "sen_ci_low_per_decade": -1.11,
+      "sen_ci_high_per_decade": 27.81,
+      "early_mean": 322.2,
+      "late_mean": 380.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 404,
+      "mk_z": 3.943,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 41.4,
+      "sen_ci_low_per_decade": 22.35,
+      "sen_ci_high_per_decade": 59.31,
+      "early_mean": 832.3,
+      "late_mean": 973.9
+     }
+    },
+    "robust_to_band": false
+   }
+  },
+  "10": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 318,
+    "mk_z": 3.104,
+    "mk_p": 0.0019,
+    "sen_slope_per_decade": 9.23,
+    "sen_ci_low_per_decade": 3.16,
+    "sen_ci_high_per_decade": 15.56,
+    "early_mean": 42.4,
+    "late_mean": 93.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 338,
+      "mk_z": 3.303,
+      "mk_p": 0.001,
+      "sen_slope_per_decade": 3.68,
+      "sen_ci_low_per_decade": 1.54,
+      "sen_ci_high_per_decade": 6.0,
+      "early_mean": 12.0,
+      "late_mean": 36.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 382,
+      "mk_z": 3.728,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 18.68,
+      "sen_ci_low_per_decade": 9.29,
+      "sen_ci_high_per_decade": 28.33,
+      "early_mean": 116.3,
+      "late_mean": 200.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 395,
+    "mk_z": 3.855,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 32.73,
+    "sen_ci_low_per_decade": 17.5,
+    "sen_ci_high_per_decade": 47.14,
+    "early_mean": 353.4,
+    "late_mean": 470.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 390,
+      "mk_z": 3.806,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 23.33,
+      "sen_ci_low_per_decade": 13.12,
+      "sen_ci_high_per_decade": 34.0,
+      "early_mean": 186.5,
+      "late_mean": 283.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 414,
+      "mk_z": 4.04,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 35.0,
+      "sen_ci_low_per_decade": 19.38,
+      "sen_ci_high_per_decade": 53.0,
+      "early_mean": 553.9,
+      "late_mean": 674.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 420,
+    "mk_z": 4.099,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 34.29,
+    "sen_ci_low_per_decade": 20.49,
+    "sen_ci_high_per_decade": 48.72,
+    "early_mean": 640.2,
+    "late_mean": 752.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 401,
+      "mk_z": 3.914,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 34.19,
+      "sen_ci_low_per_decade": 19.0,
+      "sen_ci_high_per_decade": 49.26,
+      "early_mean": 437.6,
+      "late_mean": 559.7
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 398,
+      "mk_z": 3.884,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 26.59,
+      "sen_ci_low_per_decade": 14.55,
+      "sen_ci_high_per_decade": 40.0,
+      "early_mean": 823.0,
+      "late_mean": 915.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 395,
+    "mk_z": 3.854,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 26.21,
+    "sen_ci_low_per_decade": 14.17,
+    "sen_ci_high_per_decade": 38.81,
+    "early_mean": 842.6,
+    "late_mean": 930.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 394,
+      "mk_z": 3.845,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 33.17,
+      "sen_ci_low_per_decade": 20.0,
+      "sen_ci_high_per_decade": 48.0,
+      "early_mean": 663.4,
+      "late_mean": 772.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 382,
+      "mk_z": 3.728,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 20.15,
+      "sen_ci_low_per_decade": 10.67,
+      "sen_ci_high_per_decade": 30.34,
+      "early_mean": 979.7,
+      "late_mean": 1052.3
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "11": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 445,
+    "mk_z": 4.344,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 26.67,
+    "sen_ci_low_per_decade": 16.79,
+    "sen_ci_high_per_decade": 38.8,
+    "early_mean": 208.7,
+    "late_mean": 314.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 450,
+      "mk_z": 4.394,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 16.67,
+      "sen_ci_low_per_decade": 10.0,
+      "sen_ci_high_per_decade": 23.25,
+      "early_mean": 100.9,
+      "late_mean": 166.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 481,
+      "mk_z": 4.698,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 38.33,
+      "sen_ci_low_per_decade": 24.47,
+      "sen_ci_high_per_decade": 51.28,
+      "early_mean": 360.7,
+      "late_mean": 503.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 443,
+    "mk_z": 4.324,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 40.27,
+    "sen_ci_low_per_decade": 26.0,
+    "sen_ci_high_per_decade": 53.68,
+    "early_mean": 672.7,
+    "late_mean": 819.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 468,
+      "mk_z": 4.569,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 40.91,
+      "sen_ci_low_per_decade": 26.67,
+      "sen_ci_high_per_decade": 54.41,
+      "early_mean": 469.0,
+      "late_mean": 620.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 443,
+      "mk_z": 4.327,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 34.01,
+      "sen_ci_low_per_decade": 20.5,
+      "sen_ci_high_per_decade": 48.5,
+      "early_mean": 848.1,
+      "late_mean": 972.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 450,
+    "mk_z": 4.393,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 30.14,
+    "sen_ci_low_per_decade": 18.89,
+    "sen_ci_high_per_decade": 45.5,
+    "early_mean": 914.9,
+    "late_mean": 1029.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 443,
+      "mk_z": 4.325,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 37.71,
+      "sen_ci_low_per_decade": 25.0,
+      "sen_ci_high_per_decade": 51.29,
+      "early_mean": 752.0,
+      "late_mean": 890.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 423,
+      "mk_z": 4.13,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 24.49,
+      "sen_ci_low_per_decade": 13.68,
+      "sen_ci_high_per_decade": 33.75,
+      "early_mean": 1052.5,
+      "late_mean": 1140.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 444,
+    "mk_z": 4.335,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 23.42,
+    "sen_ci_low_per_decade": 14.1,
+    "sen_ci_high_per_decade": 33.33,
+    "early_mean": 1064.7,
+    "late_mean": 1150.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 447,
+      "mk_z": 4.364,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 30.0,
+      "sen_ci_low_per_decade": 18.29,
+      "sen_ci_high_per_decade": 44.0,
+      "early_mean": 931.3,
+      "late_mean": 1043.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 424,
+      "mk_z": 4.138,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 10.36,
+      "sen_ci_high_per_decade": 28.67,
+      "early_mean": 1163.8,
+      "late_mean": 1232.8
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "12": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 397,
+    "mk_z": 3.875,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 22.31,
+    "sen_ci_low_per_decade": 10.71,
+    "sen_ci_high_per_decade": 31.11,
+    "early_mean": 225.0,
+    "late_mean": 309.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 349,
+      "mk_z": 3.408,
+      "mk_p": 0.0007,
+      "sen_slope_per_decade": 12.11,
+      "sen_ci_low_per_decade": 5.0,
+      "sen_ci_high_per_decade": 20.0,
+      "early_mean": 118.0,
+      "late_mean": 167.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 454,
+      "mk_z": 4.432,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 32.18,
+      "sen_ci_low_per_decade": 20.42,
+      "sen_ci_high_per_decade": 45.0,
+      "early_mean": 381.5,
+      "late_mean": 500.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 423,
+    "mk_z": 4.129,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 34.46,
+    "sen_ci_low_per_decade": 22.5,
+    "sen_ci_high_per_decade": 49.23,
+    "early_mean": 684.4,
+    "late_mean": 814.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 463,
+      "mk_z": 4.52,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 36.74,
+      "sen_ci_low_per_decade": 24.12,
+      "sen_ci_high_per_decade": 48.38,
+      "early_mean": 490.3,
+      "late_mean": 617.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 425,
+      "mk_z": 4.148,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 31.91,
+      "sen_ci_low_per_decade": 20.0,
+      "sen_ci_high_per_decade": 47.86,
+      "early_mean": 856.5,
+      "late_mean": 977.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 445,
+    "mk_z": 4.344,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 30.0,
+    "sen_ci_low_per_decade": 17.5,
+    "sen_ci_high_per_decade": 43.53,
+    "early_mean": 925.8,
+    "late_mean": 1033.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 442,
+      "mk_z": 4.315,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 37.06,
+      "sen_ci_low_per_decade": 23.33,
+      "sen_ci_high_per_decade": 50.0,
+      "early_mean": 760.4,
+      "late_mean": 892.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 416,
+      "mk_z": 4.061,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 22.5,
+      "sen_ci_low_per_decade": 11.5,
+      "sen_ci_high_per_decade": 34.44,
+      "early_mean": 1053.1,
+      "late_mean": 1134.9
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 422,
+    "mk_z": 4.12,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 22.45,
+    "sen_ci_low_per_decade": 11.43,
+    "sen_ci_high_per_decade": 33.75,
+    "early_mean": 1064.4,
+    "late_mean": 1144.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 440,
+      "mk_z": 4.296,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 29.53,
+      "sen_ci_low_per_decade": 16.9,
+      "sen_ci_high_per_decade": 42.9,
+      "early_mean": 940.2,
+      "late_mean": 1045.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 428,
+      "mk_z": 4.178,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 11.15,
+      "sen_ci_high_per_decade": 29.47,
+      "early_mean": 1157.4,
+      "late_mean": 1230.3
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "13": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 374,
+    "mk_z": 3.651,
+    "mk_p": 0.0003,
+    "sen_slope_per_decade": 14.78,
+    "sen_ci_low_per_decade": 7.14,
+    "sen_ci_high_per_decade": 22.5,
+    "early_mean": 92.0,
+    "late_mean": 159.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 367,
+      "mk_z": 3.583,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 6.19,
+      "sen_ci_low_per_decade": 2.69,
+      "sen_ci_high_per_decade": 11.0,
+      "early_mean": 37.7,
+      "late_mean": 72.7
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 431,
+      "mk_z": 4.207,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 29.58,
+      "sen_ci_low_per_decade": 16.67,
+      "sen_ci_high_per_decade": 40.0,
+      "early_mean": 182.2,
+      "late_mean": 295.9
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 424,
+    "mk_z": 4.138,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 47.32,
+    "sen_ci_low_per_decade": 27.6,
+    "sen_ci_high_per_decade": 63.33,
+    "early_mean": 430.2,
+    "late_mean": 604.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 447,
+      "mk_z": 4.363,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 36.79,
+      "sen_ci_low_per_decade": 20.5,
+      "sen_ci_high_per_decade": 50.77,
+      "early_mean": 253.9,
+      "late_mean": 395.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 447,
+      "mk_z": 4.364,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 51.44,
+      "sen_ci_low_per_decade": 31.43,
+      "sen_ci_high_per_decade": 70.48,
+      "early_mean": 660.5,
+      "late_mean": 850.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 459,
+    "mk_z": 4.481,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 50.0,
+    "sen_ci_low_per_decade": 31.0,
+    "sen_ci_high_per_decade": 69.17,
+    "early_mean": 765.3,
+    "late_mean": 947.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 447,
+      "mk_z": 4.364,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 50.62,
+      "sen_ci_low_per_decade": 30.31,
+      "sen_ci_high_per_decade": 67.5,
+      "early_mean": 525.2,
+      "late_mean": 711.7
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 504,
+      "mk_z": 4.923,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 47.27,
+      "sen_ci_low_per_decade": 34.78,
+      "sen_ci_high_per_decade": 60.48,
+      "early_mean": 985.9,
+      "late_mean": 1152.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 505,
+    "mk_z": 4.931,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 46.61,
+    "sen_ci_low_per_decade": 33.64,
+    "sen_ci_high_per_decade": 59.44,
+    "early_mean": 1009.3,
+    "late_mean": 1172.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 443,
+      "mk_z": 4.324,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 49.75,
+      "sen_ci_low_per_decade": 31.43,
+      "sen_ci_high_per_decade": 67.5,
+      "early_mean": 793.5,
+      "late_mean": 971.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 530,
+      "mk_z": 5.176,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 33.96,
+      "sen_ci_low_per_decade": 23.64,
+      "sen_ci_high_per_decade": 43.08,
+      "early_mean": 1184.5,
+      "late_mean": 1308.5
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "14": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 283,
+    "mk_z": 2.759,
+    "mk_p": 0.0058,
+    "sen_slope_per_decade": 12.78,
+    "sen_ci_low_per_decade": 3.67,
+    "sen_ci_high_per_decade": 22.5,
+    "early_mean": 197.1,
+    "late_mean": 251.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 273,
+      "mk_z": 2.662,
+      "mk_p": 0.0078,
+      "sen_slope_per_decade": 7.35,
+      "sen_ci_low_per_decade": 2.14,
+      "sen_ci_high_per_decade": 13.66,
+      "early_mean": 89.7,
+      "late_mean": 130.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 289,
+      "mk_z": 2.818,
+      "mk_p": 0.0048,
+      "sen_slope_per_decade": 19.64,
+      "sen_ci_low_per_decade": 5.79,
+      "sen_ci_high_per_decade": 31.88,
+      "early_mean": 348.3,
+      "late_mean": 422.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 253,
+    "mk_z": 2.465,
+    "mk_p": 0.0137,
+    "sen_slope_per_decade": 20.17,
+    "sen_ci_low_per_decade": 5.79,
+    "sen_ci_high_per_decade": 33.33,
+    "early_mean": 635.2,
+    "late_mean": 708.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 272,
+      "mk_z": 2.651,
+      "mk_p": 0.008,
+      "sen_slope_per_decade": 21.73,
+      "sen_ci_low_per_decade": 6.0,
+      "sen_ci_high_per_decade": 32.86,
+      "early_mean": 453.7,
+      "late_mean": 526.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 269,
+      "mk_z": 2.622,
+      "mk_p": 0.0087,
+      "sen_slope_per_decade": 17.21,
+      "sen_ci_low_per_decade": 4.21,
+      "sen_ci_high_per_decade": 29.33,
+      "early_mean": 797.4,
+      "late_mean": 861.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 246,
+    "mk_z": 2.397,
+    "mk_p": 0.0165,
+    "sen_slope_per_decade": 16.55,
+    "sen_ci_low_per_decade": 3.94,
+    "sen_ci_high_per_decade": 28.72,
+    "early_mean": 857.5,
+    "late_mean": 915.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 253,
+      "mk_z": 2.466,
+      "mk_p": 0.0137,
+      "sen_slope_per_decade": 17.17,
+      "sen_ci_low_per_decade": 3.33,
+      "sen_ci_high_per_decade": 30.43,
+      "early_mean": 708.4,
+      "late_mean": 774.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 230,
+      "mk_z": 2.241,
+      "mk_p": 0.025,
+      "sen_slope_per_decade": 15.68,
+      "sen_ci_low_per_decade": 1.74,
+      "sen_ci_high_per_decade": 28.0,
+      "early_mean": 977.5,
+      "late_mean": 1021.9
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 231,
+    "mk_z": 2.25,
+    "mk_p": 0.0244,
+    "sen_slope_per_decade": 15.71,
+    "sen_ci_low_per_decade": 2.33,
+    "sen_ci_high_per_decade": 27.67,
+    "early_mean": 989.2,
+    "late_mean": 1031.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 239,
+      "mk_z": 2.329,
+      "mk_p": 0.0199,
+      "sen_slope_per_decade": 16.12,
+      "sen_ci_low_per_decade": 2.92,
+      "sen_ci_high_per_decade": 28.89,
+      "early_mean": 871.6,
+      "late_mean": 928.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 248,
+      "mk_z": 2.417,
+      "mk_p": 0.0157,
+      "sen_slope_per_decade": 13.75,
+      "sen_ci_low_per_decade": 2.92,
+      "sen_ci_high_per_decade": 24.86,
+      "early_mean": 1079.4,
+      "late_mean": 1116.0
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "15": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 268,
+    "mk_z": 2.621,
+    "mk_p": 0.0088,
+    "sen_slope_per_decade": 1.86,
+    "sen_ci_low_per_decade": 0.43,
+    "sen_ci_high_per_decade": 3.33,
+    "early_mean": 11.3,
+    "late_mean": 21.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 278,
+      "mk_z": 2.735,
+      "mk_p": 0.0062,
+      "sen_slope_per_decade": 0.86,
+      "sen_ci_low_per_decade": 0.0,
+      "sen_ci_high_per_decade": 1.54,
+      "early_mean": 3.1,
+      "late_mean": 6.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 354,
+      "mk_z": 3.456,
+      "mk_p": 0.0005,
+      "sen_slope_per_decade": 6.0,
+      "sen_ci_low_per_decade": 3.0,
+      "sen_ci_high_per_decade": 9.23,
+      "early_mean": 38.5,
+      "late_mean": 63.7
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 353,
+    "mk_z": 3.444,
+    "mk_p": 0.0006,
+    "sen_slope_per_decade": 19.04,
+    "sen_ci_low_per_decade": 8.57,
+    "sen_ci_high_per_decade": 28.12,
+    "early_mean": 158.2,
+    "late_mean": 223.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 371,
+      "mk_z": 3.621,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 8.8,
+      "sen_ci_low_per_decade": 4.21,
+      "sen_ci_high_per_decade": 13.89,
+      "early_mean": 69.4,
+      "late_mean": 104.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 371,
+      "mk_z": 3.62,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 29.08,
+      "sen_ci_low_per_decade": 14.29,
+      "sen_ci_high_per_decade": 44.12,
+      "early_mean": 302.4,
+      "late_mean": 407.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 350,
+    "mk_z": 3.415,
+    "mk_p": 0.0006,
+    "sen_slope_per_decade": 33.01,
+    "sen_ci_low_per_decade": 15.56,
+    "sen_ci_high_per_decade": 51.25,
+    "early_mean": 388.9,
+    "late_mean": 506.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 338,
+      "mk_z": 3.297,
+      "mk_p": 0.001,
+      "sen_slope_per_decade": 22.97,
+      "sen_ci_low_per_decade": 10.59,
+      "sen_ci_high_per_decade": 33.89,
+      "early_mean": 212.8,
+      "late_mean": 292.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 404,
+      "mk_z": 3.943,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 43.9,
+      "sen_ci_low_per_decade": 22.67,
+      "sen_ci_high_per_decade": 60.91,
+      "early_mean": 613.9,
+      "late_mean": 762.7
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 404,
+    "mk_z": 3.944,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 43.6,
+    "sen_ci_low_per_decade": 23.53,
+    "sen_ci_high_per_decade": 60.42,
+    "early_mean": 640.1,
+    "late_mean": 789.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 359,
+      "mk_z": 3.503,
+      "mk_p": 0.0005,
+      "sen_slope_per_decade": 34.12,
+      "sen_ci_low_per_decade": 16.43,
+      "sen_ci_high_per_decade": 52.31,
+      "early_mean": 412.1,
+      "late_mean": 534.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 492,
+      "mk_z": 4.805,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 45.67,
+      "sen_ci_low_per_decade": 27.5,
+      "sen_ci_high_per_decade": 61.67,
+      "early_mean": 869.1,
+      "late_mean": 1020.8
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "16": {
+   "light": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 100,
+    "mk_z": 0.969,
+    "mk_p": 0.3326,
+    "sen_slope_per_decade": 2.5,
+    "sen_ci_low_per_decade": -2.31,
+    "sen_ci_high_per_decade": 8.0,
+    "early_mean": 57.7,
+    "late_mean": 74.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": -21,
+      "mk_z": -0.196,
+      "mk_p": 0.8447,
+      "sen_slope_per_decade": -0.14,
+      "sen_ci_low_per_decade": -3.0,
+      "sen_ci_high_per_decade": 2.61,
+      "early_mean": 33.4,
+      "late_mean": 35.9
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 144,
+      "mk_z": 1.399,
+      "mk_p": 0.1617,
+      "sen_slope_per_decade": 5.82,
+      "sen_ci_low_per_decade": -2.61,
+      "sen_ci_high_per_decade": 13.91,
+      "early_mean": 105.9,
+      "late_mean": 141.1
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 230,
+    "mk_z": 2.24,
+    "mk_p": 0.0251,
+    "sen_slope_per_decade": 18.43,
+    "sen_ci_low_per_decade": 2.5,
+    "sen_ci_high_per_decade": 38.75,
+    "early_mean": 243.7,
+    "late_mean": 357.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 168,
+      "mk_z": 1.634,
+      "mk_p": 0.1023,
+      "sen_slope_per_decade": 8.3,
+      "sen_ci_low_per_decade": -1.46,
+      "sen_ci_high_per_decade": 19.69,
+      "early_mean": 146.3,
+      "late_mean": 197.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 254,
+      "mk_z": 2.476,
+      "mk_p": 0.0133,
+      "sen_slope_per_decade": 32.22,
+      "sen_ci_low_per_decade": 7.0,
+      "sen_ci_high_per_decade": 61.25,
+      "early_mean": 398.1,
+      "late_mean": 590.0
+     }
+    },
+    "robust_to_band": false
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 270,
+    "mk_z": 2.632,
+    "mk_p": 0.0085,
+    "sen_slope_per_decade": 39.2,
+    "sen_ci_low_per_decade": 10.67,
+    "sen_ci_high_per_decade": 70.0,
+    "early_mean": 495.7,
+    "late_mean": 708.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 226,
+      "mk_z": 2.201,
+      "mk_p": 0.0277,
+      "sen_slope_per_decade": 24.16,
+      "sen_ci_low_per_decade": 2.86,
+      "sen_ci_high_per_decade": 49.41,
+      "early_mean": 298.2,
+      "late_mean": 446.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 331,
+      "mk_z": 3.229,
+      "mk_p": 0.0012,
+      "sen_slope_per_decade": 55.1,
+      "sen_ci_low_per_decade": 17.89,
+      "sen_ci_high_per_decade": 89.25,
+      "early_mean": 771.0,
+      "late_mean": 1050.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 328,
+    "mk_z": 3.199,
+    "mk_p": 0.0014,
+    "sen_slope_per_decade": 57.36,
+    "sen_ci_low_per_decade": 18.89,
+    "sen_ci_high_per_decade": 93.78,
+    "early_mean": 800.7,
+    "late_mean": 1088.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 277,
+      "mk_z": 2.7,
+      "mk_p": 0.0069,
+      "sen_slope_per_decade": 41.9,
+      "sen_ci_low_per_decade": 10.59,
+      "sen_ci_high_per_decade": 73.33,
+      "early_mean": 522.9,
+      "late_mean": 742.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 361,
+      "mk_z": 3.522,
+      "mk_p": 0.0004,
+      "sen_slope_per_decade": 68.93,
+      "sen_ci_low_per_decade": 30.0,
+      "sen_ci_high_per_decade": 106.59,
+      "early_mean": 1138.1,
+      "late_mean": 1444.2
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "17": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 410,
+    "mk_z": 4.002,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 28.26,
+    "sen_ci_low_per_decade": 15.65,
+    "sen_ci_high_per_decade": 40.0,
+    "early_mean": 274.4,
+    "late_mean": 370.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 395,
+      "mk_z": 3.856,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 19.38,
+      "sen_ci_low_per_decade": 10.59,
+      "sen_ci_high_per_decade": 28.62,
+      "early_mean": 150.4,
+      "late_mean": 215.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 419,
+      "mk_z": 4.09,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 33.94,
+      "sen_ci_low_per_decade": 17.89,
+      "sen_ci_high_per_decade": 47.69,
+      "early_mean": 452.4,
+      "late_mean": 571.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 471,
+    "mk_z": 4.598,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 31.46,
+    "sen_ci_low_per_decade": 18.15,
+    "sen_ci_high_per_decade": 43.57,
+    "early_mean": 777.7,
+    "late_mean": 889.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 456,
+      "mk_z": 4.452,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 36.25,
+      "sen_ci_low_per_decade": 20.43,
+      "sen_ci_high_per_decade": 49.41,
+      "early_mean": 567.3,
+      "late_mean": 696.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 447,
+      "mk_z": 4.364,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 25.75,
+      "sen_ci_low_per_decade": 15.0,
+      "sen_ci_high_per_decade": 37.14,
+      "early_mean": 950.7,
+      "late_mean": 1042.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 404,
+    "mk_z": 3.944,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 22.79,
+    "sen_ci_low_per_decade": 13.0,
+    "sen_ci_high_per_decade": 34.29,
+    "early_mean": 1012.6,
+    "late_mean": 1093.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 467,
+      "mk_z": 4.56,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 30.0,
+      "sen_ci_low_per_decade": 18.57,
+      "sen_ci_high_per_decade": 41.82,
+      "early_mean": 854.0,
+      "late_mean": 959.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 380,
+      "mk_z": 3.709,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 17.75,
+      "sen_ci_low_per_decade": 9.58,
+      "sen_ci_high_per_decade": 27.69,
+      "early_mean": 1126.5,
+      "late_mean": 1190.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 381,
+    "mk_z": 3.719,
+    "mk_p": 0.0002,
+    "sen_slope_per_decade": 18.92,
+    "sen_ci_low_per_decade": 10.0,
+    "sen_ci_high_per_decade": 27.92,
+    "early_mean": 1136.6,
+    "late_mean": 1201.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 402,
+      "mk_z": 3.923,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 22.07,
+      "sen_ci_low_per_decade": 11.76,
+      "sen_ci_high_per_decade": 31.82,
+      "early_mean": 1028.1,
+      "late_mean": 1104.7
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 337,
+      "mk_z": 3.288,
+      "mk_p": 0.001,
+      "sen_slope_per_decade": 15.53,
+      "sen_ci_low_per_decade": 6.67,
+      "sen_ci_high_per_decade": 25.0,
+      "early_mean": 1218.8,
+      "late_mean": 1274.9
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "18": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 441,
+    "mk_z": 4.305,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 26.86,
+    "sen_ci_low_per_decade": 12.86,
+    "sen_ci_high_per_decade": 39.6,
+    "early_mean": 261.2,
+    "late_mean": 368.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 444,
+      "mk_z": 4.336,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 16.31,
+      "sen_ci_low_per_decade": 9.06,
+      "sen_ci_high_per_decade": 23.08,
+      "early_mean": 116.8,
+      "late_mean": 185.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 393,
+      "mk_z": 3.835,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 28.77,
+      "sen_ci_low_per_decade": 15.0,
+      "sen_ci_high_per_decade": 48.38,
+      "early_mean": 480.1,
+      "late_mean": 605.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 294,
+    "mk_z": 2.868,
+    "mk_p": 0.0041,
+    "sen_slope_per_decade": 27.35,
+    "sen_ci_low_per_decade": 8.33,
+    "sen_ci_high_per_decade": 46.43,
+    "early_mean": 914.6,
+    "late_mean": 1031.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 327,
+      "mk_z": 3.189,
+      "mk_p": 0.0014,
+      "sen_slope_per_decade": 28.67,
+      "sen_ci_low_per_decade": 10.0,
+      "sen_ci_high_per_decade": 49.73,
+      "early_mean": 631.6,
+      "late_mean": 756.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 317,
+      "mk_z": 3.092,
+      "mk_p": 0.002,
+      "sen_slope_per_decade": 25.0,
+      "sen_ci_low_per_decade": 9.0,
+      "sen_ci_high_per_decade": 40.97,
+      "early_mean": 1166.3,
+      "late_mean": 1259.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 324,
+    "mk_z": 3.161,
+    "mk_p": 0.0016,
+    "sen_slope_per_decade": 23.03,
+    "sen_ci_low_per_decade": 9.29,
+    "sen_ci_high_per_decade": 35.71,
+    "early_mean": 1256.2,
+    "late_mean": 1339.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 311,
+      "mk_z": 3.033,
+      "mk_p": 0.0024,
+      "sen_slope_per_decade": 27.67,
+      "sen_ci_low_per_decade": 9.0,
+      "sen_ci_high_per_decade": 44.29,
+      "early_mean": 1026.0,
+      "late_mean": 1140.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 275,
+      "mk_z": 2.682,
+      "mk_p": 0.0073,
+      "sen_slope_per_decade": 15.0,
+      "sen_ci_low_per_decade": 5.0,
+      "sen_ci_high_per_decade": 23.87,
+      "early_mean": 1425.9,
+      "late_mean": 1477.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 278,
+    "mk_z": 2.71,
+    "mk_p": 0.0067,
+    "sen_slope_per_decade": 15.27,
+    "sen_ci_low_per_decade": 4.64,
+    "sen_ci_high_per_decade": 25.33,
+    "early_mean": 1437.5,
+    "late_mean": 1488.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 327,
+      "mk_z": 3.189,
+      "mk_p": 0.0014,
+      "sen_slope_per_decade": 21.11,
+      "sen_ci_low_per_decade": 8.57,
+      "sen_ci_high_per_decade": 35.37,
+      "early_mean": 1279.0,
+      "late_mean": 1357.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 235,
+      "mk_z": 2.29,
+      "mk_p": 0.022,
+      "sen_slope_per_decade": 10.7,
+      "sen_ci_low_per_decade": 1.79,
+      "sen_ci_high_per_decade": 20.0,
+      "early_mean": 1543.4,
+      "late_mean": 1583.1
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "19": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 306,
+    "mk_z": 2.986,
+    "mk_p": 0.0028,
+    "sen_slope_per_decade": 5.33,
+    "sen_ci_low_per_decade": 1.76,
+    "sen_ci_high_per_decade": 9.0,
+    "early_mean": 25.8,
+    "late_mean": 52.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 299,
+      "mk_z": 2.922,
+      "mk_p": 0.0035,
+      "sen_slope_per_decade": 2.5,
+      "sen_ci_low_per_decade": 0.74,
+      "sen_ci_high_per_decade": 3.75,
+      "early_mean": 8.3,
+      "late_mean": 17.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 354,
+      "mk_z": 3.455,
+      "mk_p": 0.0006,
+      "sen_slope_per_decade": 10.39,
+      "sen_ci_low_per_decade": 5.35,
+      "sen_ci_high_per_decade": 15.59,
+      "early_mean": 73.9,
+      "late_mean": 121.7
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 414,
+    "mk_z": 4.041,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 29.04,
+    "sen_ci_low_per_decade": 17.78,
+    "sen_ci_high_per_decade": 41.0,
+    "early_mean": 226.1,
+    "late_mean": 335.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 400,
+      "mk_z": 3.904,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 16.03,
+      "sen_ci_low_per_decade": 10.0,
+      "sen_ci_high_per_decade": 23.51,
+      "early_mean": 113.3,
+      "late_mean": 182.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 410,
+      "mk_z": 4.002,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 39.12,
+      "sen_ci_low_per_decade": 22.5,
+      "sen_ci_high_per_decade": 56.13,
+      "early_mean": 398.0,
+      "late_mean": 539.8
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 407,
+    "mk_z": 3.972,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 43.87,
+    "sen_ci_low_per_decade": 26.19,
+    "sen_ci_high_per_decade": 61.6,
+    "early_mean": 483.8,
+    "late_mean": 637.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 401,
+      "mk_z": 3.913,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 35.6,
+      "sen_ci_low_per_decade": 20.67,
+      "sen_ci_high_per_decade": 49.13,
+      "early_mean": 295.0,
+      "late_mean": 421.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 436,
+      "mk_z": 4.256,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 47.96,
+      "sen_ci_low_per_decade": 28.75,
+      "sen_ci_high_per_decade": 66.11,
+      "early_mean": 705.6,
+      "late_mean": 872.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 453,
+    "mk_z": 4.422,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 48.73,
+    "sen_ci_low_per_decade": 28.0,
+    "sen_ci_high_per_decade": 66.76,
+    "early_mean": 728.2,
+    "late_mean": 895.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 402,
+      "mk_z": 3.923,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 44.0,
+      "sen_ci_low_per_decade": 25.45,
+      "sen_ci_high_per_decade": 60.59,
+      "early_mean": 510.0,
+      "late_mean": 661.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 491,
+      "mk_z": 4.794,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 45.44,
+      "sen_ci_low_per_decade": 30.45,
+      "sen_ci_high_per_decade": 62.73,
+      "early_mean": 930.9,
+      "late_mean": 1080.0
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "20": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 239,
+    "mk_z": 2.34,
+    "mk_p": 0.0193,
+    "sen_slope_per_decade": 1.11,
+    "sen_ci_low_per_decade": 0.0,
+    "sen_ci_high_per_decade": 2.11,
+    "early_mean": 6.7,
+    "late_mean": 11.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 9,
+      "mk_z": 0.079,
+      "mk_p": 0.9368,
+      "sen_slope_per_decade": 0.0,
+      "sen_ci_low_per_decade": -0.5,
+      "sen_ci_high_per_decade": 0.5,
+      "early_mean": 3.8,
+      "late_mean": 3.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 339,
+      "mk_z": 3.313,
+      "mk_p": 0.0009,
+      "sen_slope_per_decade": 4.19,
+      "sen_ci_low_per_decade": 1.6,
+      "sen_ci_high_per_decade": 6.4,
+      "early_mean": 16.8,
+      "late_mean": 34.7
+     }
+    },
+    "robust_to_band": false
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 375,
+    "mk_z": 3.659,
+    "mk_p": 0.0003,
+    "sen_slope_per_decade": 15.68,
+    "sen_ci_low_per_decade": 8.33,
+    "sen_ci_high_per_decade": 24.0,
+    "early_mean": 75.8,
+    "late_mean": 139.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 348,
+      "mk_z": 3.396,
+      "mk_p": 0.0007,
+      "sen_slope_per_decade": 7.26,
+      "sen_ci_low_per_decade": 3.25,
+      "sen_ci_high_per_decade": 11.05,
+      "early_mean": 30.5,
+      "late_mean": 60.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 381,
+      "mk_z": 3.719,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 25.47,
+      "sen_ci_low_per_decade": 13.16,
+      "sen_ci_high_per_decade": 38.0,
+      "early_mean": 173.3,
+      "late_mean": 274.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 356,
+    "mk_z": 3.475,
+    "mk_p": 0.0005,
+    "sen_slope_per_decade": 30.0,
+    "sen_ci_low_per_decade": 15.38,
+    "sen_ci_high_per_decade": 45.0,
+    "early_mean": 235.9,
+    "late_mean": 354.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 378,
+      "mk_z": 3.689,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 10.0,
+      "sen_ci_high_per_decade": 30.0,
+      "early_mean": 110.3,
+      "late_mean": 188.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 396,
+      "mk_z": 3.865,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 45.52,
+      "sen_ci_low_per_decade": 23.33,
+      "sen_ci_high_per_decade": 65.9,
+      "early_mean": 422.9,
+      "late_mean": 598.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 400,
+    "mk_z": 3.904,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 46.38,
+    "sen_ci_low_per_decade": 23.75,
+    "sen_ci_high_per_decade": 67.81,
+    "early_mean": 448.0,
+    "late_mean": 626.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 349,
+      "mk_z": 3.407,
+      "mk_p": 0.0007,
+      "sen_slope_per_decade": 31.97,
+      "sen_ci_low_per_decade": 15.65,
+      "sen_ci_high_per_decade": 46.67,
+      "early_mean": 253.7,
+      "late_mean": 378.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 461,
+      "mk_z": 4.5,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 58.26,
+      "sen_ci_low_per_decade": 34.44,
+      "sen_ci_high_per_decade": 77.44,
+      "early_mean": 711.9,
+      "late_mean": 925.2
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "21": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 347,
+    "mk_z": 3.394,
+    "mk_p": 0.0007,
+    "sen_slope_per_decade": 2.86,
+    "sen_ci_low_per_decade": 1.36,
+    "sen_ci_high_per_decade": 4.8,
+    "early_mean": 8.1,
+    "late_mean": 23.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 265,
+      "mk_z": 2.615,
+      "mk_p": 0.0089,
+      "sen_slope_per_decade": 1.25,
+      "sen_ci_low_per_decade": 0.0,
+      "sen_ci_high_per_decade": 2.31,
+      "early_mean": 3.5,
+      "late_mean": 10.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 315,
+      "mk_z": 3.076,
+      "mk_p": 0.0021,
+      "sen_slope_per_decade": 5.22,
+      "sen_ci_low_per_decade": 1.54,
+      "sen_ci_high_per_decade": 9.25,
+      "early_mean": 24.5,
+      "late_mean": 52.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 313,
+    "mk_z": 3.053,
+    "mk_p": 0.0023,
+    "sen_slope_per_decade": 16.89,
+    "sen_ci_low_per_decade": 6.5,
+    "sen_ci_high_per_decade": 25.88,
+    "early_mean": 92.1,
+    "late_mean": 164.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 319,
+      "mk_z": 3.113,
+      "mk_p": 0.0019,
+      "sen_slope_per_decade": 9.01,
+      "sen_ci_low_per_decade": 3.2,
+      "sen_ci_high_per_decade": 14.59,
+      "early_mean": 39.2,
+      "late_mean": 80.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 305,
+      "mk_z": 2.974,
+      "mk_p": 0.0029,
+      "sen_slope_per_decade": 25.28,
+      "sen_ci_low_per_decade": 8.95,
+      "sen_ci_high_per_decade": 39.68,
+      "early_mean": 201.6,
+      "late_mean": 306.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 314,
+    "mk_z": 3.062,
+    "mk_p": 0.0022,
+    "sen_slope_per_decade": 28.59,
+    "sen_ci_low_per_decade": 11.71,
+    "sen_ci_high_per_decade": 47.06,
+    "early_mean": 269.8,
+    "late_mean": 389.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 311,
+      "mk_z": 3.034,
+      "mk_p": 0.0024,
+      "sen_slope_per_decade": 21.46,
+      "sen_ci_low_per_decade": 8.18,
+      "sen_ci_high_per_decade": 32.14,
+      "early_mean": 129.2,
+      "late_mean": 218.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 375,
+      "mk_z": 3.659,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 44.49,
+      "sen_ci_low_per_decade": 25.5,
+      "sen_ci_high_per_decade": 66.92,
+      "early_mean": 473.6,
+      "late_mean": 647.7
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 378,
+    "mk_z": 3.688,
+    "mk_p": 0.0002,
+    "sen_slope_per_decade": 46.93,
+    "sen_ci_low_per_decade": 26.0,
+    "sen_ci_high_per_decade": 69.63,
+    "early_mean": 501.8,
+    "late_mean": 683.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 313,
+      "mk_z": 3.053,
+      "mk_p": 0.0023,
+      "sen_slope_per_decade": 31.48,
+      "sen_ci_low_per_decade": 13.08,
+      "sen_ci_high_per_decade": 48.39,
+      "early_mean": 288.9,
+      "late_mean": 414.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 479,
+      "mk_z": 4.676,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 63.41,
+      "sen_ci_low_per_decade": 41.47,
+      "sen_ci_high_per_decade": 87.5,
+      "early_mean": 769.2,
+      "late_mean": 1001.8
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "22": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 318,
+    "mk_z": 3.102,
+    "mk_p": 0.0019,
+    "sen_slope_per_decade": 19.62,
+    "sen_ci_low_per_decade": 8.75,
+    "sen_ci_high_per_decade": 28.12,
+    "early_mean": 205.4,
+    "late_mean": 282.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 276,
+      "mk_z": 2.692,
+      "mk_p": 0.0071,
+      "sen_slope_per_decade": 10.0,
+      "sen_ci_low_per_decade": 2.5,
+      "sen_ci_high_per_decade": 17.81,
+      "early_mean": 96.6,
+      "late_mean": 146.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 328,
+      "mk_z": 3.201,
+      "mk_p": 0.0014,
+      "sen_slope_per_decade": 24.42,
+      "sen_ci_low_per_decade": 10.3,
+      "sen_ci_high_per_decade": 35.71,
+      "early_mean": 368.3,
+      "late_mean": 455.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 297,
+    "mk_z": 2.896,
+    "mk_p": 0.0038,
+    "sen_slope_per_decade": 21.34,
+    "sen_ci_low_per_decade": 7.14,
+    "sen_ci_high_per_decade": 36.25,
+    "early_mean": 668.6,
+    "late_mean": 751.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 330,
+      "mk_z": 3.219,
+      "mk_p": 0.0013,
+      "sen_slope_per_decade": 25.36,
+      "sen_ci_low_per_decade": 12.0,
+      "sen_ci_high_per_decade": 38.57,
+      "early_mean": 474.9,
+      "late_mean": 564.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 270,
+      "mk_z": 2.633,
+      "mk_p": 0.0085,
+      "sen_slope_per_decade": 19.27,
+      "sen_ci_low_per_decade": 5.0,
+      "sen_ci_high_per_decade": 32.0,
+      "early_mean": 835.7,
+      "late_mean": 909.1
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 240,
+    "mk_z": 2.338,
+    "mk_p": 0.0194,
+    "sen_slope_per_decade": 17.03,
+    "sen_ci_low_per_decade": 3.33,
+    "sen_ci_high_per_decade": 27.93,
+    "early_mean": 904.1,
+    "late_mean": 961.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 288,
+      "mk_z": 2.808,
+      "mk_p": 0.005,
+      "sen_slope_per_decade": 20.36,
+      "sen_ci_low_per_decade": 7.33,
+      "sen_ci_high_per_decade": 36.32,
+      "early_mean": 743.7,
+      "late_mean": 824.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 266,
+      "mk_z": 2.593,
+      "mk_p": 0.0095,
+      "sen_slope_per_decade": 15.19,
+      "sen_ci_low_per_decade": 4.21,
+      "sen_ci_high_per_decade": 24.67,
+      "early_mean": 1026.6,
+      "late_mean": 1074.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 277,
+    "mk_z": 2.701,
+    "mk_p": 0.0069,
+    "sen_slope_per_decade": 15.0,
+    "sen_ci_low_per_decade": 4.06,
+    "sen_ci_high_per_decade": 25.0,
+    "early_mean": 1038.4,
+    "late_mean": 1085.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 252,
+      "mk_z": 2.456,
+      "mk_p": 0.014,
+      "sen_slope_per_decade": 16.52,
+      "sen_ci_low_per_decade": 3.85,
+      "sen_ci_high_per_decade": 28.42,
+      "early_mean": 919.1,
+      "late_mean": 978.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 238,
+      "mk_z": 2.319,
+      "mk_p": 0.0204,
+      "sen_slope_per_decade": 11.74,
+      "sen_ci_low_per_decade": 1.76,
+      "sen_ci_high_per_decade": 21.9,
+      "early_mean": 1133.0,
+      "late_mean": 1171.6
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "23": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 352,
+    "mk_z": 3.435,
+    "mk_p": 0.0006,
+    "sen_slope_per_decade": 18.98,
+    "sen_ci_low_per_decade": 8.46,
+    "sen_ci_high_per_decade": 28.89,
+    "early_mean": 109.7,
+    "late_mean": 189.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 361,
+      "mk_z": 3.524,
+      "mk_p": 0.0004,
+      "sen_slope_per_decade": 8.97,
+      "sen_ci_low_per_decade": 4.29,
+      "sen_ci_high_per_decade": 13.6,
+      "early_mean": 37.9,
+      "late_mean": 78.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 351,
+      "mk_z": 3.424,
+      "mk_p": 0.0006,
+      "sen_slope_per_decade": 30.0,
+      "sen_ci_low_per_decade": 13.79,
+      "sen_ci_high_per_decade": 46.25,
+      "early_mean": 259.0,
+      "late_mean": 379.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 321,
+    "mk_z": 3.131,
+    "mk_p": 0.0017,
+    "sen_slope_per_decade": 33.96,
+    "sen_ci_low_per_decade": 12.5,
+    "sen_ci_high_per_decade": 52.94,
+    "early_mean": 653.0,
+    "late_mean": 776.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 324,
+      "mk_z": 3.16,
+      "mk_p": 0.0016,
+      "sen_slope_per_decade": 30.85,
+      "sen_ci_low_per_decade": 13.16,
+      "sen_ci_high_per_decade": 51.07,
+      "early_mean": 388.1,
+      "late_mean": 513.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 341,
+      "mk_z": 3.326,
+      "mk_p": 0.0009,
+      "sen_slope_per_decade": 28.23,
+      "sen_ci_low_per_decade": 12.5,
+      "sen_ci_high_per_decade": 43.57,
+      "early_mean": 915.9,
+      "late_mean": 1014.1
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 327,
+    "mk_z": 3.189,
+    "mk_p": 0.0014,
+    "sen_slope_per_decade": 26.06,
+    "sen_ci_low_per_decade": 9.26,
+    "sen_ci_high_per_decade": 38.89,
+    "early_mean": 1012.4,
+    "late_mean": 1095.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 337,
+      "mk_z": 3.287,
+      "mk_p": 0.001,
+      "sen_slope_per_decade": 36.0,
+      "sen_ci_low_per_decade": 14.67,
+      "sen_ci_high_per_decade": 50.26,
+      "early_mean": 770.2,
+      "late_mean": 887.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 357,
+      "mk_z": 3.483,
+      "mk_p": 0.0005,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 10.0,
+      "sen_ci_high_per_decade": 29.63,
+      "early_mean": 1166.7,
+      "late_mean": 1227.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 372,
+    "mk_z": 3.63,
+    "mk_p": 0.0003,
+    "sen_slope_per_decade": 19.83,
+    "sen_ci_low_per_decade": 11.03,
+    "sen_ci_high_per_decade": 29.55,
+    "early_mean": 1178.8,
+    "late_mean": 1239.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 340,
+      "mk_z": 3.317,
+      "mk_p": 0.0009,
+      "sen_slope_per_decade": 25.0,
+      "sen_ci_low_per_decade": 9.62,
+      "sen_ci_high_per_decade": 38.0,
+      "early_mean": 1033.9,
+      "late_mean": 1113.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 402,
+      "mk_z": 3.924,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 22.67,
+      "sen_ci_low_per_decade": 13.61,
+      "sen_ci_high_per_decade": 30.0,
+      "early_mean": 1270.1,
+      "late_mean": 1338.9
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "24": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 364,
+    "mk_z": 3.552,
+    "mk_p": 0.0004,
+    "sen_slope_per_decade": 14.83,
+    "sen_ci_low_per_decade": 6.0,
+    "sen_ci_high_per_decade": 22.38,
+    "early_mean": 260.9,
+    "late_mean": 301.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 380,
+      "mk_z": 3.71,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 10.0,
+      "sen_ci_low_per_decade": 4.76,
+      "sen_ci_high_per_decade": 14.74,
+      "early_mean": 142.5,
+      "late_mean": 173.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 308,
+      "mk_z": 3.004,
+      "mk_p": 0.0027,
+      "sen_slope_per_decade": 16.38,
+      "sen_ci_low_per_decade": 6.88,
+      "sen_ci_high_per_decade": 27.31,
+      "early_mean": 405.1,
+      "late_mean": 458.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 268,
+    "mk_z": 2.613,
+    "mk_p": 0.009,
+    "sen_slope_per_decade": 13.85,
+    "sen_ci_low_per_decade": 4.14,
+    "sen_ci_high_per_decade": 27.89,
+    "early_mean": 653.3,
+    "late_mean": 703.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 317,
+      "mk_z": 3.092,
+      "mk_p": 0.002,
+      "sen_slope_per_decade": 17.15,
+      "sen_ci_low_per_decade": 7.39,
+      "sen_ci_high_per_decade": 29.52,
+      "early_mean": 491.4,
+      "late_mean": 548.6
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 181,
+      "mk_z": 1.761,
+      "mk_p": 0.0782,
+      "sen_slope_per_decade": 11.6,
+      "sen_ci_low_per_decade": -1.2,
+      "sen_ci_high_per_decade": 26.67,
+      "early_mean": 795.5,
+      "late_mean": 837.6
+     }
+    },
+    "robust_to_band": false
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 171,
+    "mk_z": 1.663,
+    "mk_p": 0.0963,
+    "sen_slope_per_decade": 10.14,
+    "sen_ci_low_per_decade": -1.74,
+    "sen_ci_high_per_decade": 25.56,
+    "early_mean": 847.1,
+    "late_mean": 884.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 251,
+      "mk_z": 2.446,
+      "mk_p": 0.0144,
+      "sen_slope_per_decade": 12.0,
+      "sen_ci_low_per_decade": 2.92,
+      "sen_ci_high_per_decade": 27.78,
+      "early_mean": 716.9,
+      "late_mean": 764.5
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 167,
+      "mk_z": 1.624,
+      "mk_p": 0.1043,
+      "sen_slope_per_decade": 10.51,
+      "sen_ci_low_per_decade": -2.26,
+      "sen_ci_high_per_decade": 24.44,
+      "early_mean": 956.6,
+      "late_mean": 985.4
+     }
+    },
+    "robust_to_band": false
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 157,
+    "mk_z": 1.526,
+    "mk_p": 0.1269,
+    "sen_slope_per_decade": 10.0,
+    "sen_ci_low_per_decade": -2.94,
+    "sen_ci_high_per_decade": 24.5,
+    "early_mean": 967.4,
+    "late_mean": 994.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 161,
+      "mk_z": 1.566,
+      "mk_p": 0.1175,
+      "sen_slope_per_decade": 10.59,
+      "sen_ci_low_per_decade": -2.5,
+      "sen_ci_high_per_decade": 25.16,
+      "early_mean": 861.9,
+      "late_mean": 896.5
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 187,
+      "mk_z": 1.82,
+      "mk_p": 0.0688,
+      "sen_slope_per_decade": 12.05,
+      "sen_ci_low_per_decade": -0.8,
+      "sen_ci_high_per_decade": 24.62,
+      "early_mean": 1050.3,
+      "late_mean": 1080.5
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "25": {
+   "light": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 134,
+    "mk_z": 1.301,
+    "mk_p": 0.1931,
+    "sen_slope_per_decade": 8.33,
+    "sen_ci_low_per_decade": -4.0,
+    "sen_ci_high_per_decade": 20.0,
+    "early_mean": 338.2,
+    "late_mean": 380.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 130,
+      "mk_z": 1.263,
+      "mk_p": 0.2066,
+      "sen_slope_per_decade": 6.52,
+      "sen_ci_low_per_decade": -3.04,
+      "sen_ci_high_per_decade": 15.88,
+      "early_mean": 199.8,
+      "late_mean": 234.5
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 171,
+      "mk_z": 1.664,
+      "mk_p": 0.0962,
+      "sen_slope_per_decade": 12.47,
+      "sen_ci_low_per_decade": -2.5,
+      "sen_ci_high_per_decade": 28.46,
+      "early_mean": 495.3,
+      "late_mean": 566.9
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 244,
+    "mk_z": 2.377,
+    "mk_p": 0.0174,
+    "sen_slope_per_decade": 26.28,
+    "sen_ci_low_per_decade": 6.57,
+    "sen_ci_high_per_decade": 49.21,
+    "early_mean": 834.9,
+    "late_mean": 975.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 186,
+      "mk_z": 1.81,
+      "mk_p": 0.0703,
+      "sen_slope_per_decade": 15.62,
+      "sen_ci_low_per_decade": -1.0,
+      "sen_ci_high_per_decade": 32.73,
+      "early_mean": 602.3,
+      "late_mean": 689.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 292,
+      "mk_z": 2.847,
+      "mk_p": 0.0044,
+      "sen_slope_per_decade": 36.28,
+      "sen_ci_low_per_decade": 11.58,
+      "sen_ci_high_per_decade": 56.22,
+      "early_mean": 1121.8,
+      "late_mean": 1286.3
+     }
+    },
+    "robust_to_band": false
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 314,
+    "mk_z": 3.062,
+    "mk_p": 0.0022,
+    "sen_slope_per_decade": 34.63,
+    "sen_ci_low_per_decade": 12.0,
+    "sen_ci_high_per_decade": 57.5,
+    "early_mean": 1246.6,
+    "late_mean": 1406.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 264,
+      "mk_z": 2.573,
+      "mk_p": 0.0101,
+      "sen_slope_per_decade": 31.12,
+      "sen_ci_low_per_decade": 7.86,
+      "sen_ci_high_per_decade": 54.29,
+      "early_mean": 952.7,
+      "late_mean": 1108.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 323,
+      "mk_z": 3.15,
+      "mk_p": 0.0016,
+      "sen_slope_per_decade": 30.0,
+      "sen_ci_low_per_decade": 11.6,
+      "sen_ci_high_per_decade": 48.33,
+      "early_mean": 1483.5,
+      "late_mean": 1623.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 334,
+    "mk_z": 3.258,
+    "mk_p": 0.0011,
+    "sen_slope_per_decade": 30.67,
+    "sen_ci_low_per_decade": 11.43,
+    "sen_ci_high_per_decade": 46.67,
+    "early_mean": 1504.8,
+    "late_mean": 1639.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 328,
+      "mk_z": 3.2,
+      "mk_p": 0.0014,
+      "sen_slope_per_decade": 34.41,
+      "sen_ci_low_per_decade": 14.21,
+      "sen_ci_high_per_decade": 57.2,
+      "early_mean": 1274.9,
+      "late_mean": 1434.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 266,
+      "mk_z": 2.593,
+      "mk_p": 0.0095,
+      "sen_slope_per_decade": 17.07,
+      "sen_ci_low_per_decade": 5.33,
+      "sen_ci_high_per_decade": 29.68,
+      "early_mean": 1675.4,
+      "late_mean": 1753.9
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "26": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 449,
+    "mk_z": 4.385,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 28.39,
+    "sen_ci_low_per_decade": 16.67,
+    "sen_ci_high_per_decade": 42.76,
+    "early_mean": 258.8,
+    "late_mean": 384.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 444,
+      "mk_z": 4.336,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 19.68,
+      "sen_ci_low_per_decade": 10.0,
+      "sen_ci_high_per_decade": 28.92,
+      "early_mean": 139.4,
+      "late_mean": 225.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 487,
+      "mk_z": 4.754,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 39.64,
+      "sen_ci_low_per_decade": 20.8,
+      "sen_ci_high_per_decade": 54.44,
+      "early_mean": 430.5,
+      "late_mean": 591.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 512,
+    "mk_z": 5.0,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 40.0,
+    "sen_ci_low_per_decade": 28.57,
+    "sen_ci_high_per_decade": 55.0,
+    "early_mean": 746.7,
+    "late_mean": 903.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 493,
+      "mk_z": 4.815,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 42.62,
+      "sen_ci_low_per_decade": 25.0,
+      "sen_ci_high_per_decade": 59.33,
+      "early_mean": 541.1,
+      "late_mean": 715.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 503,
+      "mk_z": 4.911,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 34.46,
+      "sen_ci_low_per_decade": 23.04,
+      "sen_ci_high_per_decade": 45.0,
+      "early_mean": 920.2,
+      "late_mean": 1052.9
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 505,
+    "mk_z": 4.931,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 30.63,
+    "sen_ci_low_per_decade": 21.36,
+    "sen_ci_high_per_decade": 40.59,
+    "early_mean": 987.1,
+    "late_mean": 1103.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 485,
+      "mk_z": 4.735,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 38.06,
+      "sen_ci_low_per_decade": 25.38,
+      "sen_ci_high_per_decade": 50.0,
+      "early_mean": 824.6,
+      "late_mean": 969.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 486,
+      "mk_z": 4.745,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 24.7,
+      "sen_ci_low_per_decade": 16.67,
+      "sen_ci_high_per_decade": 33.43,
+      "early_mean": 1109.6,
+      "late_mean": 1201.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 481,
+    "mk_z": 4.697,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 23.86,
+    "sen_ci_low_per_decade": 16.67,
+    "sen_ci_high_per_decade": 32.08,
+    "early_mean": 1120.5,
+    "late_mean": 1210.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 523,
+      "mk_z": 5.108,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 30.0,
+      "sen_ci_low_per_decade": 19.74,
+      "sen_ci_high_per_decade": 39.09,
+      "early_mean": 1002.8,
+      "late_mean": 1114.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 492,
+      "mk_z": 4.804,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 22.5,
+      "sen_ci_low_per_decade": 15.0,
+      "sen_ci_high_per_decade": 31.36,
+      "early_mean": 1202.1,
+      "late_mean": 1287.0
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "27": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 263,
+    "mk_z": 2.564,
+    "mk_p": 0.0103,
+    "sen_slope_per_decade": 12.14,
+    "sen_ci_low_per_decade": 3.33,
+    "sen_ci_high_per_decade": 22.27,
+    "early_mean": 202.6,
+    "late_mean": 251.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 233,
+      "mk_z": 2.271,
+      "mk_p": 0.0231,
+      "sen_slope_per_decade": 6.79,
+      "sen_ci_low_per_decade": 0.91,
+      "sen_ci_high_per_decade": 12.5,
+      "early_mean": 96.9,
+      "late_mean": 127.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 253,
+      "mk_z": 2.466,
+      "mk_p": 0.0137,
+      "sen_slope_per_decade": 18.71,
+      "sen_ci_low_per_decade": 4.71,
+      "sen_ci_high_per_decade": 29.33,
+      "early_mean": 346.9,
+      "late_mean": 414.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 269,
+    "mk_z": 2.622,
+    "mk_p": 0.0087,
+    "sen_slope_per_decade": 18.73,
+    "sen_ci_low_per_decade": 4.44,
+    "sen_ci_high_per_decade": 32.5,
+    "early_mean": 625.6,
+    "late_mean": 699.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 277,
+      "mk_z": 2.7,
+      "mk_p": 0.0069,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 7.2,
+      "sen_ci_high_per_decade": 31.82,
+      "early_mean": 444.6,
+      "late_mean": 518.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 239,
+      "mk_z": 2.329,
+      "mk_p": 0.0198,
+      "sen_slope_per_decade": 15.28,
+      "sen_ci_low_per_decade": 1.79,
+      "sen_ci_high_per_decade": 27.69,
+      "early_mean": 792.0,
+      "late_mean": 852.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 226,
+    "mk_z": 2.202,
+    "mk_p": 0.0277,
+    "sen_slope_per_decade": 13.61,
+    "sen_ci_low_per_decade": 1.5,
+    "sen_ci_high_per_decade": 26.67,
+    "early_mean": 853.2,
+    "late_mean": 909.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 255,
+      "mk_z": 2.486,
+      "mk_p": 0.0129,
+      "sen_slope_per_decade": 18.04,
+      "sen_ci_low_per_decade": 3.21,
+      "sen_ci_high_per_decade": 31.54,
+      "early_mean": 705.6,
+      "late_mean": 771.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 211,
+      "mk_z": 2.055,
+      "mk_p": 0.0399,
+      "sen_slope_per_decade": 14.04,
+      "sen_ci_low_per_decade": 0.5,
+      "sen_ci_high_per_decade": 27.0,
+      "early_mean": 972.6,
+      "late_mean": 1018.8
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 220,
+    "mk_z": 2.143,
+    "mk_p": 0.0321,
+    "sen_slope_per_decade": 14.66,
+    "sen_ci_low_per_decade": 1.14,
+    "sen_ci_high_per_decade": 27.1,
+    "early_mean": 985.4,
+    "late_mean": 1030.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 214,
+      "mk_z": 2.084,
+      "mk_p": 0.0372,
+      "sen_slope_per_decade": 13.43,
+      "sen_ci_low_per_decade": 0.88,
+      "sen_ci_high_per_decade": 26.52,
+      "early_mean": 868.7,
+      "late_mean": 922.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 218,
+      "mk_z": 2.123,
+      "mk_p": 0.0337,
+      "sen_slope_per_decade": 13.42,
+      "sen_ci_low_per_decade": 1.11,
+      "sen_ci_high_per_decade": 25.45,
+      "early_mean": 1076.1,
+      "late_mean": 1112.4
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "28": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 274,
+    "mk_z": 2.671,
+    "mk_p": 0.0076,
+    "sen_slope_per_decade": 13.2,
+    "sen_ci_low_per_decade": 4.0,
+    "sen_ci_high_per_decade": 22.22,
+    "early_mean": 194.0,
+    "late_mean": 245.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 252,
+      "mk_z": 2.456,
+      "mk_p": 0.014,
+      "sen_slope_per_decade": 6.35,
+      "sen_ci_low_per_decade": 1.43,
+      "sen_ci_high_per_decade": 13.03,
+      "early_mean": 88.5,
+      "late_mean": 124.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 277,
+      "mk_z": 2.7,
+      "mk_p": 0.0069,
+      "sen_slope_per_decade": 18.38,
+      "sen_ci_low_per_decade": 5.17,
+      "sen_ci_high_per_decade": 30.0,
+      "early_mean": 347.2,
+      "late_mean": 414.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 222,
+    "mk_z": 2.162,
+    "mk_p": 0.0306,
+    "sen_slope_per_decade": 18.4,
+    "sen_ci_low_per_decade": 2.5,
+    "sen_ci_high_per_decade": 30.71,
+    "early_mean": 635.9,
+    "late_mean": 702.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 264,
+      "mk_z": 2.573,
+      "mk_p": 0.0101,
+      "sen_slope_per_decade": 19.09,
+      "sen_ci_low_per_decade": 4.55,
+      "sen_ci_high_per_decade": 33.45,
+      "early_mean": 451.4,
+      "late_mean": 518.7
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 191,
+      "mk_z": 1.86,
+      "mk_p": 0.0629,
+      "sen_slope_per_decade": 14.94,
+      "sen_ci_low_per_decade": -0.5,
+      "sen_ci_high_per_decade": 27.89,
+      "early_mean": 801.5,
+      "late_mean": 856.6
+     }
+    },
+    "robust_to_band": false
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 179,
+    "mk_z": 1.742,
+    "mk_p": 0.0816,
+    "sen_slope_per_decade": 13.76,
+    "sen_ci_low_per_decade": -2.17,
+    "sen_ci_high_per_decade": 27.5,
+    "early_mean": 860.7,
+    "late_mean": 911.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 206,
+      "mk_z": 2.006,
+      "mk_p": 0.0449,
+      "sen_slope_per_decade": 14.56,
+      "sen_ci_low_per_decade": 0.5,
+      "sen_ci_high_per_decade": 28.06,
+      "early_mean": 711.3,
+      "late_mean": 769.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 218,
+      "mk_z": 2.123,
+      "mk_p": 0.0338,
+      "sen_slope_per_decade": 14.7,
+      "sen_ci_low_per_decade": 1.39,
+      "sen_ci_high_per_decade": 26.67,
+      "early_mean": 982.3,
+      "late_mean": 1020.7
+     }
+    },
+    "robust_to_band": false
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 228,
+    "mk_z": 2.221,
+    "mk_p": 0.0263,
+    "sen_slope_per_decade": 14.51,
+    "sen_ci_low_per_decade": 2.5,
+    "sen_ci_high_per_decade": 26.15,
+    "early_mean": 993.5,
+    "late_mean": 1031.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 181,
+      "mk_z": 1.761,
+      "mk_p": 0.0783,
+      "sen_slope_per_decade": 13.33,
+      "sen_ci_low_per_decade": -2.17,
+      "sen_ci_high_per_decade": 26.67,
+      "early_mean": 876.3,
+      "late_mean": 925.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 242,
+      "mk_z": 2.359,
+      "mk_p": 0.0183,
+      "sen_slope_per_decade": 13.08,
+      "sen_ci_low_per_decade": 2.07,
+      "sen_ci_high_per_decade": 24.29,
+      "early_mean": 1084.3,
+      "late_mean": 1117.6
+     }
+    },
+    "robust_to_band": false
+   }
+  },
+  "29": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 354,
+    "mk_z": 3.455,
+    "mk_p": 0.0006,
+    "sen_slope_per_decade": 20.83,
+    "sen_ci_low_per_decade": 8.71,
+    "sen_ci_high_per_decade": 32.97,
+    "early_mean": 321.2,
+    "late_mean": 399.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 323,
+      "mk_z": 3.151,
+      "mk_p": 0.0016,
+      "sen_slope_per_decade": 14.7,
+      "sen_ci_low_per_decade": 6.0,
+      "sen_ci_high_per_decade": 22.38,
+      "early_mean": 193.7,
+      "late_mean": 250.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 388,
+      "mk_z": 3.787,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 30.83,
+      "sen_ci_low_per_decade": 15.0,
+      "sen_ci_high_per_decade": 45.0,
+      "early_mean": 486.5,
+      "late_mean": 598.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 410,
+    "mk_z": 4.002,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 36.67,
+    "sen_ci_low_per_decade": 20.0,
+    "sen_ci_high_per_decade": 52.22,
+    "early_mean": 790.1,
+    "late_mean": 928.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 388,
+      "mk_z": 3.786,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 36.1,
+      "sen_ci_low_per_decade": 19.41,
+      "sen_ci_high_per_decade": 50.43,
+      "early_mean": 587.9,
+      "late_mean": 719.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 419,
+      "mk_z": 4.09,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 29.83,
+      "sen_ci_low_per_decade": 16.39,
+      "sen_ci_high_per_decade": 43.33,
+      "early_mean": 992.1,
+      "late_mean": 1098.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 393,
+    "mk_z": 3.835,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 29.52,
+    "sen_ci_low_per_decade": 15.41,
+    "sen_ci_high_per_decade": 39.33,
+    "early_mean": 1063.3,
+    "late_mean": 1161.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 393,
+      "mk_z": 3.835,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 31.7,
+      "sen_ci_low_per_decade": 16.84,
+      "sen_ci_high_per_decade": 49.29,
+      "early_mean": 885.2,
+      "late_mean": 1000.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 373,
+      "mk_z": 3.64,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 18.75,
+      "sen_ci_low_per_decade": 9.19,
+      "sen_ci_high_per_decade": 28.75,
+      "early_mean": 1201.0,
+      "late_mean": 1270.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 362,
+    "mk_z": 3.532,
+    "mk_p": 0.0004,
+    "sen_slope_per_decade": 17.6,
+    "sen_ci_low_per_decade": 8.57,
+    "sen_ci_high_per_decade": 27.5,
+    "early_mean": 1214.5,
+    "late_mean": 1280.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 414,
+      "mk_z": 4.042,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 28.36,
+      "sen_ci_low_per_decade": 15.0,
+      "sen_ci_high_per_decade": 38.7,
+      "early_mean": 1079.6,
+      "late_mean": 1176.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 309,
+      "mk_z": 3.014,
+      "mk_p": 0.0026,
+      "sen_slope_per_decade": 14.91,
+      "sen_ci_low_per_decade": 5.71,
+      "sen_ci_high_per_decade": 23.33,
+      "early_mean": 1309.4,
+      "late_mean": 1358.8
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "30": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 211,
+    "mk_z": 2.056,
+    "mk_p": 0.0398,
+    "sen_slope_per_decade": 7.07,
+    "sen_ci_low_per_decade": 0.0,
+    "sen_ci_high_per_decade": 12.86,
+    "early_mean": 45.2,
+    "late_mean": 81.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 155,
+      "mk_z": 1.51,
+      "mk_p": 0.1311,
+      "sen_slope_per_decade": 1.4,
+      "sen_ci_low_per_decade": -0.36,
+      "sen_ci_high_per_decade": 3.06,
+      "early_mean": 10.9,
+      "late_mean": 19.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 226,
+      "mk_z": 2.201,
+      "mk_p": 0.0277,
+      "sen_slope_per_decade": 13.48,
+      "sen_ci_low_per_decade": 1.92,
+      "sen_ci_high_per_decade": 27.57,
+      "early_mean": 140.4,
+      "late_mean": 208.4
+     }
+    },
+    "robust_to_band": false
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 314,
+    "mk_z": 3.062,
+    "mk_p": 0.0022,
+    "sen_slope_per_decade": 33.98,
+    "sen_ci_low_per_decade": 13.33,
+    "sen_ci_high_per_decade": 56.07,
+    "early_mean": 457.7,
+    "late_mean": 592.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 245,
+      "mk_z": 2.388,
+      "mk_p": 0.017,
+      "sen_slope_per_decade": 19.85,
+      "sen_ci_low_per_decade": 3.0,
+      "sen_ci_high_per_decade": 37.88,
+      "early_mean": 228.7,
+      "late_mean": 324.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 320,
+      "mk_z": 3.121,
+      "mk_p": 0.0018,
+      "sen_slope_per_decade": 33.64,
+      "sen_ci_low_per_decade": 14.0,
+      "sen_ci_high_per_decade": 53.5,
+      "early_mean": 735.1,
+      "late_mean": 861.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 345,
+    "mk_z": 3.366,
+    "mk_p": 0.0008,
+    "sen_slope_per_decade": 30.69,
+    "sen_ci_low_per_decade": 12.0,
+    "sen_ci_high_per_decade": 48.25,
+    "early_mean": 854.4,
+    "late_mean": 963.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 329,
+      "mk_z": 3.21,
+      "mk_p": 0.0013,
+      "sen_slope_per_decade": 37.91,
+      "sen_ci_low_per_decade": 15.56,
+      "sen_ci_high_per_decade": 58.0,
+      "early_mean": 573.1,
+      "late_mean": 715.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 369,
+      "mk_z": 3.601,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 21.06,
+      "sen_ci_low_per_decade": 10.77,
+      "sen_ci_high_per_decade": 33.5,
+      "early_mean": 1057.1,
+      "late_mean": 1127.1
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 368,
+    "mk_z": 3.59,
+    "mk_p": 0.0003,
+    "sen_slope_per_decade": 20.14,
+    "sen_ci_low_per_decade": 10.0,
+    "sen_ci_high_per_decade": 31.67,
+    "early_mean": 1073.6,
+    "late_mean": 1140.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 358,
+      "mk_z": 3.493,
+      "mk_p": 0.0005,
+      "sen_slope_per_decade": 30.9,
+      "sen_ci_low_per_decade": 13.81,
+      "sen_ci_high_per_decade": 49.09,
+      "early_mean": 880.3,
+      "late_mean": 988.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 362,
+      "mk_z": 3.532,
+      "mk_p": 0.0004,
+      "sen_slope_per_decade": 16.74,
+      "sen_ci_low_per_decade": 8.24,
+      "sen_ci_high_per_decade": 22.11,
+      "early_mean": 1188.9,
+      "late_mean": 1241.1
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "31": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 416,
+    "mk_z": 4.064,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 12.64,
+    "sen_ci_low_per_decade": 7.06,
+    "sen_ci_high_per_decade": 18.33,
+    "early_mean": 59.9,
+    "late_mean": 114.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 392,
+      "mk_z": 3.83,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 5.0,
+      "sen_ci_low_per_decade": 2.69,
+      "sen_ci_high_per_decade": 7.69,
+      "early_mean": 23.9,
+      "late_mean": 49.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 469,
+      "mk_z": 4.579,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 25.86,
+      "sen_ci_low_per_decade": 16.32,
+      "sen_ci_high_per_decade": 35.0,
+      "early_mean": 125.2,
+      "late_mean": 230.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 486,
+    "mk_z": 4.746,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 48.48,
+    "sen_ci_low_per_decade": 31.74,
+    "sen_ci_high_per_decade": 64.4,
+    "early_mean": 325.5,
+    "late_mean": 507.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 488,
+      "mk_z": 4.765,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 34.89,
+      "sen_ci_low_per_decade": 22.86,
+      "sen_ci_high_per_decade": 47.5,
+      "early_mean": 179.6,
+      "late_mean": 316.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 500,
+      "mk_z": 4.882,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 60.2,
+      "sen_ci_low_per_decade": 41.85,
+      "sen_ci_high_per_decade": 79.31,
+      "early_mean": 514.1,
+      "late_mean": 738.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 507,
+    "mk_z": 4.951,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 60.0,
+    "sen_ci_low_per_decade": 42.63,
+    "sen_ci_high_per_decade": 80.0,
+    "early_mean": 606.7,
+    "late_mean": 831.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 500,
+      "mk_z": 4.882,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 52.41,
+      "sen_ci_low_per_decade": 33.89,
+      "sen_ci_high_per_decade": 71.0,
+      "early_mean": 404.3,
+      "late_mean": 605.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 497,
+      "mk_z": 4.853,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 58.26,
+      "sen_ci_low_per_decade": 38.97,
+      "sen_ci_high_per_decade": 75.71,
+      "early_mean": 831.3,
+      "late_mean": 1036.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 493,
+    "mk_z": 4.814,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 56.79,
+    "sen_ci_low_per_decade": 38.18,
+    "sen_ci_high_per_decade": 75.2,
+    "early_mean": 855.4,
+    "late_mean": 1055.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 506,
+      "mk_z": 4.942,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 58.45,
+      "sen_ci_low_per_decade": 43.33,
+      "sen_ci_high_per_decade": 78.0,
+      "early_mean": 632.8,
+      "late_mean": 855.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 527,
+      "mk_z": 5.146,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 48.81,
+      "sen_ci_low_per_decade": 35.71,
+      "sen_ci_high_per_decade": 62.35,
+      "early_mean": 1043.4,
+      "late_mean": 1211.2
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "32": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 466,
+    "mk_z": 4.55,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 35.71,
+    "sen_ci_low_per_decade": 21.2,
+    "sen_ci_high_per_decade": 49.55,
+    "early_mean": 301.5,
+    "late_mean": 426.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 433,
+      "mk_z": 4.227,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 26.43,
+      "sen_ci_low_per_decade": 15.2,
+      "sen_ci_high_per_decade": 37.6,
+      "early_mean": 179.6,
+      "late_mean": 278.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 467,
+      "mk_z": 4.56,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 45.0,
+      "sen_ci_low_per_decade": 26.67,
+      "sen_ci_high_per_decade": 60.0,
+      "early_mean": 460.1,
+      "late_mean": 615.7
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 489,
+    "mk_z": 4.775,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 51.67,
+    "sen_ci_low_per_decade": 34.35,
+    "sen_ci_high_per_decade": 68.4,
+    "early_mean": 763.0,
+    "late_mean": 932.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 487,
+      "mk_z": 4.755,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 50.0,
+      "sen_ci_low_per_decade": 31.67,
+      "sen_ci_high_per_decade": 66.36,
+      "early_mean": 558.4,
+      "late_mean": 736.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 497,
+      "mk_z": 4.853,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 44.55,
+      "sen_ci_low_per_decade": 27.78,
+      "sen_ci_high_per_decade": 57.78,
+      "early_mean": 956.6,
+      "late_mean": 1095.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 498,
+    "mk_z": 4.863,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 39.19,
+    "sen_ci_low_per_decade": 25.83,
+    "sen_ci_high_per_decade": 52.05,
+    "early_mean": 1025.1,
+    "late_mean": 1151.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 499,
+      "mk_z": 4.872,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 49.46,
+      "sen_ci_low_per_decade": 33.33,
+      "sen_ci_high_per_decade": 66.43,
+      "early_mean": 849.5,
+      "late_mean": 1007.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 477,
+      "mk_z": 4.657,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 30.54,
+      "sen_ci_low_per_decade": 18.46,
+      "sen_ci_high_per_decade": 40.0,
+      "early_mean": 1154.9,
+      "late_mean": 1248.7
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 462,
+    "mk_z": 4.511,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 29.31,
+    "sen_ci_low_per_decade": 17.78,
+    "sen_ci_high_per_decade": 38.67,
+    "early_mean": 1166.3,
+    "late_mean": 1258.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 491,
+      "mk_z": 4.794,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 37.25,
+      "sen_ci_low_per_decade": 24.71,
+      "sen_ci_high_per_decade": 50.94,
+      "early_mean": 1041.6,
+      "late_mean": 1165.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 447,
+      "mk_z": 4.364,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 26.12,
+      "sen_ci_low_per_decade": 15.15,
+      "sen_ci_high_per_decade": 34.57,
+      "early_mean": 1253.2,
+      "late_mean": 1335.3
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "33": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 477,
+    "mk_z": 4.657,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 32.7,
+    "sen_ci_low_per_decade": 20.0,
+    "sen_ci_high_per_decade": 45.0,
+    "early_mean": 240.2,
+    "late_mean": 371.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 465,
+      "mk_z": 4.541,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 11.58,
+      "sen_ci_high_per_decade": 30.0,
+      "early_mean": 123.7,
+      "late_mean": 209.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 498,
+      "mk_z": 4.863,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 43.25,
+      "sen_ci_low_per_decade": 26.5,
+      "sen_ci_high_per_decade": 56.67,
+      "early_mean": 410.6,
+      "late_mean": 575.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 478,
+    "mk_z": 4.667,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 41.5,
+    "sen_ci_low_per_decade": 29.44,
+    "sen_ci_high_per_decade": 56.49,
+    "early_mean": 729.9,
+    "late_mean": 895.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 505,
+      "mk_z": 4.931,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 45.33,
+      "sen_ci_low_per_decade": 31.14,
+      "sen_ci_high_per_decade": 60.0,
+      "early_mean": 523.8,
+      "late_mean": 698.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 468,
+      "mk_z": 4.569,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 34.32,
+      "sen_ci_low_per_decade": 23.75,
+      "sen_ci_high_per_decade": 47.78,
+      "early_mean": 910.6,
+      "late_mean": 1044.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 457,
+    "mk_z": 4.461,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 32.65,
+    "sen_ci_low_per_decade": 20.67,
+    "sen_ci_high_per_decade": 45.0,
+    "early_mean": 977.9,
+    "late_mean": 1104.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 498,
+      "mk_z": 4.863,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 40.58,
+      "sen_ci_low_per_decade": 29.17,
+      "sen_ci_high_per_decade": 54.17,
+      "early_mean": 807.1,
+      "late_mean": 963.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 493,
+      "mk_z": 4.814,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 25.97,
+      "sen_ci_low_per_decade": 17.14,
+      "sen_ci_high_per_decade": 34.29,
+      "early_mean": 1109.2,
+      "late_mean": 1205.8
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 490,
+    "mk_z": 4.784,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 25.68,
+    "sen_ci_low_per_decade": 16.92,
+    "sen_ci_high_per_decade": 34.67,
+    "early_mean": 1119.7,
+    "late_mean": 1215.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 470,
+      "mk_z": 4.589,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 32.09,
+      "sen_ci_low_per_decade": 20.53,
+      "sen_ci_high_per_decade": 44.07,
+      "early_mean": 993.2,
+      "late_mean": 1118.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 478,
+      "mk_z": 4.668,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 22.33,
+      "sen_ci_low_per_decade": 15.0,
+      "sen_ci_high_per_decade": 29.74,
+      "early_mean": 1209.4,
+      "late_mean": 1289.4
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "34": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 441,
+    "mk_z": 4.305,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 27.77,
+    "sen_ci_low_per_decade": 16.76,
+    "sen_ci_high_per_decade": 40.67,
+    "early_mean": 220.5,
+    "late_mean": 328.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 500,
+      "mk_z": 4.883,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 20.44,
+      "sen_ci_low_per_decade": 13.33,
+      "sen_ci_high_per_decade": 28.0,
+      "early_mean": 122.3,
+      "late_mean": 199.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 473,
+      "mk_z": 4.618,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 41.61,
+      "sen_ci_low_per_decade": 25.0,
+      "sen_ci_high_per_decade": 57.5,
+      "early_mean": 346.3,
+      "late_mean": 501.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 502,
+    "mk_z": 4.902,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 54.62,
+    "sen_ci_low_per_decade": 33.33,
+    "sen_ci_high_per_decade": 73.5,
+    "early_mean": 617.2,
+    "late_mean": 819.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 482,
+      "mk_z": 4.706,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 48.28,
+      "sen_ci_low_per_decade": 27.78,
+      "sen_ci_high_per_decade": 64.0,
+      "early_mean": 433.5,
+      "late_mean": 614.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 483,
+      "mk_z": 4.715,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 51.2,
+      "sen_ci_low_per_decade": 32.35,
+      "sen_ci_high_per_decade": 72.11,
+      "early_mean": 820.3,
+      "late_mean": 1002.7
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 490,
+    "mk_z": 4.784,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 47.21,
+    "sen_ci_low_per_decade": 32.0,
+    "sen_ci_high_per_decade": 67.62,
+    "early_mean": 897.8,
+    "late_mean": 1068.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 478,
+      "mk_z": 4.667,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 52.88,
+      "sen_ci_low_per_decade": 33.68,
+      "sen_ci_high_per_decade": 73.48,
+      "early_mean": 706.1,
+      "late_mean": 904.7
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 489,
+      "mk_z": 4.774,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 38.68,
+      "sen_ci_low_per_decade": 25.42,
+      "sen_ci_high_per_decade": 52.0,
+      "early_mean": 1056.8,
+      "late_mean": 1189.9
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 475,
+    "mk_z": 4.638,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 36.67,
+    "sen_ci_low_per_decade": 24.44,
+    "sen_ci_high_per_decade": 49.13,
+    "early_mean": 1073.0,
+    "late_mean": 1200.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 483,
+      "mk_z": 4.715,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 47.24,
+      "sen_ci_low_per_decade": 30.77,
+      "sen_ci_high_per_decade": 66.0,
+      "early_mean": 918.9,
+      "late_mean": 1085.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 471,
+      "mk_z": 4.599,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 33.21,
+      "sen_ci_low_per_decade": 20.77,
+      "sen_ci_high_per_decade": 44.12,
+      "early_mean": 1180.0,
+      "late_mean": 1288.2
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "35": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 322,
+    "mk_z": 3.185,
+    "mk_p": 0.0014,
+    "sen_slope_per_decade": 0.88,
+    "sen_ci_low_per_decade": 0.0,
+    "sen_ci_high_per_decade": 1.43,
+    "early_mean": 2.0,
+    "late_mean": 6.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 267,
+      "mk_z": 2.725,
+      "mk_p": 0.0064,
+      "sen_slope_per_decade": 0.26,
+      "sen_ci_low_per_decade": 0.0,
+      "sen_ci_high_per_decade": 0.57,
+      "early_mean": 0.6,
+      "late_mean": 2.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 313,
+      "mk_z": 3.064,
+      "mk_p": 0.0022,
+      "sen_slope_per_decade": 1.93,
+      "sen_ci_low_per_decade": 0.67,
+      "sen_ci_high_per_decade": 3.03,
+      "early_mean": 5.9,
+      "late_mean": 15.1
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 392,
+    "mk_z": 3.834,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 5.29,
+    "sen_ci_low_per_decade": 2.5,
+    "sen_ci_high_per_decade": 7.86,
+    "early_mean": 23.8,
+    "late_mean": 46.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 354,
+      "mk_z": 3.464,
+      "mk_p": 0.0005,
+      "sen_slope_per_decade": 2.5,
+      "sen_ci_low_per_decade": 1.11,
+      "sen_ci_high_per_decade": 4.0,
+      "early_mean": 10.5,
+      "late_mean": 22.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 441,
+      "mk_z": 4.308,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 9.51,
+      "sen_ci_low_per_decade": 5.45,
+      "sen_ci_high_per_decade": 13.6,
+      "early_mean": 50.7,
+      "late_mean": 88.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 448,
+    "mk_z": 4.378,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 10.73,
+    "sen_ci_low_per_decade": 6.84,
+    "sen_ci_high_per_decade": 16.0,
+    "early_mean": 68.0,
+    "late_mean": 112.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 472,
+      "mk_z": 4.617,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 7.75,
+      "sen_ci_low_per_decade": 4.74,
+      "sen_ci_high_per_decade": 10.91,
+      "early_mean": 32.3,
+      "late_mean": 63.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 481,
+      "mk_z": 4.7,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 15.87,
+      "sen_ci_low_per_decade": 10.0,
+      "sen_ci_high_per_decade": 20.25,
+      "early_mean": 120.3,
+      "late_mean": 176.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 459,
+    "mk_z": 4.483,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 15.83,
+    "sen_ci_low_per_decade": 9.29,
+    "sen_ci_high_per_decade": 21.25,
+    "early_mean": 128.0,
+    "late_mean": 185.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 443,
+      "mk_z": 4.326,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 10.98,
+      "sen_ci_low_per_decade": 6.8,
+      "sen_ci_high_per_decade": 16.5,
+      "early_mean": 73.4,
+      "late_mean": 118.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 488,
+      "mk_z": 4.764,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 14.29,
+      "sen_ci_high_per_decade": 27.0,
+      "early_mean": 200.9,
+      "late_mean": 271.9
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "36": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 364,
+    "mk_z": 3.563,
+    "mk_p": 0.0004,
+    "sen_slope_per_decade": 2.22,
+    "sen_ci_low_per_decade": 1.07,
+    "sen_ci_high_per_decade": 3.33,
+    "early_mean": 8.7,
+    "late_mean": 18.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 284,
+      "mk_z": 2.807,
+      "mk_p": 0.005,
+      "sen_slope_per_decade": 0.91,
+      "sen_ci_low_per_decade": 0.0,
+      "sen_ci_high_per_decade": 1.43,
+      "early_mean": 3.8,
+      "late_mean": 7.7
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 366,
+      "mk_z": 3.574,
+      "mk_p": 0.0004,
+      "sen_slope_per_decade": 5.65,
+      "sen_ci_low_per_decade": 2.67,
+      "sen_ci_high_per_decade": 8.57,
+      "early_mean": 24.8,
+      "late_mean": 48.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 358,
+    "mk_z": 3.494,
+    "mk_p": 0.0005,
+    "sen_slope_per_decade": 15.69,
+    "sen_ci_low_per_decade": 7.71,
+    "sen_ci_high_per_decade": 23.75,
+    "early_mean": 107.7,
+    "late_mean": 172.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 353,
+      "mk_z": 3.447,
+      "mk_p": 0.0006,
+      "sen_slope_per_decade": 7.78,
+      "sen_ci_low_per_decade": 3.33,
+      "sen_ci_high_per_decade": 12.17,
+      "early_mean": 44.8,
+      "late_mean": 77.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 341,
+      "mk_z": 3.327,
+      "mk_p": 0.0009,
+      "sen_slope_per_decade": 25.0,
+      "sen_ci_low_per_decade": 12.76,
+      "sen_ci_high_per_decade": 40.3,
+      "early_mean": 230.2,
+      "late_mean": 326.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 365,
+    "mk_z": 3.562,
+    "mk_p": 0.0004,
+    "sen_slope_per_decade": 31.07,
+    "sen_ci_low_per_decade": 15.93,
+    "sen_ci_high_per_decade": 47.84,
+    "early_mean": 301.0,
+    "late_mean": 416.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 331,
+      "mk_z": 3.23,
+      "mk_p": 0.0012,
+      "sen_slope_per_decade": 19.38,
+      "sen_ci_low_per_decade": 7.89,
+      "sen_ci_high_per_decade": 29.03,
+      "early_mean": 154.5,
+      "late_mean": 229.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 396,
+      "mk_z": 3.864,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 42.32,
+      "sen_ci_low_per_decade": 25.61,
+      "sen_ci_high_per_decade": 64.76,
+      "early_mean": 533.2,
+      "late_mean": 690.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 401,
+    "mk_z": 3.914,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 45.25,
+    "sen_ci_low_per_decade": 24.29,
+    "sen_ci_high_per_decade": 65.5,
+    "early_mean": 564.2,
+    "late_mean": 724.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 361,
+      "mk_z": 3.522,
+      "mk_p": 0.0004,
+      "sen_slope_per_decade": 32.55,
+      "sen_ci_low_per_decade": 17.86,
+      "sen_ci_high_per_decade": 50.0,
+      "early_mean": 321.2,
+      "late_mean": 443.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 451,
+      "mk_z": 4.403,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 52.32,
+      "sen_ci_low_per_decade": 32.0,
+      "sen_ci_high_per_decade": 71.25,
+      "early_mean": 858.7,
+      "late_mean": 1033.0
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "37": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 299,
+    "mk_z": 2.916,
+    "mk_p": 0.0035,
+    "sen_slope_per_decade": 8.81,
+    "sen_ci_low_per_decade": 3.0,
+    "sen_ci_high_per_decade": 15.24,
+    "early_mean": 63.4,
+    "late_mean": 107.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 290,
+      "mk_z": 2.831,
+      "mk_p": 0.0046,
+      "sen_slope_per_decade": 4.0,
+      "sen_ci_low_per_decade": 1.3,
+      "sen_ci_high_per_decade": 7.5,
+      "early_mean": 18.1,
+      "late_mean": 38.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 347,
+      "mk_z": 3.385,
+      "mk_p": 0.0007,
+      "sen_slope_per_decade": 19.56,
+      "sen_ci_low_per_decade": 8.95,
+      "sen_ci_high_per_decade": 31.43,
+      "early_mean": 162.2,
+      "late_mean": 248.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 403,
+    "mk_z": 3.933,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 35.92,
+    "sen_ci_low_per_decade": 21.43,
+    "sen_ci_high_per_decade": 53.75,
+    "early_mean": 437.3,
+    "late_mean": 549.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 395,
+      "mk_z": 3.855,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 28.57,
+      "sen_ci_low_per_decade": 13.64,
+      "sen_ci_high_per_decade": 40.74,
+      "early_mean": 245.2,
+      "late_mean": 348.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 417,
+      "mk_z": 4.07,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 40.0,
+      "sen_ci_low_per_decade": 22.78,
+      "sen_ci_high_per_decade": 54.29,
+      "early_mean": 650.4,
+      "late_mean": 758.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 415,
+    "mk_z": 4.051,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 32.98,
+    "sen_ci_low_per_decade": 17.0,
+    "sen_ci_high_per_decade": 48.8,
+    "early_mean": 739.4,
+    "late_mean": 832.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 415,
+      "mk_z": 4.051,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 38.94,
+      "sen_ci_low_per_decade": 22.0,
+      "sen_ci_high_per_decade": 55.81,
+      "early_mean": 527.1,
+      "late_mean": 644.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 348,
+      "mk_z": 3.397,
+      "mk_p": 0.0007,
+      "sen_slope_per_decade": 18.85,
+      "sen_ci_low_per_decade": 7.65,
+      "sen_ci_high_per_decade": 31.25,
+      "early_mean": 915.2,
+      "late_mean": 980.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 335,
+    "mk_z": 3.268,
+    "mk_p": 0.0011,
+    "sen_slope_per_decade": 18.64,
+    "sen_ci_low_per_decade": 7.69,
+    "sen_ci_high_per_decade": 30.83,
+    "early_mean": 929.4,
+    "late_mean": 993.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 418,
+      "mk_z": 4.08,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 32.47,
+      "sen_ci_low_per_decade": 16.96,
+      "sen_ci_high_per_decade": 46.67,
+      "early_mean": 761.3,
+      "late_mean": 853.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 290,
+      "mk_z": 2.827,
+      "mk_p": 0.0047,
+      "sen_slope_per_decade": 15.61,
+      "sen_ci_low_per_decade": 6.0,
+      "sen_ci_high_per_decade": 24.29,
+      "early_mean": 1043.9,
+      "late_mean": 1089.7
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "38": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 268,
+    "mk_z": 2.613,
+    "mk_p": 0.009,
+    "sen_slope_per_decade": 11.25,
+    "sen_ci_low_per_decade": 3.93,
+    "sen_ci_high_per_decade": 19.6,
+    "early_mean": 285.7,
+    "late_mean": 321.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 284,
+      "mk_z": 2.769,
+      "mk_p": 0.0056,
+      "sen_slope_per_decade": 10.0,
+      "sen_ci_low_per_decade": 3.24,
+      "sen_ci_high_per_decade": 16.0,
+      "early_mean": 166.3,
+      "late_mean": 193.7
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 306,
+      "mk_z": 2.985,
+      "mk_p": 0.0028,
+      "sen_slope_per_decade": 15.58,
+      "sen_ci_low_per_decade": 6.67,
+      "sen_ci_high_per_decade": 26.25,
+      "early_mean": 425.6,
+      "late_mean": 477.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 242,
+    "mk_z": 2.358,
+    "mk_p": 0.0184,
+    "sen_slope_per_decade": 13.71,
+    "sen_ci_low_per_decade": 3.67,
+    "sen_ci_high_per_decade": 26.92,
+    "early_mean": 659.1,
+    "late_mean": 710.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 298,
+      "mk_z": 2.906,
+      "mk_p": 0.0037,
+      "sen_slope_per_decade": 16.04,
+      "sen_ci_low_per_decade": 6.47,
+      "sen_ci_high_per_decade": 26.92,
+      "early_mean": 510.4,
+      "late_mean": 563.1
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 172,
+      "mk_z": 1.673,
+      "mk_p": 0.0943,
+      "sen_slope_per_decade": 10.45,
+      "sen_ci_low_per_decade": -2.38,
+      "sen_ci_high_per_decade": 23.93,
+      "early_mean": 798.7,
+      "late_mean": 835.7
+     }
+    },
+    "robust_to_band": false
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 176,
+    "mk_z": 1.712,
+    "mk_p": 0.0868,
+    "sen_slope_per_decade": 10.0,
+    "sen_ci_low_per_decade": -1.48,
+    "sen_ci_high_per_decade": 24.4,
+    "early_mean": 849.9,
+    "late_mean": 882.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 227,
+      "mk_z": 2.212,
+      "mk_p": 0.027,
+      "sen_slope_per_decade": 14.01,
+      "sen_ci_low_per_decade": 1.88,
+      "sen_ci_high_per_decade": 26.88,
+      "early_mean": 715.5,
+      "late_mean": 766.0
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 157,
+      "mk_z": 1.526,
+      "mk_p": 0.1269,
+      "sen_slope_per_decade": 10.33,
+      "sen_ci_low_per_decade": -2.73,
+      "sen_ci_high_per_decade": 24.33,
+      "early_mean": 952.7,
+      "late_mean": 982.1
+     }
+    },
+    "robust_to_band": false
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 172,
+    "mk_z": 1.673,
+    "mk_p": 0.0943,
+    "sen_slope_per_decade": 10.6,
+    "sen_ci_low_per_decade": -3.51,
+    "sen_ci_high_per_decade": 24.0,
+    "early_mean": 962.4,
+    "late_mean": 991.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 164,
+      "mk_z": 1.595,
+      "mk_p": 0.1108,
+      "sen_slope_per_decade": 9.04,
+      "sen_ci_low_per_decade": -2.78,
+      "sen_ci_high_per_decade": 22.9,
+      "early_mean": 862.5,
+      "late_mean": 893.1
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 180,
+      "mk_z": 1.751,
+      "mk_p": 0.0799,
+      "sen_slope_per_decade": 10.85,
+      "sen_ci_low_per_decade": -1.32,
+      "sen_ci_high_per_decade": 25.17,
+      "early_mean": 1042.4,
+      "late_mean": 1072.8
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "39": {
+   "light": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 90,
+    "mk_z": 0.871,
+    "mk_p": 0.3837,
+    "sen_slope_per_decade": 1.96,
+    "sen_ci_low_per_decade": -2.61,
+    "sen_ci_high_per_decade": 5.0,
+    "early_mean": 67.1,
+    "late_mean": 66.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": -42,
+      "mk_z": -0.402,
+      "mk_p": 0.688,
+      "sen_slope_per_decade": -0.31,
+      "sen_ci_low_per_decade": -2.5,
+      "sen_ci_high_per_decade": 2.0,
+      "early_mean": 27.9,
+      "late_mean": 22.9
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 127,
+      "mk_z": 1.233,
+      "mk_p": 0.2175,
+      "sen_slope_per_decade": 3.83,
+      "sen_ci_low_per_decade": -2.94,
+      "sen_ci_high_per_decade": 9.31,
+      "early_mean": 139.2,
+      "late_mean": 145.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 209,
+    "mk_z": 2.035,
+    "mk_p": 0.0418,
+    "sen_slope_per_decade": 8.26,
+    "sen_ci_low_per_decade": 0.38,
+    "sen_ci_high_per_decade": 20.0,
+    "early_mean": 328.9,
+    "late_mean": 358.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 196,
+      "mk_z": 1.909,
+      "mk_p": 0.0563,
+      "sen_slope_per_decade": 6.57,
+      "sen_ci_low_per_decade": 0.0,
+      "sen_ci_high_per_decade": 14.12,
+      "early_mean": 193.2,
+      "late_mean": 211.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 270,
+      "mk_z": 2.633,
+      "mk_p": 0.0085,
+      "sen_slope_per_decade": 15.93,
+      "sen_ci_low_per_decade": 4.05,
+      "sen_ci_high_per_decade": 28.57,
+      "early_mean": 494.7,
+      "late_mean": 551.6
+     }
+    },
+    "robust_to_band": false
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 306,
+    "mk_z": 2.984,
+    "mk_p": 0.0028,
+    "sen_slope_per_decade": 18.91,
+    "sen_ci_low_per_decade": 5.29,
+    "sen_ci_high_per_decade": 34.44,
+    "early_mean": 576.4,
+    "late_mean": 646.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 239,
+      "mk_z": 2.329,
+      "mk_p": 0.0199,
+      "sen_slope_per_decade": 12.5,
+      "sen_ci_low_per_decade": 2.0,
+      "sen_ci_high_per_decade": 22.86,
+      "early_mean": 396.8,
+      "late_mean": 437.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 319,
+      "mk_z": 3.111,
+      "mk_p": 0.0019,
+      "sen_slope_per_decade": 22.83,
+      "sen_ci_low_per_decade": 8.18,
+      "sen_ci_high_per_decade": 37.69,
+      "early_mean": 778.8,
+      "late_mean": 864.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 307,
+    "mk_z": 2.994,
+    "mk_p": 0.0028,
+    "sen_slope_per_decade": 22.93,
+    "sen_ci_low_per_decade": 7.88,
+    "sen_ci_high_per_decade": 38.8,
+    "early_mean": 801.0,
+    "late_mean": 888.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 312,
+      "mk_z": 3.043,
+      "mk_p": 0.0023,
+      "sen_slope_per_decade": 19.79,
+      "sen_ci_low_per_decade": 8.18,
+      "sen_ci_high_per_decade": 35.0,
+      "early_mean": 595.9,
+      "late_mean": 671.7
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 353,
+      "mk_z": 3.444,
+      "mk_p": 0.0006,
+      "sen_slope_per_decade": 18.82,
+      "sen_ci_low_per_decade": 8.75,
+      "sen_ci_high_per_decade": 31.05,
+      "early_mean": 987.1,
+      "late_mean": 1063.5
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "40": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 314,
+    "mk_z": 3.063,
+    "mk_p": 0.0022,
+    "sen_slope_per_decade": 15.66,
+    "sen_ci_low_per_decade": 7.43,
+    "sen_ci_high_per_decade": 25.2,
+    "early_mean": 148.5,
+    "late_mean": 213.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 274,
+      "mk_z": 2.673,
+      "mk_p": 0.0075,
+      "sen_slope_per_decade": 9.64,
+      "sen_ci_low_per_decade": 2.93,
+      "sen_ci_high_per_decade": 16.25,
+      "early_mean": 62.5,
+      "late_mean": 110.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 369,
+      "mk_z": 3.601,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 23.1,
+      "sen_ci_low_per_decade": 11.67,
+      "sen_ci_high_per_decade": 35.71,
+      "early_mean": 288.3,
+      "late_mean": 376.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 334,
+    "mk_z": 3.258,
+    "mk_p": 0.0011,
+    "sen_slope_per_decade": 26.17,
+    "sen_ci_low_per_decade": 11.86,
+    "sen_ci_high_per_decade": 38.0,
+    "early_mean": 593.9,
+    "late_mean": 681.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 355,
+      "mk_z": 3.463,
+      "mk_p": 0.0005,
+      "sen_slope_per_decade": 24.64,
+      "sen_ci_low_per_decade": 13.64,
+      "sen_ci_high_per_decade": 37.5,
+      "early_mean": 392.7,
+      "late_mean": 481.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 302,
+      "mk_z": 2.946,
+      "mk_p": 0.0032,
+      "sen_slope_per_decade": 22.54,
+      "sen_ci_low_per_decade": 8.75,
+      "sen_ci_high_per_decade": 37.58,
+      "early_mean": 783.7,
+      "late_mean": 865.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 295,
+    "mk_z": 2.876,
+    "mk_p": 0.004,
+    "sen_slope_per_decade": 21.67,
+    "sen_ci_low_per_decade": 7.41,
+    "sen_ci_high_per_decade": 35.5,
+    "early_mean": 858.0,
+    "late_mean": 933.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 341,
+      "mk_z": 3.326,
+      "mk_p": 0.0009,
+      "sen_slope_per_decade": 26.04,
+      "sen_ci_low_per_decade": 11.74,
+      "sen_ci_high_per_decade": 37.24,
+      "early_mean": 677.2,
+      "late_mean": 763.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 309,
+      "mk_z": 3.014,
+      "mk_p": 0.0026,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 7.78,
+      "sen_ci_high_per_decade": 30.29,
+      "early_mean": 1005.3,
+      "late_mean": 1066.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 326,
+    "mk_z": 3.18,
+    "mk_p": 0.0015,
+    "sen_slope_per_decade": 20.84,
+    "sen_ci_low_per_decade": 7.78,
+    "sen_ci_high_per_decade": 30.37,
+    "early_mean": 1016.8,
+    "late_mean": 1078.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 302,
+      "mk_z": 2.945,
+      "mk_p": 0.0032,
+      "sen_slope_per_decade": 22.33,
+      "sen_ci_low_per_decade": 8.5,
+      "sen_ci_high_per_decade": 35.86,
+      "early_mean": 876.3,
+      "late_mean": 950.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 305,
+      "mk_z": 2.974,
+      "mk_p": 0.0029,
+      "sen_slope_per_decade": 17.85,
+      "sen_ci_low_per_decade": 6.36,
+      "sen_ci_high_per_decade": 27.86,
+      "early_mean": 1120.5,
+      "late_mean": 1174.3
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "41": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 387,
+    "mk_z": 3.777,
+    "mk_p": 0.0002,
+    "sen_slope_per_decade": 12.89,
+    "sen_ci_low_per_decade": 6.67,
+    "sen_ci_high_per_decade": 18.29,
+    "early_mean": 106.0,
+    "late_mean": 151.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 402,
+      "mk_z": 3.927,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 6.29,
+      "sen_ci_low_per_decade": 3.5,
+      "sen_ci_high_per_decade": 9.17,
+      "early_mean": 41.5,
+      "late_mean": 65.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 354,
+      "mk_z": 3.455,
+      "mk_p": 0.0006,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 9.09,
+      "sen_ci_high_per_decade": 27.78,
+      "early_mean": 221.6,
+      "late_mean": 290.8
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 331,
+    "mk_z": 3.229,
+    "mk_p": 0.0012,
+    "sen_slope_per_decade": 20.63,
+    "sen_ci_low_per_decade": 10.0,
+    "sen_ci_high_per_decade": 31.76,
+    "early_mean": 481.9,
+    "late_mean": 557.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 371,
+      "mk_z": 3.62,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 20.65,
+      "sen_ci_low_per_decade": 10.0,
+      "sen_ci_high_per_decade": 31.82,
+      "early_mean": 307.3,
+      "late_mean": 381.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 302,
+      "mk_z": 2.945,
+      "mk_p": 0.0032,
+      "sen_slope_per_decade": 16.6,
+      "sen_ci_low_per_decade": 5.19,
+      "sen_ci_high_per_decade": 27.5,
+      "early_mean": 652.9,
+      "late_mean": 714.1
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 253,
+    "mk_z": 2.465,
+    "mk_p": 0.0137,
+    "sen_slope_per_decade": 15.37,
+    "sen_ci_low_per_decade": 4.0,
+    "sen_ci_high_per_decade": 29.64,
+    "early_mean": 719.1,
+    "late_mean": 776.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 333,
+      "mk_z": 3.249,
+      "mk_p": 0.0012,
+      "sen_slope_per_decade": 19.33,
+      "sen_ci_low_per_decade": 8.75,
+      "sen_ci_high_per_decade": 30.56,
+      "early_mean": 552.8,
+      "late_mean": 627.2
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 187,
+      "mk_z": 1.82,
+      "mk_p": 0.0688,
+      "sen_slope_per_decade": 13.26,
+      "sen_ci_low_per_decade": -1.0,
+      "sen_ci_high_per_decade": 26.25,
+      "early_mean": 861.8,
+      "late_mean": 897.6
+     }
+    },
+    "robust_to_band": false
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 182,
+    "mk_z": 1.771,
+    "mk_p": 0.0766,
+    "sen_slope_per_decade": 12.55,
+    "sen_ci_low_per_decade": -1.32,
+    "sen_ci_high_per_decade": 26.15,
+    "early_mean": 875.1,
+    "late_mean": 908.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 252,
+      "mk_z": 2.456,
+      "mk_p": 0.0141,
+      "sen_slope_per_decade": 15.0,
+      "sen_ci_low_per_decade": 3.12,
+      "sen_ci_high_per_decade": 28.75,
+      "early_mean": 736.9,
+      "late_mean": 791.0
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 163,
+      "mk_z": 1.585,
+      "mk_p": 0.113,
+      "sen_slope_per_decade": 11.34,
+      "sen_ci_low_per_decade": -3.0,
+      "sen_ci_high_per_decade": 25.0,
+      "early_mean": 983.2,
+      "late_mean": 1009.4
+     }
+    },
+    "robust_to_band": false
+   }
+  },
+  "42": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 372,
+    "mk_z": 3.63,
+    "mk_p": 0.0003,
+    "sen_slope_per_decade": 31.87,
+    "sen_ci_low_per_decade": 13.48,
+    "sen_ci_high_per_decade": 43.5,
+    "early_mean": 284.4,
+    "late_mean": 400.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 350,
+      "mk_z": 3.415,
+      "mk_p": 0.0006,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 9.23,
+      "sen_ci_high_per_decade": 28.57,
+      "early_mean": 147.1,
+      "late_mean": 224.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 401,
+      "mk_z": 3.914,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 40.0,
+      "sen_ci_low_per_decade": 18.71,
+      "sen_ci_high_per_decade": 60.0,
+      "early_mean": 482.6,
+      "late_mean": 651.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 389,
+    "mk_z": 3.796,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 44.14,
+    "sen_ci_low_per_decade": 24.48,
+    "sen_ci_high_per_decade": 63.23,
+    "early_mean": 911.3,
+    "late_mean": 1083.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 394,
+      "mk_z": 3.846,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 41.87,
+      "sen_ci_low_per_decade": 20.0,
+      "sen_ci_high_per_decade": 64.62,
+      "early_mean": 630.6,
+      "late_mean": 806.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 380,
+      "mk_z": 3.709,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 36.28,
+      "sen_ci_low_per_decade": 17.08,
+      "sen_ci_high_per_decade": 52.69,
+      "early_mean": 1175.3,
+      "late_mean": 1318.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 357,
+    "mk_z": 3.483,
+    "mk_p": 0.0005,
+    "sen_slope_per_decade": 29.61,
+    "sen_ci_low_per_decade": 13.06,
+    "sen_ci_high_per_decade": 43.64,
+    "early_mean": 1274.2,
+    "late_mean": 1394.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 389,
+      "mk_z": 3.796,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 41.37,
+      "sen_ci_low_per_decade": 22.22,
+      "sen_ci_high_per_decade": 58.61,
+      "early_mean": 1027.2,
+      "late_mean": 1188.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 367,
+      "mk_z": 3.581,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 22.0,
+      "sen_ci_low_per_decade": 10.91,
+      "sen_ci_high_per_decade": 31.79,
+      "early_mean": 1458.6,
+      "late_mean": 1543.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 359,
+    "mk_z": 3.503,
+    "mk_p": 0.0005,
+    "sen_slope_per_decade": 21.42,
+    "sen_ci_low_per_decade": 10.0,
+    "sen_ci_high_per_decade": 30.37,
+    "early_mean": 1474.5,
+    "late_mean": 1555.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 374,
+      "mk_z": 3.65,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 29.37,
+      "sen_ci_low_per_decade": 14.0,
+      "sen_ci_high_per_decade": 42.5,
+      "early_mean": 1295.6,
+      "late_mean": 1414.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 308,
+      "mk_z": 3.004,
+      "mk_p": 0.0027,
+      "sen_slope_per_decade": 11.27,
+      "sen_ci_low_per_decade": 4.17,
+      "sen_ci_high_per_decade": 18.85,
+      "early_mean": 1596.6,
+      "late_mean": 1640.1
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "43": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 282,
+    "mk_z": 2.75,
+    "mk_p": 0.006,
+    "sen_slope_per_decade": 17.21,
+    "sen_ci_low_per_decade": 5.0,
+    "sen_ci_high_per_decade": 34.4,
+    "early_mean": 188.0,
+    "late_mean": 285.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 202,
+      "mk_z": 1.967,
+      "mk_p": 0.0491,
+      "sen_slope_per_decade": 7.18,
+      "sen_ci_low_per_decade": 0.0,
+      "sen_ci_high_per_decade": 17.14,
+      "early_mean": 99.7,
+      "late_mean": 150.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 336,
+      "mk_z": 3.278,
+      "mk_p": 0.001,
+      "sen_slope_per_decade": 32.5,
+      "sen_ci_low_per_decade": 13.33,
+      "sen_ci_high_per_decade": 55.25,
+      "early_mean": 335.8,
+      "late_mean": 494.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 337,
+    "mk_z": 3.287,
+    "mk_p": 0.001,
+    "sen_slope_per_decade": 49.09,
+    "sen_ci_low_per_decade": 22.5,
+    "sen_ci_high_per_decade": 77.69,
+    "early_mean": 717.8,
+    "late_mean": 951.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 328,
+      "mk_z": 3.199,
+      "mk_p": 0.0014,
+      "sen_slope_per_decade": 39.63,
+      "sen_ci_low_per_decade": 13.89,
+      "sen_ci_high_per_decade": 60.0,
+      "early_mean": 458.4,
+      "late_mean": 639.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 355,
+      "mk_z": 3.463,
+      "mk_p": 0.0005,
+      "sen_slope_per_decade": 54.44,
+      "sen_ci_low_per_decade": 25.83,
+      "sen_ci_high_per_decade": 85.41,
+      "early_mean": 1025.9,
+      "late_mean": 1281.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 355,
+    "mk_z": 3.463,
+    "mk_p": 0.0005,
+    "sen_slope_per_decade": 53.3,
+    "sen_ci_low_per_decade": 24.44,
+    "sen_ci_high_per_decade": 80.0,
+    "early_mean": 1160.6,
+    "late_mean": 1402.7,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 333,
+      "mk_z": 3.248,
+      "mk_p": 0.0012,
+      "sen_slope_per_decade": 52.61,
+      "sen_ci_low_per_decade": 21.3,
+      "sen_ci_high_per_decade": 82.07,
+      "early_mean": 847.4,
+      "late_mean": 1094.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 396,
+      "mk_z": 3.864,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 41.11,
+      "sen_ci_low_per_decade": 22.41,
+      "sen_ci_high_per_decade": 61.11,
+      "early_mean": 1429.4,
+      "late_mean": 1605.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 373,
+    "mk_z": 3.64,
+    "mk_p": 0.0003,
+    "sen_slope_per_decade": 38.17,
+    "sen_ci_low_per_decade": 20.0,
+    "sen_ci_high_per_decade": 57.5,
+    "early_mean": 1455.3,
+    "late_mean": 1623.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 350,
+      "mk_z": 3.414,
+      "mk_p": 0.0006,
+      "sen_slope_per_decade": 52.33,
+      "sen_ci_low_per_decade": 23.81,
+      "sen_ci_high_per_decade": 78.11,
+      "early_mean": 1194.6,
+      "late_mean": 1429.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 354,
+      "mk_z": 3.456,
+      "mk_p": 0.0005,
+      "sen_slope_per_decade": 22.58,
+      "sen_ci_low_per_decade": 11.21,
+      "sen_ci_high_per_decade": 34.59,
+      "early_mean": 1634.5,
+      "late_mean": 1735.8
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "44": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 445,
+    "mk_z": 4.344,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 21.09,
+    "sen_ci_low_per_decade": 12.0,
+    "sen_ci_high_per_decade": 30.43,
+    "early_mean": 142.7,
+    "late_mean": 234.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 409,
+      "mk_z": 3.994,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 12.7,
+      "sen_ci_low_per_decade": 7.14,
+      "sen_ci_high_per_decade": 19.38,
+      "early_mean": 68.4,
+      "late_mean": 126.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 430,
+      "mk_z": 4.198,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 30.0,
+      "sen_ci_low_per_decade": 17.78,
+      "sen_ci_high_per_decade": 44.0,
+      "early_mean": 260.5,
+      "late_mean": 385.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 446,
+    "mk_z": 4.354,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 43.08,
+    "sen_ci_low_per_decade": 26.57,
+    "sen_ci_high_per_decade": 62.22,
+    "early_mean": 539.6,
+    "late_mean": 713.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 443,
+      "mk_z": 4.324,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 35.0,
+      "sen_ci_low_per_decade": 22.0,
+      "sen_ci_high_per_decade": 50.97,
+      "early_mean": 347.1,
+      "late_mean": 496.0
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 492,
+      "mk_z": 4.804,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 49.57,
+      "sen_ci_low_per_decade": 34.44,
+      "sen_ci_high_per_decade": 66.67,
+      "early_mean": 755.4,
+      "late_mean": 939.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 490,
+    "mk_z": 4.784,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 48.56,
+    "sen_ci_low_per_decade": 33.0,
+    "sen_ci_high_per_decade": 63.89,
+    "early_mean": 851.6,
+    "late_mean": 1030.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 455,
+      "mk_z": 4.441,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 45.72,
+      "sen_ci_low_per_decade": 31.67,
+      "sen_ci_high_per_decade": 64.62,
+      "early_mean": 632.2,
+      "late_mean": 808.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 531,
+      "mk_z": 5.187,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 45.8,
+      "sen_ci_low_per_decade": 32.27,
+      "sen_ci_high_per_decade": 58.12,
+      "early_mean": 1054.2,
+      "late_mean": 1216.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 526,
+    "mk_z": 5.136,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 44.69,
+    "sen_ci_low_per_decade": 31.54,
+    "sen_ci_high_per_decade": 55.94,
+    "early_mean": 1076.2,
+    "late_mean": 1231.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 505,
+      "mk_z": 4.931,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 49.83,
+      "sen_ci_low_per_decade": 33.75,
+      "sen_ci_high_per_decade": 64.75,
+      "early_mean": 873.6,
+      "late_mean": 1054.2
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 504,
+      "mk_z": 4.922,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 33.43,
+      "sen_ci_low_per_decade": 23.23,
+      "sen_ci_high_per_decade": 44.29,
+      "early_mean": 1235.3,
+      "late_mean": 1352.5
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "45": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 472,
+    "mk_z": 4.608,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 22.58,
+    "sen_ci_low_per_decade": 13.33,
+    "sen_ci_high_per_decade": 31.43,
+    "early_mean": 224.2,
+    "late_mean": 299.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 409,
+      "mk_z": 3.993,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 14.88,
+      "sen_ci_low_per_decade": 8.24,
+      "sen_ci_high_per_decade": 21.67,
+      "early_mean": 129.7,
+      "late_mean": 185.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 422,
+      "mk_z": 4.119,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 25.5,
+      "sen_ci_low_per_decade": 12.5,
+      "sen_ci_high_per_decade": 36.86,
+      "early_mean": 358.1,
+      "late_mean": 443.4
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 366,
+    "mk_z": 3.571,
+    "mk_p": 0.0004,
+    "sen_slope_per_decade": 24.78,
+    "sen_ci_low_per_decade": 12.14,
+    "sen_ci_high_per_decade": 37.27,
+    "early_mean": 643.0,
+    "late_mean": 721.3,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 414,
+      "mk_z": 4.041,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 29.05,
+      "sen_ci_low_per_decade": 15.0,
+      "sen_ci_high_per_decade": 40.95,
+      "early_mean": 444.1,
+      "late_mean": 539.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 284,
+      "mk_z": 2.769,
+      "mk_p": 0.0056,
+      "sen_slope_per_decade": 15.92,
+      "sen_ci_low_per_decade": 4.55,
+      "sen_ci_high_per_decade": 25.88,
+      "early_mean": 858.0,
+      "late_mean": 896.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 223,
+    "mk_z": 2.172,
+    "mk_p": 0.0298,
+    "sen_slope_per_decade": 10.0,
+    "sen_ci_low_per_decade": 0.95,
+    "sen_ci_high_per_decade": 20.0,
+    "early_mean": 940.3,
+    "late_mean": 960.9,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 363,
+      "mk_z": 3.542,
+      "mk_p": 0.0004,
+      "sen_slope_per_decade": 22.39,
+      "sen_ci_low_per_decade": 10.91,
+      "sen_ci_high_per_decade": 32.58,
+      "early_mean": 735.8,
+      "late_mean": 800.2
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 105,
+      "mk_z": 1.018,
+      "mk_p": 0.3088,
+      "sen_slope_per_decade": 3.87,
+      "sen_ci_low_per_decade": -4.62,
+      "sen_ci_high_per_decade": 14.17,
+      "early_mean": 1091.6,
+      "late_mean": 1100.7
+     }
+    },
+    "robust_to_band": false
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 115,
+    "mk_z": 1.115,
+    "mk_p": 0.2647,
+    "sen_slope_per_decade": 4.66,
+    "sen_ci_low_per_decade": -3.71,
+    "sen_ci_high_per_decade": 14.55,
+    "early_mean": 1104.4,
+    "late_mean": 1113.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 221,
+      "mk_z": 2.154,
+      "mk_p": 0.0313,
+      "sen_slope_per_decade": 9.4,
+      "sen_ci_low_per_decade": 0.74,
+      "sen_ci_high_per_decade": 19.23,
+      "early_mean": 958.1,
+      "late_mean": 980.1
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 89,
+      "mk_z": 0.861,
+      "mk_p": 0.3893,
+      "sen_slope_per_decade": 4.0,
+      "sen_ci_low_per_decade": -6.13,
+      "sen_ci_high_per_decade": 14.44,
+      "early_mean": 1227.1,
+      "late_mean": 1231.0
+     }
+    },
+    "robust_to_band": false
+   }
+  },
+  "46": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 245,
+    "mk_z": 2.388,
+    "mk_p": 0.0169,
+    "sen_slope_per_decade": 14.23,
+    "sen_ci_low_per_decade": 1.33,
+    "sen_ci_high_per_decade": 25.31,
+    "early_mean": 86.2,
+    "late_mean": 172.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 291,
+      "mk_z": 2.839,
+      "mk_p": 0.0045,
+      "sen_slope_per_decade": 9.33,
+      "sen_ci_low_per_decade": 2.5,
+      "sen_ci_high_per_decade": 15.71,
+      "early_mean": 44.4,
+      "late_mean": 96.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 232,
+      "mk_z": 2.26,
+      "mk_p": 0.0238,
+      "sen_slope_per_decade": 18.54,
+      "sen_ci_low_per_decade": 1.72,
+      "sen_ci_high_per_decade": 37.14,
+      "early_mean": 159.5,
+      "late_mean": 282.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 287,
+    "mk_z": 2.799,
+    "mk_p": 0.0051,
+    "sen_slope_per_decade": 37.94,
+    "sen_ci_low_per_decade": 8.33,
+    "sen_ci_high_per_decade": 67.5,
+    "early_mean": 361.7,
+    "late_mean": 584.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 236,
+      "mk_z": 2.3,
+      "mk_p": 0.0215,
+      "sen_slope_per_decade": 23.72,
+      "sen_ci_low_per_decade": 2.5,
+      "sen_ci_high_per_decade": 46.21,
+      "early_mean": 214.1,
+      "late_mean": 371.7
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 300,
+      "mk_z": 2.925,
+      "mk_p": 0.0034,
+      "sen_slope_per_decade": 48.4,
+      "sen_ci_low_per_decade": 15.33,
+      "sen_ci_high_per_decade": 86.0,
+      "early_mean": 604.2,
+      "late_mean": 879.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 333,
+    "mk_z": 3.248,
+    "mk_p": 0.0012,
+    "sen_slope_per_decade": 55.34,
+    "sen_ci_low_per_decade": 20.0,
+    "sen_ci_high_per_decade": 95.14,
+    "early_mean": 729.9,
+    "late_mean": 1022.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 272,
+      "mk_z": 2.652,
+      "mk_p": 0.008,
+      "sen_slope_per_decade": 41.48,
+      "sen_ci_low_per_decade": 8.18,
+      "sen_ci_high_per_decade": 76.36,
+      "early_mean": 460.8,
+      "late_mean": 706.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 367,
+      "mk_z": 3.581,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 67.89,
+      "sen_ci_low_per_decade": 30.67,
+      "sen_ci_high_per_decade": 106.25,
+      "early_mean": 1046.9,
+      "late_mean": 1366.1
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 389,
+    "mk_z": 3.796,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 68.82,
+    "sen_ci_low_per_decade": 31.11,
+    "sen_ci_high_per_decade": 108.12,
+    "early_mean": 1081.9,
+    "late_mean": 1403.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 329,
+      "mk_z": 3.209,
+      "mk_p": 0.0013,
+      "sen_slope_per_decade": 56.34,
+      "sen_ci_low_per_decade": 20.0,
+      "sen_ci_high_per_decade": 93.23,
+      "early_mean": 765.6,
+      "late_mean": 1057.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 403,
+      "mk_z": 3.933,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 59.16,
+      "sen_ci_low_per_decade": 32.86,
+      "sen_ci_high_per_decade": 85.0,
+      "early_mean": 1416.4,
+      "late_mean": 1672.3
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "47": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 279,
+    "mk_z": 2.72,
+    "mk_p": 0.0065,
+    "sen_slope_per_decade": 19.35,
+    "sen_ci_low_per_decade": 4.8,
+    "sen_ci_high_per_decade": 38.62,
+    "early_mean": 113.8,
+    "late_mean": 256.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 291,
+      "mk_z": 2.838,
+      "mk_p": 0.0045,
+      "sen_slope_per_decade": 11.19,
+      "sen_ci_low_per_decade": 3.33,
+      "sen_ci_high_per_decade": 20.0,
+      "early_mean": 57.0,
+      "late_mean": 133.9
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 297,
+      "mk_z": 2.897,
+      "mk_p": 0.0038,
+      "sen_slope_per_decade": 30.16,
+      "sen_ci_low_per_decade": 8.18,
+      "sen_ci_high_per_decade": 59.09,
+      "early_mean": 221.8,
+      "late_mean": 426.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 356,
+    "mk_z": 3.474,
+    "mk_p": 0.0005,
+    "sen_slope_per_decade": 59.21,
+    "sen_ci_low_per_decade": 21.79,
+    "sen_ci_high_per_decade": 98.18,
+    "early_mean": 552.5,
+    "late_mean": 867.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 319,
+      "mk_z": 3.112,
+      "mk_p": 0.0019,
+      "sen_slope_per_decade": 43.03,
+      "sen_ci_low_per_decade": 13.81,
+      "sen_ci_high_per_decade": 76.06,
+      "early_mean": 309.5,
+      "late_mean": 559.3
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 403,
+      "mk_z": 3.933,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 66.03,
+      "sen_ci_low_per_decade": 32.5,
+      "sen_ci_high_per_decade": 105.0,
+      "early_mean": 915.4,
+      "late_mean": 1242.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 424,
+    "mk_z": 4.138,
+    "mk_p": 0.0,
+    "sen_slope_per_decade": 72.46,
+    "sen_ci_low_per_decade": 36.8,
+    "sen_ci_high_per_decade": 107.06,
+    "early_mean": 1093.2,
+    "late_mean": 1409.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 369,
+      "mk_z": 3.6,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 60.67,
+      "sen_ci_low_per_decade": 26.67,
+      "sen_ci_high_per_decade": 97.69,
+      "early_mean": 700.5,
+      "late_mean": 1016.7
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 410,
+      "mk_z": 4.002,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 53.44,
+      "sen_ci_low_per_decade": 28.82,
+      "sen_ci_high_per_decade": 75.0,
+      "early_mean": 1532.3,
+      "late_mean": 1714.3
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 406,
+    "mk_z": 3.962,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 46.57,
+    "sen_ci_low_per_decade": 27.0,
+    "sen_ci_high_per_decade": 70.0,
+    "early_mean": 1572.4,
+    "late_mean": 1736.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 429,
+      "mk_z": 4.187,
+      "mk_p": 0.0,
+      "sen_slope_per_decade": 72.07,
+      "sen_ci_low_per_decade": 37.65,
+      "sen_ci_high_per_decade": 105.24,
+      "early_mean": 1139.3,
+      "late_mean": 1449.9
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": -8,
+      "mk_z": -0.069,
+      "mk_p": 0.9454,
+      "sen_slope_per_decade": -0.17,
+      "sen_ci_low_per_decade": -8.0,
+      "sen_ci_high_per_decade": 7.78,
+      "early_mean": 1835.4,
+      "late_mean": 1836.9
+     }
+    },
+    "robust_to_band": false
+   }
+  },
+  "48": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 347,
+    "mk_z": 3.386,
+    "mk_p": 0.0007,
+    "sen_slope_per_decade": 18.89,
+    "sen_ci_low_per_decade": 8.52,
+    "sen_ci_high_per_decade": 31.29,
+    "early_mean": 434.9,
+    "late_mean": 504.2,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 314,
+      "mk_z": 3.062,
+      "mk_p": 0.0022,
+      "sen_slope_per_decade": 13.25,
+      "sen_ci_low_per_decade": 5.19,
+      "sen_ci_high_per_decade": 23.08,
+      "early_mean": 257.6,
+      "late_mean": 309.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 329,
+      "mk_z": 3.209,
+      "mk_p": 0.0013,
+      "sen_slope_per_decade": 22.25,
+      "sen_ci_low_per_decade": 9.62,
+      "sen_ci_high_per_decade": 36.25,
+      "early_mean": 656.0,
+      "late_mean": 738.6
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 345,
+    "mk_z": 3.366,
+    "mk_p": 0.0008,
+    "sen_slope_per_decade": 26.84,
+    "sen_ci_low_per_decade": 11.67,
+    "sen_ci_high_per_decade": 40.4,
+    "early_mean": 1016.1,
+    "late_mean": 1106.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 304,
+      "mk_z": 2.965,
+      "mk_p": 0.003,
+      "sen_slope_per_decade": 23.52,
+      "sen_ci_low_per_decade": 8.0,
+      "sen_ci_high_per_decade": 39.64,
+      "early_mean": 790.8,
+      "late_mean": 882.4
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 333,
+      "mk_z": 3.249,
+      "mk_p": 0.0012,
+      "sen_slope_per_decade": 20.0,
+      "sen_ci_low_per_decade": 9.57,
+      "sen_ci_high_per_decade": 31.71,
+      "early_mean": 1211.6,
+      "late_mean": 1273.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 291,
+    "mk_z": 2.838,
+    "mk_p": 0.0045,
+    "sen_slope_per_decade": 16.55,
+    "sen_ci_low_per_decade": 5.71,
+    "sen_ci_high_per_decade": 26.67,
+    "early_mean": 1279.8,
+    "late_mean": 1328.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 373,
+      "mk_z": 3.64,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 23.37,
+      "sen_ci_low_per_decade": 10.94,
+      "sen_ci_high_per_decade": 37.5,
+      "early_mean": 1103.8,
+      "late_mean": 1185.6
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 154,
+      "mk_z": 1.497,
+      "mk_p": 0.1344,
+      "sen_slope_per_decade": 6.95,
+      "sen_ci_low_per_decade": -2.31,
+      "sen_ci_high_per_decade": 16.19,
+      "early_mean": 1402.8,
+      "late_mean": 1418.3
+     }
+    },
+    "robust_to_band": false
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 160,
+    "mk_z": 1.556,
+    "mk_p": 0.1197,
+    "sen_slope_per_decade": 6.32,
+    "sen_ci_low_per_decade": -2.86,
+    "sen_ci_high_per_decade": 14.67,
+    "early_mean": 1412.7,
+    "late_mean": 1426.8,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 282,
+      "mk_z": 2.75,
+      "mk_p": 0.006,
+      "sen_slope_per_decade": 15.39,
+      "sen_ci_low_per_decade": 5.42,
+      "sen_ci_high_per_decade": 25.56,
+      "early_mean": 1294.7,
+      "late_mean": 1340.7
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 68,
+      "mk_z": 0.656,
+      "mk_p": 0.5119,
+      "sen_slope_per_decade": 3.33,
+      "sen_ci_low_per_decade": -7.27,
+      "sen_ci_high_per_decade": 12.27,
+      "early_mean": 1494.2,
+      "late_mean": 1498.7
+     }
+    },
+    "robust_to_band": false
+   }
+  },
+  "49": {
+   "light": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 408,
+    "mk_z": 3.982,
+    "mk_p": 0.0001,
+    "sen_slope_per_decade": 23.54,
+    "sen_ci_low_per_decade": 12.96,
+    "sen_ci_high_per_decade": 39.2,
+    "early_mean": 193.0,
+    "late_mean": 309.4,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 391,
+      "mk_z": 3.818,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 12.0,
+      "sen_ci_low_per_decade": 5.86,
+      "sen_ci_high_per_decade": 20.0,
+      "early_mean": 79.3,
+      "late_mean": 135.6
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 411,
+      "mk_z": 4.011,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 38.42,
+      "sen_ci_low_per_decade": 22.0,
+      "sen_ci_high_per_decade": 58.4,
+      "early_mean": 409.4,
+      "late_mean": 575.0
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 360,
+    "mk_z": 3.512,
+    "mk_p": 0.0004,
+    "sen_slope_per_decade": 41.97,
+    "sen_ci_low_per_decade": 20.0,
+    "sen_ci_high_per_decade": 63.0,
+    "early_mean": 924.6,
+    "late_mean": 1094.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 394,
+      "mk_z": 3.845,
+      "mk_p": 0.0001,
+      "sen_slope_per_decade": 42.44,
+      "sen_ci_low_per_decade": 23.33,
+      "sen_ci_high_per_decade": 65.0,
+      "early_mean": 583.2,
+      "late_mean": 754.1
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 367,
+      "mk_z": 3.581,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 40.0,
+      "sen_ci_low_per_decade": 20.0,
+      "sen_ci_high_per_decade": 55.71,
+      "early_mean": 1200.1,
+      "late_mean": 1354.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 379,
+    "mk_z": 3.698,
+    "mk_p": 0.0002,
+    "sen_slope_per_decade": 37.24,
+    "sen_ci_low_per_decade": 18.89,
+    "sen_ci_high_per_decade": 52.78,
+    "early_mean": 1301.0,
+    "late_mean": 1447.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 388,
+      "mk_z": 3.786,
+      "mk_p": 0.0002,
+      "sen_slope_per_decade": 45.09,
+      "sen_ci_low_per_decade": 22.5,
+      "sen_ci_high_per_decade": 63.16,
+      "early_mean": 1049.1,
+      "late_mean": 1216.8
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 374,
+      "mk_z": 3.65,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 25.68,
+      "sen_ci_low_per_decade": 14.35,
+      "sen_ci_high_per_decade": 39.44,
+      "early_mean": 1508.2,
+      "late_mean": 1616.2
+     }
+    },
+    "robust_to_band": true
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 363,
+    "mk_z": 3.542,
+    "mk_p": 0.0004,
+    "sen_slope_per_decade": 25.15,
+    "sen_ci_low_per_decade": 13.04,
+    "sen_ci_high_per_decade": 37.14,
+    "early_mean": 1527.8,
+    "late_mean": 1629.1,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 375,
+      "mk_z": 3.659,
+      "mk_p": 0.0003,
+      "sen_slope_per_decade": 36.74,
+      "sen_ci_low_per_decade": 19.17,
+      "sen_ci_high_per_decade": 51.43,
+      "early_mean": 1325.9,
+      "late_mean": 1470.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 288,
+      "mk_z": 2.809,
+      "mk_p": 0.005,
+      "sen_slope_per_decade": 10.98,
+      "sen_ci_low_per_decade": 3.94,
+      "sen_ci_high_per_decade": 19.25,
+      "early_mean": 1669.4,
+      "late_mean": 1715.2
+     }
+    },
+    "robust_to_band": true
+   }
+  },
+  "50": {
+   "light": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": -151,
+    "mk_z": -1.468,
+    "mk_p": 0.1422,
+    "sen_slope_per_decade": -10.24,
+    "sen_ci_low_per_decade": -25.0,
+    "sen_ci_high_per_decade": 3.75,
+    "early_mean": 413.8,
+    "late_mean": 361.6,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": -140,
+      "mk_z": -1.36,
+      "mk_p": 0.1737,
+      "sen_slope_per_decade": -8.18,
+      "sen_ci_low_per_decade": -21.11,
+      "sen_ci_high_per_decade": 3.33,
+      "early_mean": 253.5,
+      "late_mean": 208.0
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": -37,
+      "mk_z": -0.352,
+      "mk_p": 0.7247,
+      "sen_slope_per_decade": -3.33,
+      "sen_ci_low_per_decade": -16.77,
+      "sen_ci_high_per_decade": 14.71,
+      "early_mean": 611.5,
+      "late_mean": 585.5
+     }
+    },
+    "robust_to_band": true
+   },
+   "moderate": {
+    "n_years": 45,
+    "verdict": "no_detectable_trend",
+    "mk_s": 126,
+    "mk_z": 1.223,
+    "mk_p": 0.2214,
+    "sen_slope_per_decade": 12.5,
+    "sen_ci_low_per_decade": -7.5,
+    "sen_ci_high_per_decade": 30.0,
+    "early_mean": 1002.1,
+    "late_mean": 1053.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 24,
+      "mk_z": 0.225,
+      "mk_p": 0.8219,
+      "sen_slope_per_decade": 1.63,
+      "sen_ci_low_per_decade": -15.45,
+      "sen_ci_high_per_decade": 20.0,
+      "early_mean": 747.5,
+      "late_mean": 738.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 242,
+      "mk_z": 2.358,
+      "mk_p": 0.0184,
+      "sen_slope_per_decade": 27.09,
+      "sen_ci_low_per_decade": 5.0,
+      "sen_ci_high_per_decade": 47.42,
+      "early_mean": 1283.3,
+      "late_mean": 1399.7
+     }
+    },
+    "robust_to_band": false
+   },
+   "heavy": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 288,
+    "mk_z": 2.808,
+    "mk_p": 0.005,
+    "sen_slope_per_decade": 30.0,
+    "sen_ci_low_per_decade": 10.56,
+    "sen_ci_high_per_decade": 50.91,
+    "early_mean": 1408.3,
+    "late_mean": 1533.5,
+    "band": {
+     "ovl_hi": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 184,
+      "mk_z": 1.79,
+      "mk_p": 0.0734,
+      "sen_slope_per_decade": 18.54,
+      "sen_ci_low_per_decade": -2.22,
+      "sen_ci_high_per_decade": 38.75,
+      "early_mean": 1118.2,
+      "late_mean": 1204.5
+     },
+     "ovl_lo": {
+      "verdict": "increasing",
+      "mk_s": 224,
+      "mk_z": 2.182,
+      "mk_p": 0.0291,
+      "sen_slope_per_decade": 18.3,
+      "sen_ci_low_per_decade": 1.62,
+      "sen_ci_high_per_decade": 34.29,
+      "early_mean": 1649.9,
+      "late_mean": 1725.3
+     }
+    },
+    "robust_to_band": false
+   },
+   "very-high": {
+    "n_years": 45,
+    "verdict": "increasing",
+    "mk_s": 229,
+    "mk_z": 2.231,
+    "mk_p": 0.0257,
+    "sen_slope_per_decade": 18.57,
+    "sen_ci_low_per_decade": 2.86,
+    "sen_ci_high_per_decade": 33.75,
+    "early_mean": 1664.8,
+    "late_mean": 1738.0,
+    "band": {
+     "ovl_hi": {
+      "verdict": "increasing",
+      "mk_s": 293,
+      "mk_z": 2.857,
+      "mk_p": 0.0043,
+      "sen_slope_per_decade": 30.46,
+      "sen_ci_low_per_decade": 10.0,
+      "sen_ci_high_per_decade": 50.0,
+      "early_mean": 1439.0,
+      "late_mean": 1562.0
+     },
+     "ovl_lo": {
+      "verdict": "no_detectable_trend",
+      "mk_s": 43,
+      "mk_z": 0.411,
+      "mk_p": 0.6811,
+      "sen_slope_per_decade": 2.11,
+      "sen_ci_low_per_decade": -9.09,
+      "sen_ci_high_per_decade": 12.4,
+      "early_mean": 1756.2,
+      "late_mean": 1777.1
+     }
+    },
+    "robust_to_band": false
+   }
+  }
+ }
+}

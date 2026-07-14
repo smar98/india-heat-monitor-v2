@@ -4,8 +4,8 @@ pressure) for all ~50 cities from Open-Meteo in a single batched request,
 computes wet-bulb temperature (Stull 2011) and estimated WBGT (Liljegren
 2008) for every city/hour, and writes heat/data/latest.json.
 
-Run every 6 hours by .github/workflows/update-data.yml. Can also be run
-by hand from the repo root:
+Run every 3 hours (cron "0 */3 * * *") by .github/workflows/update-data.yml.
+Can also be run by hand from the repo root:
 
     python3 scripts/fetch_forecast.py
 
