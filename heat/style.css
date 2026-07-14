@@ -10,7 +10,8 @@
  *   - the FLAG (crimson, a separate hue family, never a ramp stop): reserved
  *     solely for "overlooked" — drawn as rings/notches, so under any color
  *     vision it also reads by shape and position.
- * Type: Archivo (wide-stretch display) + Public Sans (body) + IBM Plex Mono
+ * Type: Source Serif 4 (display: the register of a printed policy report) +
+ * Public Sans (body) + IBM Plex Mono
  * (data). Light paper, print-friendly. Shared by index.html and methods.html
  * (prose-page block at the bottom).
  */
@@ -31,7 +32,7 @@
   --dark-humid: #9B97B0;  /* muted: after-dark is reported, never headlined */
   --mono: "IBM Plex Mono", ui-monospace, monospace;
   --sans: "Public Sans", system-ui, sans-serif;
-  --disp: "Archivo", var(--sans);
+  --disp: "Source Serif 4", Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -62,8 +63,7 @@ a:hover { color: var(--flag); }
 }
 .brand {
   font-family: var(--disp);
-  font-weight: 800;
-  font-stretch: 118%;
+  font-weight: 700;
   letter-spacing: .06em;
   font-size: 15px;
 }
@@ -93,10 +93,9 @@ a:hover { color: var(--flag); }
 }
 .masthead h1 {
   font-family: var(--disp);
-  font-stretch: 116%;
-  font-weight: 850;
-  font-size: clamp(34px, 5.6vw, 56px);
-  line-height: 1.04;
+  font-weight: 700;
+  font-size: clamp(33px, 5.2vw, 52px);
+  line-height: 1.1;
   letter-spacing: -0.015em;
   margin: 0 0 22px;
   text-wrap: balance;
@@ -117,7 +116,7 @@ a:hover { color: var(--flag); }
   color: var(--ink-2); text-transform: uppercase;
 }
 .sec h2 {
-  font-family: var(--disp); font-stretch: 106%; font-weight: 750;
+  font-family: var(--disp); font-weight: 600;
   font-size: clamp(23px, 3.2vw, 31px); line-height: 1.16;
   letter-spacing: -0.008em; margin: 0 0 18px; max-width: 30em;
 }
@@ -136,7 +135,7 @@ a:hover { color: var(--flag); }
 }
 .rule-quote blockquote {
   margin: 0 0 8px;
-  font-family: var(--disp); font-weight: 650; font-stretch: 104%;
+  font-family: var(--disp); font-weight: 600;
   font-size: clamp(19px, 2.6vw, 25px); line-height: 1.3; color: var(--rule-blue);
 }
 .rule-quote figcaption { font-size: 13px; color: var(--ink-2); }
@@ -181,7 +180,7 @@ a:hover { color: var(--flag); }
   padding: 16px 16px 14px;
   min-width: 0;
 }
-.kpi .v { font-family: var(--disp); font-stretch: 108%; font-weight: 800; font-size: 34px; line-height: 1.05; }
+.kpi .v { font-family: var(--disp); font-weight: 700; font-size: 34px; line-height: 1.05; }
 .kpi .v small { font-size: 19px; color: var(--ink-2); font-weight: 600; }
 .kpi .v.city { font-size: 26px; }
 .kpi .k { font-size: 12.5px; color: var(--ink-2); margin-top: 8px; line-height: 1.45; }
@@ -299,7 +298,7 @@ a:hover { color: var(--flag); }
 }
 .leaflet-popup-content { font-family: var(--sans); font-size: 13px; margin: 12px 14px; line-height: 1.45; }
 .leaflet-popup-tip { background: #FFFFFF; }
-.popup-city { font-family: var(--disp); font-weight: 750; font-size: 15px; }
+.popup-city { font-family: var(--disp); font-weight: 600; font-size: 15px; }
 .popup-state { font-family: var(--mono); font-size: 11px; color: var(--ink-2); margin-bottom: 6px; }
 .popup-row { display: flex; justify-content: space-between; gap: 14px; }
 .popup-row .label { color: var(--ink-2); }
@@ -320,7 +319,7 @@ a:hover { color: var(--flag); }
 .leaflet-container a.leaflet-popup-close-button { color: var(--ink-2); }
 .leaflet-bar a { background: #FFFFFF; color: var(--ink); border-bottom: 1px solid var(--line); }
 
-.aside-h { font-family: var(--disp); font-weight: 750; font-size: 17px; margin: 6px 0 8px; }
+.aside-h { font-family: var(--disp); font-weight: 600; font-size: 17px; margin: 6px 0 8px; }
 .aside-note { font-size: 13px; color: var(--ink-2); margin: 0 0 14px; }
 .climbers { display: flex; flex-direction: column; }
 .crow {
@@ -335,7 +334,7 @@ a:hover { color: var(--flag); }
 
 /* ---------------- §5 trend ---------------- */
 .trend-cityrow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 18px 0 8px; }
-.trend-cityname { font-family: var(--disp); font-weight: 750; font-size: 19px; }
+.trend-cityname { font-family: var(--disp); font-weight: 600; font-size: 19px; }
 .verdict-chip {
   font-family: var(--mono); font-size: 12px; padding: 4px 12px; border-radius: 100px;
   border: 1.5px solid; font-weight: 600;
@@ -393,7 +392,7 @@ a:hover { color: var(--flag); }
   background: var(--paper-2); border: 1px solid var(--line); border-radius: 10px;
   font-size: 13.5px; color: var(--ink-2); line-height: 1.55;
 }
-.fine-h { font-family: var(--disp); font-weight: 750; font-size: 16px; color: var(--ink); margin: 0 0 12px; }
+.fine-h { font-family: var(--disp); font-weight: 600; font-size: 16px; color: var(--ink); margin: 0 0 12px; }
 .fine-print ul { margin: 0 0 12px; padding-left: 18px; }
 .fine-print li { margin-bottom: 8px; }
 .fine-print b { color: var(--ink); }
@@ -410,8 +409,8 @@ footer { max-width: 1060px; margin: 0 auto; padding: 18px 20px 46px; font-size: 
 
 /* ---------------- methods.html (prose page) ---------------- */
 .wrap { max-width: 780px; margin: 0 auto; padding: 24px 20px 60px; }
-.wrap h1 { font-family: var(--disp); font-stretch: 112%; font-weight: 850; font-size: clamp(28px, 4.5vw, 42px); line-height: 1.08; }
-.wrap h2 { font-family: var(--disp); font-stretch: 106%; font-weight: 750; font-size: 23px; margin-top: 44px; }
+.wrap h1 { font-family: var(--disp); font-weight: 700; font-size: clamp(28px, 4.5vw, 42px); line-height: 1.08; }
+.wrap h2 { font-family: var(--disp); font-weight: 600; font-size: 23px; margin-top: 44px; }
 .wrap h3 { font-size: 17px; margin-top: 28px; }
 .meta-row { font-family: var(--mono); font-size: 12.5px; color: var(--ink-2); }
 .section-note { font-size: 14px; color: var(--ink-2); }
@@ -459,4 +458,111 @@ footer { max-width: 1060px; margin: 0 auto; padding: 18px 20px 46px; font-size: 
   .topbar, .live-chip, .layer-toggle { display: none; }
   .sec { break-inside: avoid; }
   body { font-size: 12px; }
+}
+
+/* ---------------- masthead scope strip + contents ---------------- */
+.scope-strip {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  margin: 28px 0 0; padding: 16px 0 0;
+  border-top: 2px solid var(--ink);
+  font-size: 13.5px; color: var(--ink-2); line-height: 1.5;
+}
+.scope-k {
+  display: block; font-family: var(--mono); font-size: 11.5px;
+  letter-spacing: .07em; text-transform: uppercase; color: var(--rule-blue);
+  margin-bottom: 4px; font-weight: 600;
+}
+.contents {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px;
+  margin-top: 22px; padding: 10px 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  font-family: var(--mono); font-size: 12px;
+}
+.contents-h { color: var(--ink-2); letter-spacing: .05em; text-transform: uppercase; }
+.contents a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 1px; }
+.contents a:hover { color: var(--flag); border-color: var(--flag); }
+
+/* ---------------- side navigation rail (wide screens) ---------------- */
+.sidenav {
+  display: none;
+  position: fixed; z-index: 900;
+  top: 110px;
+  left: max(16px, calc(50vw - 530px - 196px));
+  width: 172px;
+  font-size: 13px; line-height: 1.35;
+}
+.sidenav-h {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink-2); margin-bottom: 10px;
+}
+.sidenav a {
+  display: block; padding: 6px 10px; margin: 0 0 2px;
+  color: var(--ink-2); text-decoration: none;
+  border-left: 2px solid var(--line); border-radius: 0 6px 6px 0;
+}
+.sidenav a b { font-family: var(--mono); font-weight: 600; font-size: 11.5px; margin-right: 6px; color: inherit; }
+.sidenav a:hover { color: var(--ink); background: var(--paper-2); }
+.sidenav a.on { color: var(--ink); border-left-color: var(--flag); font-weight: 600; background: var(--paper-2); }
+.sidenav .side-fine { margin-top: 8px; font-size: 12px; }
+@media (min-width: 1420px) {
+  .sidenav { display: block; }
+  .contents { display: none; }
+}
+
+/* ---------------- sticky city context bar (sections 4-6) ---------------- */
+.city-context {
+  position: fixed; left: 0; right: 0; z-index: 1100;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px;
+  padding: 7px 20px;
+  background: var(--rule-blue); color: var(--paper);
+  font-size: 13px;
+  box-shadow: 0 2px 10px rgba(28,26,23,.18);
+}
+.city-context[hidden] { display: none; }
+.cc-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: #C7D5E1; }
+.city-context select {
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  padding: 3px 8px; border-radius: 5px;
+  border: 1px solid #4A6B85; background: #FFFFFF; color: var(--ink);
+  max-width: 60vw;
+}
+.cc-work { color: #C7D5E1; }
+.cc-work b { color: var(--paper); font-weight: 600; }
+
+/* ---------------- §1 plans grid ---------------- */
+.plans-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  margin: 18px 0 22px;
+}
+.plan-card {
+  background: #FFFFFF; border: 1px solid var(--line); border-radius: 8px;
+  padding: 14px 16px; min-width: 0;
+}
+.plan-state { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.plan-state b { font-family: var(--disp); font-weight: 600; font-size: 16.5px; }
+.plan-window {
+  font-family: var(--mono); font-size: 11.5px; white-space: nowrap;
+  color: var(--rule-blue); background: var(--rule-blue-soft);
+  border: 1px solid #B9CBD8; border-radius: 100px; padding: 2px 9px;
+}
+.plan-quote { margin: 0 0 8px; font-size: 13.5px; color: var(--ink); line-height: 1.5; }
+.plan-src { font-size: 12px; color: var(--ink-2); }
+
+/* ---------------- §2 why-these-yardsticks ---------------- */
+.whybox { margin: 18px 0 4px; max-width: 56em; }
+.whybox details {
+  border: 1px solid var(--line); border-radius: 8px;
+  background: var(--paper-2); margin-bottom: 8px;
+}
+.whybox summary {
+  cursor: pointer; padding: 10px 14px;
+  font-weight: 600; font-size: 14px; color: var(--ink);
+}
+.whybox summary:hover { color: var(--flag); }
+.whybox details[open] summary { border-bottom: 1px solid var(--line); }
+.whybox details p { margin: 10px 14px 12px; font-size: 13.5px; color: var(--ink-2); line-height: 1.55; max-width: 52em; }
+
+@media (max-width: 700px) {
+  .scope-strip { grid-template-columns: 1fr; gap: 12px; }
+  .plans-grid { grid-template-columns: 1fr; }
 }

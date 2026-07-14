@@ -1,4 +1,4 @@
-# The Overlooked Hours — India outdoor-work heat stress
+# The Overlooked Hours (v2) — heat, work hours and India's outdoor workforce
 
 A live dashboard showing where India's fixed "avoid the afternoon" work-hour
 guidance overlooks outdoor heat stress. India's Heat Action Plans tell
@@ -6,7 +6,7 @@ outdoor workers to shift work to the morning and evening; on hot days those
 shoulder hours themselves can exceed the occupational heat-stress limit. This
 dashboard estimates that, live, for ~50 large Indian cities.
 
-**Live site:** https://smar98.github.io/india-heat-monitor/heat/
+**Live site:** https://smar98.github.io/india-heat-monitor-v2/heat/
 
 ## What it does
 

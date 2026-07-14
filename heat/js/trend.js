@@ -42,7 +42,7 @@ function renderTrendAggregate() {
   el.innerHTML =
     `At <strong>${w.label.toLowerCase()}</strong> work, the yearly count of overlooked hours shows a
      statistically significant upward trend in <strong class="hot">${agg.n_increasing} of
-     ${agg.n_cities} cities</strong> — median <strong>+${Math.round(agg.median_slope_per_decade)}
+     ${agg.n_cities} cities</strong>, with a median rise of <strong>+${Math.round(agg.median_slope_per_decade)}
      hours per decade</strong>. ${noDecrease}`;
 }
 
@@ -134,7 +134,7 @@ function renderTrend() {
 
   const dots = years.map((yr, i) =>
     `<circle cx="${x(i)}" cy="${y(ovl[i])}" r="6" fill="transparent">` +
-    `<title>${yr} — ${ovl[i]} overlooked hours (${hi[i]}–${lo[i]} across the ±1°C band), ` +
+    `<title>${yr}: ${ovl[i]} overlooked hours (${hi[i]}–${lo[i]} across the ±1°C band), ` +
     `${days[i]} days with ≥1 such hour</title></circle>`
   ).join("");
 
@@ -165,10 +165,10 @@ function renderTrend() {
     } else {
       takeawayEl.innerHTML =
         `Over the last decade in <strong>${cityName}</strong>, morning and evening hours crossed the
-         ${w.label.toLowerCase()}-work limit on <strong class="hot">≈${lateDays} days a year</strong> —
-         ≈${Math.round(lateHours).toLocaleString("en-IN")} hours annually, the equivalent of
-         <strong>${workdays} eight-hour workdays</strong> spent over the limit in the very hours the
-         guidance recommends.`;
+         ${w.label.toLowerCase()}-work limit on <strong class="hot">≈${lateDays} days a year</strong>.
+         That is ≈${Math.round(lateHours).toLocaleString("en-IN")} hours annually, the equivalent of
+         <strong>${workdays} eight-hour workdays</strong> over the limit inside the hours the
+         plans recommend.`;
     }
   }
 
@@ -176,7 +176,7 @@ function renderTrend() {
   if (noteEl && stats) {
     const robust = stats.robust_to_band
       ? "The verdict is unchanged if the WBGT estimate runs a full 1°C hot or cold."
-      : "Caution: this verdict changes within the ±1°C estimation band — read it as suggestive, not settled.";
+      : "Caution: this verdict changes within the ±1°C estimation band, so read it as suggestive rather than settled.";
     noteEl.textContent = robust;
   } else if (noteEl) {
     noteEl.textContent = "";

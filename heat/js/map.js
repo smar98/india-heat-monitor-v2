@@ -1,11 +1,13 @@
 /*
- * map.js — the India map (§4). Light "paper" theme, no raster tiles: the
- * vendored DataMeet state shapes are the landmass. Two layers:
+ * map.js — the India map (§3). Light "paper" theme, no raster tiles: the
+ * vendored DataMeet state shapes are the landmass. Three layers:
+ *   - districts (DEFAULT): Census-2011 outdoor workers × today's overlooked
+ *     hours (sequential heat ramp choropleth, darker = more) — the workers
+ *     are the point of the page, so they open the map;
+ *   - eshram: e-Shram registry registrations (agriculture + construction,
+ *     2021–present) as a recency cross-check on the census workforce map;
  *   - cities: today's overlooked hours per city (dot size + heat ramp fill;
- *     nonzero dots ringed in the flag crimson, matching the day strip);
- *   - districts: Census-2011 outdoor workers × today's overlooked hours
- *     (sequential heat ramp choropleth, darker = more).
- * The e-Shram registry stays a methods-page cross-check, not a map layer.
+ *     nonzero dots ringed in the flag crimson, matching the day strip).
  */
 
 const MAP_THEME = {
@@ -30,6 +32,21 @@ function heatRamp(t) {
   const f = x - i;
   const a = _hexToRgb(stops[i]), b = _hexToRgb(stops[i + 1]);
   return `rgb(${a.map((v, k) => Math.round(v + (b[k] - v) * f)).join(",")})`;
+}
+
+/* Quantile bins for a right-skewed positive series; deduped so the legend
+   stays strictly increasing even when quantiles collide. */
+function quantileBins(values) {
+  const v = values.filter((x) => x > 0).sort((a, b) => a - b);
+  const q = (p) => v.length ? v[Math.min(v.length - 1, Math.floor(p * v.length))] : 0;
+  return [...new Set([q(0.4), q(0.7), q(0.9), q(0.98)])].sort((a, b) => a - b);
+}
+function binColor(value, bins) {
+  if (value <= 0) return MAP_THEME.zeroFill;
+  for (let i = 0; i < bins.length; i++) {
+    if (value <= bins[i]) return MAP_THEME.ramp[i];
+  }
+  return MAP_THEME.ramp[Math.min(bins.length, MAP_THEME.ramp.length - 1)];
 }
 
 async function initMap() {
@@ -66,7 +83,7 @@ async function initMap() {
 
   const markers = [];
   let labelMarkers = [];
-  let currentLayer = "overlooked";
+  let currentLayer = "districts"; // the workers open the map
 
   fetch("data/india_states.geojson")
     .then((r) => r.json())
@@ -76,6 +93,7 @@ async function initMap() {
         interactive: false,
       }).addTo(map);
       for (const { marker } of markers) marker.bringToFront();
+      if (districtLayer) districtLayer.bringToFront();
     });
 
   function styleFor(record) {
@@ -110,7 +128,7 @@ async function initMap() {
     const s = styleFor(record);
     const marker = L.circleMarker([record.lat, record.lon], {
       radius: s.radius, fillColor: s.fill, color: s.stroke, weight: s.weight, fillOpacity: s.opacity,
-    }).addTo(map);
+    });
     marker.bindPopup(() => popupHtml(record));
     markers.push({ record, marker });
   }
@@ -135,11 +153,12 @@ async function initMap() {
     }
   }
 
-  // ---------------- district layer ----------------
+  // ---------------- district layers (workers × hours, and e-Shram) ----------------
   let districtBundle = null;
   let districtLoadPromise = null;
   let districtLayer = null;
-  let districtBins = [];
+  let workerBins = [];
+  let eshramBins = [];
 
   function loadDistrictBundle() {
     if (!districtLoadPromise) {
@@ -147,8 +166,9 @@ async function initMap() {
         fetch("data/india_districts_2011.geojson").then((r) => r.json()),
         fetch("data/district_workers.json").then((r) => r.json()),
         fetch("data/districts_daily.json").then((r) => r.json()),
-      ]).then(([geo, workers, daily]) => {
-        districtBundle = { geo, workers, daily };
+        fetch("data/district_eshram.json").then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      ]).then(([geo, workers, daily, eshram]) => {
+        districtBundle = { geo, workers, daily, eshram };
         return districtBundle;
       });
     }
@@ -163,41 +183,58 @@ async function initMap() {
     return { workers: w, hours, maxWbgt: d.max_wbgt, exposure: w.outdoor_workers * hours };
   }
 
-  function computeDistrictBins() {
-    const values = [];
-    for (const feat of districtBundle.geo.features) {
-      const info = districtInfo(feat.properties.censuscode);
-      if (info && info.exposure > 0) values.push(info.exposure);
-    }
-    values.sort((a, b) => a - b);
-    const q = (p) => values.length ? values[Math.min(values.length - 1, Math.floor(p * values.length))] : 0;
-    // Right-skewed (a few huge rural districts), so breaks are quantiles of
-    // the nonzero values. Dedupe so the legend is strictly increasing even
-    // on days when the quantiles collide.
-    districtBins = [...new Set([q(0.4), q(0.7), q(0.9), q(0.98)])].sort((a, b) => a - b);
+  function eshramInfo(code) {
+    const e = districtBundle.eshram && districtBundle.eshram.districts[String(code)];
+    if (!e) return null;
+    return { agri: e.agri, constr: e.constr, total: e.agri + e.constr };
   }
 
-  function districtColor(exposure) {
-    if (exposure <= 0) return MAP_THEME.zeroFill;
-    for (let i = 0; i < districtBins.length; i++) {
-      if (exposure <= districtBins[i]) return MAP_THEME.ramp[i];
+  function computeDistrictBins() {
+    const expo = [], regs = [];
+    for (const feat of districtBundle.geo.features) {
+      const info = districtInfo(feat.properties.censuscode);
+      if (info) expo.push(info.exposure);
+      const e = eshramInfo(feat.properties.censuscode);
+      if (e) regs.push(e.total);
     }
-    return MAP_THEME.ramp[Math.min(districtBins.length, MAP_THEME.ramp.length - 1)];
+    workerBins = quantileBins(expo);
+    eshramBins = quantileBins(regs);
   }
 
   function districtStyle(feature) {
-    const info = districtInfo(feature.properties.censuscode);
-    return {
-      fillColor: info ? districtColor(info.exposure) : MAP_THEME.noData,
-      fillOpacity: 1,
-      color: "#FFFFFF",
-      weight: 0.6,
-      opacity: 1,
-    };
+    const code = feature.properties.censuscode;
+    let fill = MAP_THEME.noData;
+    if (currentLayer === "eshram") {
+      const e = eshramInfo(code);
+      if (e) fill = binColor(e.total, eshramBins);
+    } else {
+      const info = districtInfo(code);
+      if (info) fill = binColor(info.exposure, workerBins);
+    }
+    return { fillColor: fill, fillOpacity: 1, color: "#FFFFFF", weight: 0.6, opacity: 1 };
   }
 
   function districtPopupHtml(feature) {
     const p = feature.properties;
+    if (currentLayer === "eshram") {
+      const e = eshramInfo(p.censuscode);
+      if (!e) {
+        return `<div class="popup-city">${p.DISTRICT}</div>
+          <div class="popup-state">${p.ST_NM}</div>
+          <div class="popup-meta">No e-Shram registrations matched to this 2011 district.</div>`;
+      }
+      const telangana = p.ST_NM === "Andhra Pradesh"
+        ? `<div class="popup-meta">2011 census frame: registrations from Telangana districts carved out
+           after 2011 are counted under their undivided Andhra Pradesh parents.</div>` : "";
+      return `
+        <div class="popup-city">${p.DISTRICT}</div>
+        <div class="popup-state">${p.ST_NM}</div>
+        <div class="popup-row"><span class="label">Agriculture registrations</span><span class="value">${formatWorkerCount(e.agri)}</span></div>
+        <div class="popup-row"><span class="label">Construction registrations</span><span class="value">${formatWorkerCount(e.constr)}</span></div>
+        <div class="popup-meta">Registrations on the e-Shram unorganised-worker registry since 2021.
+          A cross-check on the census workforce map, and never an input to any computed number.</div>
+        ${telangana}`;
+    }
     const info = districtInfo(p.censuscode);
     if (!info) {
       return `<div class="popup-city">${p.DISTRICT}</div>
@@ -207,7 +244,7 @@ async function initMap() {
     const w = getWorkload();
     const story = info.hours > 0
       ? `<div class="popup-flag">≈${formatWorkerCount(info.exposure)} worker-hours in the blind spot here
-         today (${w.label.toLowerCase()} work) — an index for ranking, not a measured exposure.</div>`
+         today (${w.label.toLowerCase()} work): an index for ranking, not a measured exposure.</div>`
       : `<div class="popup-meta">No overlooked hours forecast today at ${w.label.toLowerCase()} workload.</div>`;
     return `
       <div class="popup-city">${p.DISTRICT}</div>
@@ -237,14 +274,19 @@ async function initMap() {
 
   function renderLegend() {
     const host = document.getElementById("map-legend");
-    if (currentLayer === "districts") {
+    if (currentLayer === "districts" || currentLayer === "eshram") {
       if (!districtBundle) { host.innerHTML = ""; return; }
-      const last = districtBins[districtBins.length - 1];
+      const bins = currentLayer === "eshram" ? eshramBins : workerBins;
+      if (!bins.length) { host.innerHTML = ""; return; }
+      const last = bins[bins.length - 1];
       const items = [{ label: "0", color: MAP_THEME.zeroFill }].concat(
-        districtBins.map((b, i) => ({ label: `≤${formatWorkerCount(b)}`, color: MAP_THEME.ramp[i] })),
-        [{ label: `>${formatWorkerCount(last)}`, color: MAP_THEME.ramp[Math.min(districtBins.length, MAP_THEME.ramp.length - 1)] }]
+        bins.map((b, i) => ({ label: `≤${formatWorkerCount(b)}`, color: MAP_THEME.ramp[i] })),
+        [{ label: `>${formatWorkerCount(last)}`, color: MAP_THEME.ramp[Math.min(bins.length, MAP_THEME.ramp.length - 1)] }]
       );
-      host.innerHTML = `<span>Worker-hours in the blind spot today (darker = more):</span>` +
+      const title = currentLayer === "eshram"
+        ? "e-Shram registrations, agriculture + construction (darker = more):"
+        : "Worker-hours in the blind spot today (darker = more):";
+      host.innerHTML = `<span>${title}</span>` +
         items.map((s) => `<span class="legend-item"><span class="legend-sq" style="background:${s.color};"></span>${s.label}</span>`).join("");
       return;
     }
@@ -259,15 +301,26 @@ async function initMap() {
       }).join("") + `<span>dot size = hours</span>`;
   }
 
-  const CAPTIONS = {
-    overlooked: "Each dot is one of the 50 cities; size and color show how many of today's " +
+  function captionFor(layer) {
+    if (layer === "districts") {
+      return "Each district is shaded by its outdoor workforce (farm, construction and mining " +
+        "main workers, Census 2011) × today's overlooked hours: where the blind spot lands on the " +
+        "most people. Post-2011 districts appear within their 2011 parent boundaries. One forecast " +
+        "point per district.";
+    }
+    if (layer === "eshram") {
+      const corr = districtBundle && districtBundle.eshram && districtBundle.eshram.meta
+        ? districtBundle.eshram.meta.spearman_vs_census_outdoor : null;
+      return "Recency cross-check: registrations of unorganised agriculture and construction workers " +
+        "on e-Shram (Ministry of Labour registry, 2021–present), folded into 2011 district boundaries. " +
+        "Registrations are incentive-driven, vary in completeness by state, and exclude the formal " +
+        "workforce, so read this layer by rank." +
+        (corr != null ? ` District-for-district it agrees with the census workforce map at a rank correlation of ≈${corr.toFixed(2)}.` : "");
+    }
+    return "Each dot is one of the 50 cities; size and color show how many of today's " +
       "recommended morning/evening hours are forecast over the heat-stress limit at the selected " +
-      "workload. Click a dot for the hour-by-hour breakdown.",
-    districts: "Each district is shaded by its outdoor workforce (farm, construction and mining " +
-      "main workers, Census 2011) × today's overlooked hours — where the blind spot lands on the " +
-      "most people. Post-2011 districts appear within their 2011 parent boundaries. One forecast " +
-      "point per district.",
-  };
+      "workload. Click a dot for the hour-by-hour breakdown.";
+  }
 
   function redraw() {
     document.querySelectorAll(".layer-btn").forEach((btn) => {
@@ -275,13 +328,13 @@ async function initMap() {
     });
     const captionEl = document.getElementById("layer-caption");
 
-    if (currentLayer === "districts") {
+    if (currentLayer === "districts" || currentLayer === "eshram") {
       for (const { marker } of markers) map.removeLayer(marker);
       renderLabels();
       if (!districtBundle) {
         captionEl.textContent = "Loading district boundaries, workforce and today's forecast…";
         loadDistrictBundle().then(() => {
-          if (currentLayer === "districts") redraw();
+          if (currentLayer !== "overlooked") redraw();
         }).catch((err) => {
           console.error(err);
           captionEl.textContent = "Could not load district data: " + err.message;
@@ -289,11 +342,16 @@ async function initMap() {
         renderLegend();
         return;
       }
+      if (currentLayer === "eshram" && !districtBundle.eshram) {
+        captionEl.textContent = "The e-Shram registry file could not be loaded.";
+        renderLegend();
+        return;
+      }
       renderDistrictLayer();
-      let caption = CAPTIONS.districts;
+      let caption = captionFor(currentLayer);
       const todayKey = nowInIst().dateKey;
-      if (districtBundle.daily.ist_date !== todayKey) {
-        caption = `⚠ District heat shown is for ${districtBundle.daily.ist_date} (IST) — today's refresh hasn't landed yet. ` + caption;
+      if (currentLayer === "districts" && districtBundle.daily.ist_date !== todayKey) {
+        caption = `⚠ District heat shown is for ${districtBundle.daily.ist_date} (IST); today's refresh hasn't landed yet. ` + caption;
       }
       captionEl.textContent = caption;
       renderLegend();
@@ -308,7 +366,7 @@ async function initMap() {
     }
     renderLabels();
     renderLegend();
-    captionEl.textContent = CAPTIONS.overlooked;
+    captionEl.textContent = captionFor("overlooked");
   }
 
   document.querySelectorAll(".layer-btn").forEach((btn) => {
