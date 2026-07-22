@@ -10,9 +10,10 @@
  *   - the FLAG (crimson, a separate hue family, never a ramp stop): reserved
  *     solely for "overlooked" — drawn as rings/notches, so under any color
  *     vision it also reads by shape and position.
- * Type: Source Serif 4 (display: the register of a printed policy report) +
- * Public Sans (body) + IBM Plex Mono
- * (data). Light paper, print-friendly. Shared by index.html and methods.html
+ * Type: Playfair Display (display: the register of a printed report) +
+ * Source Sans 3 (body and data; tabular figures via font-variant-numeric —
+ * numbers stay in the workhorse sans, never the display serif).
+ * Light paper, print-friendly. Shared by index.html and methods.html
  * (prose-page block at the bottom).
  */
 
@@ -30,9 +31,9 @@
   --cell-ok: #EAE7DF;
   --cell-ok-night: #DEDACE;
   --dark-humid: #9B97B0;  /* muted: after-dark is reported, never headlined */
-  --mono: "IBM Plex Mono", ui-monospace, monospace;
-  --sans: "Public Sans", system-ui, sans-serif;
-  --disp: "Source Serif 4", Georgia, serif;
+  --mono: "Source Sans 3", system-ui, sans-serif;
+  --sans: "Source Sans 3", system-ui, sans-serif;
+  --disp: "Playfair Display", Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -46,6 +47,7 @@ body {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.55;
+  font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -193,7 +195,7 @@ a:hover { color: var(--flag); }
   padding: 16px 16px 14px;
   min-width: 0;
 }
-.kpi .v { font-family: var(--disp); font-weight: 700; font-size: 34px; line-height: 1.05; }
+.kpi .v { font-family: var(--sans); font-weight: 700; font-size: 34px; line-height: 1.05; }
 .kpi .v small { font-size: 19px; color: var(--ink-2); font-weight: 600; }
 .kpi .v.city { font-size: 26px; }
 .kpi .k { font-size: 12.5px; color: var(--ink-2); margin-top: 8px; line-height: 1.45; }

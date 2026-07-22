@@ -232,7 +232,7 @@ async function initMap() {
         <div class="popup-row"><span class="label">Agriculture registrations</span><span class="value">${formatWorkerCount(e.agri)}</span></div>
         <div class="popup-row"><span class="label">Construction registrations</span><span class="value">${formatWorkerCount(e.constr)}</span></div>
         <div class="popup-meta">Registrations on the e-Shram unorganised-worker registry since 2021.
-          A cross-check on the census workforce map, and never an input to any computed number.</div>
+          A cross-check on the census workforce map; it feeds no computed number.</div>
         ${telangana}`;
     }
     const info = districtInfo(p.censuscode);
@@ -244,7 +244,7 @@ async function initMap() {
     const w = getWorkload();
     const story = info.hours > 0
       ? `<div class="popup-flag">≈${formatWorkerCount(info.exposure)} worker-hours in the blind spot here
-         today (${w.label.toLowerCase()} work): an index for ranking, not a measured exposure.</div>`
+         today (${w.label.toLowerCase()} work): a ranking index rather than measured exposure.</div>`
       : `<div class="popup-meta">No overlooked hours forecast today at ${w.label.toLowerCase()} workload.</div>`;
     return `
       <div class="popup-city">${p.DISTRICT}</div>

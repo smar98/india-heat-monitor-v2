@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Overlooked Hours · heat, work hours and India's outdoor workforce</title>
-<meta name="description" content="India's Heat Action Plans tell outdoor workers to avoid the afternoon and use the morning and evening. This live page reads the plans, checks their recommended hours against the hourly forecast for 50 cities, and maps the result onto the districts where India's 212-million-strong outdoor workforce lives.">
+<meta name="description" content="India's Heat Action Plans tell outdoor workers to avoid the afternoon and use the morning and evening. This live page checks those recommended hours against the hourly forecast for 50 cities and maps the result onto the districts where India's 212-million-strong outdoor workforce lives.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Overlooked Hours · heat, work hours and India's outdoor workforce">
 <meta property="og:description" content="The morning and evening hours India's heat plans recommend to outdoor workers are, on hot days, forecast to cross the occupational heat-stress limit anyway. Live, hour by hour, 50 cities, 640 districts.">
@@ -12,12 +12,12 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='%23FAF9F6'/%3E%3Crect x='14' y='42' width='72' height='16' rx='3' fill='%2329506D'/%3E%3Crect x='62' y='38' width='12' height='24' rx='2' fill='%23B3242C'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500..700;1,8..60,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <!-- leaflet.css must load BEFORE style.css so our popup/control overrides
      (equal specificity) win the cascade. -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="style.css?v=20260718-1">
+<link rel="stylesheet" href="style.css?v=20260722-1">
 </head>
 <body>
 
@@ -60,11 +60,10 @@
       <a class="map-jump" href="#sec-workers">Explore today&rsquo;s interactive district map <span aria-hidden="true">&darr;</span></a>
       <span class="map-jump-note">Workers &times; overlooked hours across 640 districts</span>
     </div>
-    <p class="dek">Each summer, the national advisory and state Heat Action Plans tell people
-      who work outside to avoid the midday sun and use the morning and evening instead.
-      This page reads those plans in their own words, checks their recommended hours against
-      a live hourly forecast, and maps the result onto the districts where India&rsquo;s outdoor
-      workforce lives. The recommended hours that cross the occupational heat-stress limit
+    <p class="dek">India&rsquo;s national advisory and state Heat Action Plans tell people who work
+      outside to avoid the midday sun and use the morning and evening instead. This page checks
+      those recommended hours against a live hourly forecast, across the districts where the
+      outdoor workforce lives. Recommended hours that cross the occupational heat-stress limit
       anyway are <strong>the overlooked hours</strong>.</p>
     <div class="scope-strip" aria-label="What this brief covers">
       <div class="scope-item"><span class="scope-k">The plans</span>The national advisory and four state Heat Action Plans, audited to primary sources and quoted verbatim</div>
@@ -94,8 +93,8 @@
     </figure>
     <p class="body-copy">State plans widen that window. The four audited here to primary sources:</p>
     <div id="plans-grid" class="plans-grid"><p class="empty">Loading the plan quotes&hellip;</p></div>
-    <p class="body-copy">This page tests the <strong>widest audited version, 11am&ndash;5pm</strong>. Every hour
-      it flags falls outside even the most generous advisory on paper, so the counts below are a
+    <p class="body-copy">This page tests the <strong>widest audited version, 11am&ndash;5pm</strong>, so every
+      flagged hour falls outside even the most generous advisory and the counts below are a
       conservative lower bound. The plans&rsquo; implied promise is that the hours outside the window
       are workable. The rest of this page checks that promise.</p>
     <p class="body-copy" id="cpr-note"></p>
@@ -118,12 +117,12 @@
         heat-stress measure: one number folding together heat, humidity, sun and wind, estimated
         here from public forecast data. The NIOSH limit slides with how hard the work is; heavier
         work makes more body heat, so its limit is lower. Hot <em>nights</em> over the limit are
-        counted separately and never in the headline.</p>
+        counted separately, outside the headline.</p>
     </div>
 
     <div class="whybox">
       <details>
-        <summary>Why WBGT, and not air temperature?</summary>
+        <summary>Why WBGT rather than air temperature?</summary>
         <p>Air temperature is what IMD&rsquo;s heat-wave declarations use, and it misses most of what
           heat does to a working body: humidity blocks sweat from evaporating, sun adds radiant load,
           wind removes some of it. WBGT folds all four into one number and is the international
@@ -167,8 +166,8 @@
     </div>
 
     <div class="sens" id="sens-panel"></div>
-    <p class="footnote" id="finding-foot">Counts are forecasts for this 50-city sample, not observations
-      and not a national estimate. <span id="dark-note"></span></p>
+    <p class="footnote" id="finding-foot">Counts are model forecasts for this 50-city sample; no figure
+      is an observation or a national estimate. <span id="dark-note"></span></p>
   </section>
 
   <!-- ===================== §3 THE WORKERS ===================== -->
@@ -176,8 +175,7 @@
     <div class="sec-head"><span class="clause">§ 3</span><span class="sec-tag">THE WORKERS</span></div>
     <h2>The districts where today&rsquo;s overlooked hours land on the most outdoor workers.</h2>
     <p class="body-copy">India counted &asymp;212 million people whose main work is outdoors
-      (farm, construction and mining, Census 2011). They are who the work-hour advice is for,
-      and they are the reason a failed window matters. The map opens on that workforce:
+      (farm, construction and mining, Census 2011). The map opens on that workforce:
       each district shaded by outdoor workers &times; today&rsquo;s overlooked hours.</p>
     <div class="maplayout">
       <div class="mapcol">
@@ -193,8 +191,8 @@
       <aside class="peoplecol">
         <h3 class="aside-h">Most worker-hours in the blind spot today</h3>
         <p class="aside-note">District outdoor workforce (farm, construction and mining main workers,
-          Census 2011) &times; today&rsquo;s overlooked hours. An <em>index for ranking districts</em>,
-          not a measured exposure count.</p>
+          Census 2011) &times; today&rsquo;s overlooked hours. An <em>index for ranking districts</em>
+          rather than a measured exposure count.</p>
         <div id="overlooked-list" class="climbers"></div>
         <p class="footnote" id="people-foot">Workforce structure moves slowly, but the counts are 2011&rsquo;s,
           from India&rsquo;s last completed census. The e-Shram layer offers a 2021&ndash;present cross-check.</p>
@@ -206,9 +204,8 @@
   <section class="sec" id="sec-day">
     <div class="sec-head"><span class="clause">§ 4</span><span class="sec-tag">ONE CITY, HOUR BY HOUR</span></div>
     <h2 id="day-h2">Pick a city and read its day against the plan.</h2>
-    <p class="body-copy">Sections 4&ndash;6 drill into a single city: today&rsquo;s hours here,
-      the 45-year record in §&nbsp;5, and the closing comparison in §&nbsp;6 all follow the city
-      you pick below.</p>
+    <p class="body-copy">Sections 4&ndash;6 follow the city you pick below: today&rsquo;s hours,
+      the 45-year record, the closing comparison.</p>
     <div class="selrow">
       <label for="city-select">City</label>
       <select id="city-select"></select>
@@ -223,7 +220,7 @@
       <span><span class="sw sw-dark"></span>Over after dark (humidity; counted separately)</span>
     </div>
     <p class="footnote">Each cell is one forecast hour (IST). Hover or tap a cell for its estimated WBGT.
-      The blue bracket marks the 11am&ndash;5pm avoidance window the plans already cover.</p>
+      The blue bracket marks the 11am&ndash;5pm avoidance window.</p>
     <p class="footnote" id="day-hap"></p>
   </section>
 
@@ -244,12 +241,11 @@
     </div>
     <p class="body-copy" id="trend-takeaway"></p>
     <p class="footnote" id="trend-note"></p>
-    <p class="footnote">ERA5 reanalysis, same definition and code as today&rsquo;s count, applied to
-      1980&ndash;2024 with <em>today&rsquo;s</em> 11am&ndash;5pm window held fixed: same city, same workload,
-      same rule for all 45 years, so only the weather differs. &ldquo;Increasing&rdquo; means a Mann&ndash;Kendall
-      trend test (a standard check that a series drifts up more consistently than chance would
-      produce) rejects &ldquo;no trend&rdquo; at p&nbsp;&lt;&nbsp;0.05. Reanalysis and the live forecast
-      are different data products; never read this chart against today&rsquo;s numbers.</p>
+    <p class="footnote">ERA5 reanalysis, 1980&ndash;2024, with <em>today&rsquo;s</em> 11am&ndash;5pm window,
+      workload and code held fixed, so only the weather differs across the 45 years.
+      &ldquo;Increasing&rdquo; means a Mann&ndash;Kendall trend test (a standard test for a consistent
+      drift) rejects &ldquo;no trend&rdquo; at p&nbsp;&lt;&nbsp;0.05. Reanalysis and the live forecast
+      are different data products; the chart is not comparable with today&rsquo;s numbers.</p>
   </section>
 
   <!-- ===================== §6 WHAT WOULD CHANGE ===================== -->
@@ -257,11 +253,9 @@
     <div class="sec-head"><span class="clause">§ 6</span><span class="sec-tag">WHAT WOULD CHANGE</span></div>
     <h2>Advisory hours that move with the forecast.</h2>
     <div id="closing-exhibit"></div>
-    <p class="body-copy">None of the inputs here are exotic. The forecasts are public, the WBGT
-      formula is a 2008 open standard, and the occupational limits have been in NIOSH guidance
-      since 1986. A city&rsquo;s heat advisory could name <em>hours that move with the forecast</em>
-      instead of a fixed afternoon. This page is a working demonstration that the arithmetic is
-      already possible with public data.</p>
+    <p class="body-copy">The forecasts are public, the WBGT formula is a 2008 open standard, and
+      the occupational limits have been in NIOSH guidance since 1986. A city&rsquo;s heat advisory could name <em>hours that move with the forecast</em>
+      instead of a fixed afternoon.</p>
   </section>
 
   <!-- ===================== FINE PRINT ===================== -->
@@ -272,7 +266,7 @@
       <li><b>Lower bound by construction.</b> The 11am&ndash;5pm window is the union of the audited state windows. Any real state window is narrower, so its own overlooked count could only be higher.</li>
       <li><b>The limit.</b> NIOSH&rsquo;s recommended exposure limit (REL) for <em>acclimatized</em> workers, the right line for India&rsquo;s chronically heat-exposed outdoor workforce. It is a per-hour working limit; this page invents no hours-per-day threshold.</li>
       <li><b>The sample.</b> 50 large cities, chosen for population coverage. No figure here is a national estimate. District worker counts are Census 2011; e-Shram registrations are 2021&ndash;present.</li>
-      <li><b>No &ldquo;safe hours.&rdquo;</b> Hours below the limit are &ldquo;lower-risk under estimated-WBGT assumptions.&rdquo; This page never calls any hour safe.</li>
+      <li><b>No &ldquo;safe hours.&rdquo;</b> Hours below the limit are &ldquo;lower-risk under estimated-WBGT assumptions.&rdquo;</li>
     </ul>
     <p>Formulas, source PDFs with page numbers, validation against the compiled reference code,
       and an AI-transparency note: <a href="methods.html">methods &amp; sources</a>.</p>
@@ -291,9 +285,9 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/data.js"></script>
-<script src="js/ui.js"></script>
-<script src="js/map.js"></script>
-<script src="js/trend.js"></script>
+<script src="js/data.js?v=20260722-1"></script>
+<script src="js/ui.js?v=20260722-1"></script>
+<script src="js/map.js?v=20260722-1"></script>
+<script src="js/trend.js?v=20260722-1"></script>
 </body>
 </html>

@@ -165,9 +165,9 @@ function renderTrend() {
     } else {
       takeawayEl.innerHTML =
         `Over the last decade in <strong>${cityName}</strong>, morning and evening hours crossed the
-         ${w.label.toLowerCase()}-work limit on <strong class="hot">≈${lateDays} days a year</strong>.
-         That is ≈${Math.round(lateHours).toLocaleString("en-IN")} hours annually, the equivalent of
-         <strong>${workdays} eight-hour workdays</strong> over the limit inside the hours the
+         ${w.label.toLowerCase()}-work limit on <strong class="hot">≈${lateDays} days a year</strong>:
+         ≈${Math.round(lateHours).toLocaleString("en-IN")} hours annually, or
+         <strong>${workdays} eight-hour workdays</strong> over the limit in the hours the
          plans recommend.`;
     }
   }

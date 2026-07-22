@@ -105,9 +105,9 @@ function renderPlansGrid() {
   if (cpr) {
     cpr.innerHTML = `Do the plans have teeth? A 2023 Centre for Policy Research review of 37 Indian
       Heat Action Plans found that <em>none</em> identified the legal source of its authority, and
-      only 11 discussed funding at all; eight of those asked departments to fund themselves.
+      only 11 discussed funding; eight of those asked departments to fund themselves.
       Source: <a href="${_hap.cpr.url}" rel="noopener">CPR 2023</a>${_hap.cpr.source_page ? ", " + _hap.cpr.source_page : ""}.
-      That is a finding about India's plans overall, not a grade of any one state.`;
+      A finding about India's plans overall rather than a grade of any one state.`;
   }
 }
 
@@ -129,9 +129,8 @@ function renderWorkloadSeg() {
   }
   const w = getWorkload();
   $id("workload-note").innerHTML =
-    `<strong>${w.label}</strong> work ≈ ${w.watts}&thinsp;W of body heat (e.g. ${w.examples}). ` +
-    `Heavier work produces more internal heat, so its WBGT limit is lower: ` +
-    `<strong>${nioshRelC(w.watts).toFixed(1)}°C</strong> here (NIOSH limit for acclimatized workers).`;
+    `<strong>${w.label}</strong> work ≈ ${w.watts}&thinsp;W of body heat (e.g. ${w.examples}); ` +
+    `NIOSH acclimatized-worker limit <strong>${nioshRelC(w.watts).toFixed(1)}°C</strong>.`;
   renderContextBar();
 }
 
@@ -179,7 +178,7 @@ function renderFinding() {
   $id("kpi-band").textContent = cityLo === cityHi ? String(cityLo) : `${cityLo}–${cityHi}`;
 
   $id("dark-note").textContent = summary.totalDarkHumid > 0
-    ? `Separately, ${summary.totalDarkHumid} after-dark city-hours are over the limit on humidity alone; that is a different problem and is never counted in the headline.`
+    ? `Separately, ${summary.totalDarkHumid} after-dark city-hours are over the limit on humidity alone; those stay out of the headline.`
     : "";
 
   renderSensBars();
@@ -307,7 +306,7 @@ function renderDayStrip() {
     note.innerHTML = ws.shoulder > 0
       ? `Today in <strong>${city.name}</strong>, ${ws.insideWindow} over-limit
          hour${ws.insideWindow === 1 ? "" : "s"} fall${ws.insideWindow === 1 ? "s" : ""} inside the
-         advisory window the plans already cover, and <strong class="hot">${ws.shoulder} more
+         advisory window, and <strong class="hot">${ws.shoulder} more
          fall${ws.shoulder === 1 ? "s" : ""} in the morning and evening hours the plans
          recommend</strong> (${w.label.toLowerCase()} work)${ws.darkHumid > 0 ? `, plus ${ws.darkHumid} after dark` : ""}.`
       : `Today in <strong>${city.name}</strong>, no ${w.label.toLowerCase()}-work hour crosses the limit
@@ -329,8 +328,8 @@ function renderDayHap() {
        (&ldquo;${plan.window_text}&rdquo;). The strips shade 11am–5pm, the widest audited window, so every
        flagged hour also falls outside ${city.state}'s own narrower window.`
     : `No primary-sourced work-hour window for <strong>${city.state}</strong> is audited on this page
-       (see §&nbsp;1); that means unaudited here, and says nothing about whether a plan exists. The national
-       advisory applies, and the 11am–5pm test keeps ${city.state}'s count a conservative lower bound too.`;
+       (see §&nbsp;1); a plan may still exist. The national advisory applies, and the 11am–5pm test
+       keeps ${city.state}'s count a conservative lower bound too.`;
 }
 
 /* ------------------------------------------------------------------ */
@@ -534,8 +533,8 @@ function renderClosing() {
        hours are below the ${w.label.toLowerCase()}-work limit, and the forecast can name which ones.
        A fixed clock window has no way to.`
     : `In ${city.name} today, <strong>no daylight hour</strong> is below the ${w.label.toLowerCase()}-work
-       limit. No fixed clock window can make this day workable. A forecast-based advisory would say
-       that out loud; a fixed window stays silent.`;
+       limit. No fixed clock window can make this day workable; only a forecast-based advisory
+       could say so.`;
 
   host.innerHTML = `
     <div class="closing-grid">
@@ -560,8 +559,8 @@ function renderClosing() {
       <span><span class="sw sw-over"></span>Daylight, over the limit</span>
       <span><span class="sw sw-ok"></span>Night</span>
     </div>
-    <p class="closing-verdict">${verdict} Hours below the limit are lower-risk under estimated-WBGT
-      assumptions; this page never calls them "safe hours."</p>`;
+    <p class="closing-verdict">${verdict} Below the limit means lower-risk under estimated-WBGT
+      assumptions.</p>`;
 }
 
 /* ------------------------------------------------------------------ */
