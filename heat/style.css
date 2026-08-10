@@ -10,12 +10,13 @@
  *   - the FLAG (crimson, a separate hue family, never a ramp stop): reserved
  *     solely for "overlooked" — drawn as rings/notches, so under any color
  *     vision it also reads by shape and position.
- * Type: Spectral (display: the register of a printed advisory) + Public Sans
- * (body and data) + Atkinson Hyperlegible Mono, held to code and the 10px
- * axis ticks alone. Numbers stay in the workhorse sans; Public Sans is the
- * US government's own typeface, which is the register this page is auditing.
- * Spectral was drawn for on-screen text across a size range, so it holds at
- * the 15-19px headings where the previous display face thinned out.
+ * Type: one voice. Public Sans throughout, headings included, plus Atkinson
+ * Hyperlegible Mono held to code and the 10px axis ticks alone. Public Sans is
+ * the US government's own typeface, which is the register this page is
+ * auditing; an editorial display serif over it read as generated rather than
+ * filed, so --disp now differs from --sans by weight and size, not family.
+ * Keep --disp as its own token: the display role is still separable if a
+ * second family ever earns its place.
  * Tabular figures are declared per numeric context, never on body: figures
  * inside a sentence should stay proportional.
  * Light paper, print-friendly. Shared by index.html and methods.html
@@ -23,22 +24,22 @@
  */
 
 :root {
-  --paper: #FAF9F6;
-  --paper-2: #F3F1EA;      /* recessed panels */
+  --paper: #EDF1F4;
+  --paper-2: #E4E9EE;      /* recessed panels */
   --ink: #1C1A17;
   --ink-2: #57534A;        /* secondary text: 6.7:1 on paper */
-  --line: #DDD8CC;
+  --line: #CBD3DB;
   --rule-blue: #29506D;
   --rule-blue-soft: #E3EAF0;
   --flag: #B3242C;
   --heat-1: #F5E7CB; --heat-2: #ECBF7A; --heat-3: #DE9245;
   --heat-4: #C2611F; --heat-5: #8C3213; --heat-6: #4C150C;
-  --cell-ok: #EAE7DF;
-  --cell-ok-night: #DEDACE;
+  --cell-ok: #D8DFE5;
+  --cell-ok-night: #CCD5DD;
   --dark-humid: #9B97B0;  /* muted: after-dark is reported, never headlined */
   --mono: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
   --sans: "Public Sans", system-ui, sans-serif;
-  --disp: "Spectral", Georgia, serif;
+  --disp: "Public Sans", system-ui, sans-serif;
 }
 
 /* Spectral and Atkinson are tabular by default; Public Sans has real tabular
