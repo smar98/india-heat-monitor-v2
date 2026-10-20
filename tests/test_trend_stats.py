@@ -1,6 +1,6 @@
 """
 Tests for scripts/trend_stats.py -- the Mann-Kendall + Theil-Sen trend
-statistics that replace the old bare decade-mean comparison.
+statistics.
 
 Cross-checks the implementation against scipy (installed in this dev
 environment but NOT a project dependency -- scipy.stats.kendalltau and

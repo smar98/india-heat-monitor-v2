@@ -15,13 +15,11 @@ live pipeline uses, and counts, per calendar year (IST) and per workload:
   plus ovl at REL +/- 1 C (the site's WBGT-error sensitivity band).
 
 Years: 1980-2024 (satellite-era ERA5 only -- pre-1979 reanalysis is weakest
-in exactly the variables WBGT leans on, solar and wind). 2025 is excluded
-because it is incomplete: a partial year would masquerade as a collapse in
-an annual-count chart. The 11-5 window is TODAY'S audited HAP union applied
+in exactly the variables WBGT leans on, solar and wind). The series ends in 2024, the last year computed for this build. The 11-5 window is TODAY'S audited HAP union applied
 to past years -- the chart asks "how many hours would today's guidance
 overlook," labeled as such on the page.
 
-Cold-hour shortcut (rigorous): WBGT = 0.7*Tnwb + 0.2*Tg + 0.1*Ta with
+Cold-hour shortcut: WBGT = 0.7*Tnwb + 0.2*Tg + 0.1*Ta with
 Tnwb <= Ta and, generously, Tg <= Ta + 35 (the live pipeline's observed
 maximum globe excess is 25.3 C; 35 adds margin). So WBGT <= Ta + 7, and any
 hour with Ta < 16.5 C cannot reach the lowest threshold used here
@@ -104,8 +102,7 @@ def fetch_block(lat, lon, y0, y1):
     delay = 5.0
     for attempt in range(1, MAX_RETRIES + 1):
         # Transient network failures (DNS blips, dropped connections) get the
-        # same backoff as 429s -- a multi-hour run WILL hit at least one, and
-        # an unhandled one previously killed the run 25 blocks from the end.
+        # same backoff as 429s -- a multi-hour run WILL hit at least one.
         try:
             resp = requests.get(ARCHIVE_URL, params=params, timeout=180)
         except (requests.ConnectionError, requests.Timeout) as e:
@@ -256,7 +253,7 @@ def main():
                 "outside the current 11:00-16:59 IST avoidance window, with solar > 50 W/m2 "
                 "(IST calendar). ovl_hi/ovl_lo = same at REL +1/-1 C. stress = all hours >= REL. "
                 "days = days/year with >= 1 overlooked hour. valid = hours with complete data. "
-                "2025 excluded (incomplete year). Same Liljegren/Stull/NIOSH code path as the "
+                "The series ends in 2024, the last year computed for this build. Same Liljegren/Stull/NIOSH code path as the "
                 "live pipeline; the avoidance window is today's audited HAP union applied "
                 "to all years."
             ),

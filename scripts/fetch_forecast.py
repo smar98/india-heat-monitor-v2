@@ -1,6 +1,6 @@
 """
 Pulls the live 7-day hourly forecast (temp, humidity, solar radiation, wind,
-pressure) for all ~50 cities from Open-Meteo in a single batched request,
+pressure) for all 50 cities from Open-Meteo in a single batched request,
 computes wet-bulb temperature (Stull 2011) and estimated WBGT (Liljegren
 2008) for every city/hour, and writes heat/data/latest.json.
 
@@ -33,12 +33,7 @@ FORECAST_DAYS = 2  # today + tomorrow, enough for the workday-clock view
 
 # India Standard Time is a fixed UTC+5:30 offset with no daylight saving.
 # Requesting timezone=Asia/Kolkata from Open-Meteo gives full, gap-free IST
-# calendar days (00:00-23:00 IST for each of the 2 requested days) instead
-# of UTC calendar days -- which matters because a prior version of this
-# pipeline requested timezone=UTC, so hour 0 of the array was midnight UTC
-# of the day the script happened to run, not "now" or even "today in IST."
-# That meant the frontend's "current" value and "today" row could be up to
-# ~12 hours stale relative to the actual moment a user loaded the page.
+# calendar days (00:00-23:00 IST for each of the 2 requested days) instead of UTC calendar days.
 IST_OFFSET = timedelta(hours=5, minutes=30)
 
 

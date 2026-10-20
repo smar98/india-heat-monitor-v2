@@ -1,22 +1,16 @@
 /*
- * The Overlooked Hours — visual system.
+ * The Overlooked Hours, visual system.
  *
  * Register: an official advisory being audited with instrument data, on paper.
  * Two voices, two hue families, one flag:
  *   - the RULE (institutional slate blue): the 11–5 window, brackets, clause
- *     numbers, links — everything that belongs to the advisory;
- *   - the HEAT (one warm sequential ramp, light→dark = worse) — everything
- *     measured. Validated: monotonic luminance, adjacent CVD ΔE ≥ 14;
+ *     numbers, links, everything that belongs to the advisory;
+ *   - the HEAT (one warm sequential ramp, light→dark = worse), everything
+ *     measured;
  *   - the FLAG (crimson, a separate hue family, never a ramp stop): reserved
- *     solely for "overlooked" — drawn as rings/notches, so under any color
+ *     solely for "overlooked", drawn as rings/notches, so under any color
  *     vision it also reads by shape and position.
- * Type: one voice. Public Sans throughout, headings included, plus Atkinson
- * Hyperlegible Mono held to code and the 10px axis ticks alone. Public Sans is
- * the US government's own typeface, which is the register this page is
- * auditing; an editorial display serif over it read as generated rather than
- * filed, so --disp now differs from --sans by weight and size, not family.
- * Keep --disp as its own token: the display role is still separable if a
- * second family ever earns its place.
+ * Type: Public Sans throughout (--disp differs from --sans by weight and size), plus Atkinson Hyperlegible Mono for code and the 10px axis ticks.
  * Tabular figures are declared per numeric context, never on body: figures
  * inside a sentence should stay proportional.
  * Light paper, print-friendly. Shared by index.html and methods.html
@@ -42,7 +36,7 @@
   --disp: "Public Sans", system-ui, sans-serif;
 }
 
-/* Spectral and Atkinson are tabular by default; Public Sans has real tabular
+/* Atkinson is tabular by default; Public Sans has real tabular
    figures but only when asked, so every number it sets asks here. Running
    prose is deliberately absent: tabular figures belong in columns, and in a
    sentence they read gappy. */
@@ -227,7 +221,7 @@ a:hover { color: var(--flag); }
 .srow .fill { height: 100%; background: var(--heat-4); border-radius: 4px 0 0 4px; }
 .srow.on .fill { background: var(--heat-5); }
 
-/* ---------------- §3 day strip ---------------- */
+/* ---------------- §4 day strip ---------------- */
 .selrow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 4px 0 14px; font-size: 14px; }
 .selrow label { font-weight: 700; }
 .selrow select {
@@ -267,7 +261,7 @@ a:hover { color: var(--flag); }
   box-shadow: inset 0 0 0 3px var(--flag);
   border-color: var(--flag);
 }
-.hr-cell.t-ovl::after {  /* flag notch above the cell — shape, not just color */
+.hr-cell.t-ovl::after {  /* flag notch above the cell, shape, not just color */
   content: ""; position: absolute; top: -8px; left: 50%; margin-left: -4px;
   border-left: 4px solid transparent; border-right: 4px solid transparent;
   border-top: 6px solid var(--flag);
@@ -300,7 +294,7 @@ a:hover { color: var(--flag); }
 .sw-ovl { background: var(--heat-4); box-shadow: inset 0 0 0 2.5px var(--flag); }
 .sw-dark { background: repeating-linear-gradient(135deg, var(--dark-humid) 0 3px, #C4C1D2 3px 6px); }
 
-/* ---------------- §4 map ---------------- */
+/* ---------------- §3 map ---------------- */
 .sec-wide h2 { max-width: 34em; }
 .maplayout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); gap: 28px; }
 .maplayout > * { min-width: 0; }
@@ -380,7 +374,7 @@ a:hover { color: var(--flag); }
 .tl-sen { border-top: 2px dashed var(--ink); }
 .tl-band { height: 10px; background: rgba(222,146,69,.25); vertical-align: -1px; }
 
-/* ---------------- §6 hap card ---------------- */
+/* ---------------- hap card ---------------- */
 .hap-card { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 8px; }
 .hap-card > * { min-width: 0; }
 .hap-head {
@@ -398,7 +392,7 @@ a:hover { color: var(--flag); }
 .hap-cpr { font-size: 14.5px; margin: 0; }
 .hap-cpr em { color: var(--flag); font-style: normal; font-weight: 700; }
 
-/* ---------------- §7 closing exhibit ---------------- */
+/* ---------------- §6 closing exhibit ---------------- */
 .closing-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 18px 0 22px; }
 .closing-row { border: 1px solid var(--line); border-radius: 8px; background: #FFFFFF; padding: 18px 20px 30px; }
 .closing-row-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }

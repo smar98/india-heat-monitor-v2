@@ -1,7 +1,7 @@
 """
-Heat-metric functions for the India Humid Heat Monitor.
+Heat-metric functions for The Overlooked Hours.
 
-Keeps three metrics strictly separate, per this project's editorial rule:
+Keeps three metrics strictly separate:
   1. Dry-bulb temperature -- the raw value from Open-Meteo, used as-is.
   2. Wet-bulb temperature -- Stull (2011) empirical approximation.
   3. Estimated WBGT -- Liljegren et al. (2008) model (see liljegren_wbgt.py),
@@ -29,7 +29,7 @@ from liljegren_wbgt import calc_wbgt as _liljegren_calc_wbgt
 # Validity range: RH 5%-99%, T from -20C to 50C (accuracy degrades in the
 # combined very-low-RH / very-cold-T corner).
 # Error bounds: -1C to +0.65C, mean absolute error < 0.3C.
-# Assumes sea-level (101.325 kPa) pressure. Not all ~50 cities are lowland:
+# Assumes sea-level (101.325 kPa) pressure. Not all 50 cities are lowland:
 # Srinagar (~1,585 m), Bengaluru (~920 m), and several 400-700 m cities
 # (Pune, Hyderabad, Bhopal, Ranchi) sit above sea level, where the formula
 # reads the displayed wet-bulb slightly high. Estimated WBGT is unaffected:
@@ -116,8 +116,7 @@ def estimated_wbgt(
 # to Heat and Hot Environments," DHHS (NIOSH) Publication 2016-106, Chapter
 # 8.1, pp.93-94 (equations) and Table 5-1, p.70 (cross-standard comparison);
 # page numbers are the document's own pagination, not PDF-viewer pages.
-# https://www.cdc.gov/niosh/docs/2016-106/ (PDF verified directly, not via a
-# secondary paraphrase -- see this project's build notes).
+# https://www.cdc.gov/niosh/docs/2016-106/
 #
 #   RAL [C-WBGT] = 59.9 - 14.1 * log10(M)   -- unacclimatized workers
 #   REL [C-WBGT] = 56.7 - 11.5 * log10(M)   -- acclimatized workers

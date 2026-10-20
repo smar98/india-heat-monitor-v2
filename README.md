@@ -1,10 +1,10 @@
-# The Overlooked Hours (v2) — heat, work hours and India's outdoor workforce
+# The Overlooked Hours: heat, work hours and India's outdoor workforce
 
 A live dashboard showing where India's fixed "avoid the afternoon" work-hour
 guidance overlooks outdoor heat stress. India's Heat Action Plans tell
 outdoor workers to shift work to the morning and evening; on hot days those
 shoulder hours themselves can exceed the occupational heat-stress limit. This
-dashboard estimates that, live, for ~50 large Indian cities.
+dashboard estimates that, live, for 50 large Indian cities.
 
 **Live site:** https://smar98.github.io/india-heat-monitor-v2/heat/
 
@@ -12,7 +12,7 @@ dashboard estimates that, live, for ~50 large Indian cities.
 
 For each city, every forecast hour is scored against the NIOSH REL
 occupational heat-stress reference limit (for a selectable workload) using
-estimated **WBGT** (Wet Bulb Globe Temperature) — a metric that folds
+estimated **WBGT** (Wet Bulb Globe Temperature), a metric that folds
 humidity, solar radiation, and wind into one number, unlike the maximum air
 temperature that IMD heat-wave declarations rest on. The headline counts the
 **overlooked hours**: hours that exceed the limit *outside* the 11am–5pm
@@ -22,17 +22,16 @@ conservative bound), with the sun up.
 Three metrics are kept strictly separate and never compared against each
 other's thresholds:
 
-- **Wet-bulb temperature** — Stull (2011) approximation, from temperature and
+- **Wet-bulb temperature**: Stull (2011) approximation, from temperature and
   humidity.
-- **Estimated WBGT** — a Python port of James Liljegren's (2008) reference
+- **Estimated WBGT**: a Python port of James Liljegren's (2008) reference
   model, verified numerically against the original author's compiled C code
   (see `tests/`).
-- **NIOSH RAL/REL limits** — the occupational heat-stress reference lines,
-  reported for acclimatized workers (REL) as the defensible default for
+- **NIOSH RAL/REL limits**: the occupational heat-stress reference lines,
+  reported for acclimatized workers (REL) as the default for
   India's chronically heat-exposed outdoor laborers.
 
-Language discipline: the site says "exceeds the NIOSH heat-stress reference
-limit," never "safe hours."
+Hours below the limit are described as lower-risk under estimated-WBGT assumptions, never as safe.
 
 ## How it's built
 
@@ -40,16 +39,12 @@ limit," never "safe hours."
 - Data: Open-Meteo Forecast API (no key). A GitHub Actions workflow targets a
   refresh every 3 hours; scheduled runs are best-effort, so the page shows a
   stale-data warning if the data is more than ~9 hours old.
-- 1991–2020 climatological normals (ERA5) are computed once for the map's
-  anomaly layer.
-
 See `heat/methods.html` for full methodology, sources, validity ranges, and
-caveats, and `BUILD_LOG.md` for the build history and decisions.
+caveats.
 
 > Framing note: this is an exploratory, transparent, live policy dashboard
-> highlighting a plausible blind spot in fixed work-hour guidance — not
-> validated occupational-exposure evidence. Figures are forecast, on a
+> highlighting a plausible blind spot in fixed work-hour guidance. It is not validated occupational-exposure evidence. Figures are forecast, on a
 > ~9–13 km model grid (whichever global model Open-Meteo's "best match"
-> selects for India — ECMWF IFS ~9 km, ICON Global ~11 km, GFS ~13 km; a
+> selects for India: ECMWF IFS ~9 km, ICON Global ~11 km, GFS ~13 km; a
 > grid cell, not street level), for a 50-city sample, and are not a national
 > estimate.

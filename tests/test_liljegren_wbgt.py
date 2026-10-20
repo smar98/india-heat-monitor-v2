@@ -1,12 +1,5 @@
 """
-Sanity-check tests for the Liljegren WBGT Python port (liljegren_wbgt.py).
-
-These are NOT a numerical validation against the original C binary (we
-cannot compile/run the C code in this environment). Instead they check
-physically-required properties that a gross transcription bug (sign flip,
-wrong exponent, degrees/radians mixup, wrong combining weights, etc.) would
-very likely violate. Do not loosen these assertions to make them pass --
-if one fails, treat it as a signal to go find the transcription bug.
+Tests for the Liljegren WBGT Python port (liljegren_wbgt.py): physical-plausibility checks, plus two numeric regressions against recorded output of Liljegren's original C code (the last two tests).
 """
 
 import math

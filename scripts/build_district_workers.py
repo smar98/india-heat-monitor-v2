@@ -10,8 +10,8 @@ Categories counted as outdoor work (persons, Total area, all ages):
   - NIC B: mining and quarrying
   - NIC F: construction
 This is a deliberate under-count of outdoor exposure (e.g. street vending
-sits in retail G, brick kilns partly in manufacturing C) -- the honest
-direction to err.
+sits in retail G, brick kilns partly in manufacturing C), which is the
+safer direction to err.
 
 Sources: the Census "datagov" per-state CSVs
 (https://www.censusindia.gov.in/datagov/B-04/DDW_B04_{SS}00_State_{NAME}-2011.csv)

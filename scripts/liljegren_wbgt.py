@@ -1,5 +1,5 @@
 """
-Liljegren Wet Bulb Globe Temperature (WBGT) model — Python port.
+Liljegren Wet Bulb Globe Temperature (WBGT) model, Python port.
 
 Ported from https://github.com/mdljts/wbgt (wbgt.c, wbgt.h, wrapper.c),
 an R-package wrapping of James C. Liljegren's original WBGT algorithm.

@@ -1,6 +1,6 @@
 /*
  * Shared data loading and computation for "The Overlooked Hours".
- * Used by every view (headline, map, chart, workday clock) so they can
+ * Used by every view (ui.js, map.js, trend.js) so they can
  * never disagree about how a number was computed.
  *
  * The dashboard's central claim, made concrete: India's heat guidance
@@ -16,7 +16,7 @@
 
 const DATA_BASE = "data";
 
-// headline.js, map.js, and workday-clock.js each call loadAllData() on the
+// ui.js and map.js each call loadAllData() on the
 // same page load. Cache the one in-flight/completed request so every caller
 // shares it instead of double-fetching cities.json/latest.json.
 let _loadAllDataPromise = null;
@@ -84,11 +84,6 @@ function buildCityRecords(cities, latest) {
   return records;
 }
 
-// (The old dry-bulb-rank vs WBGT-rank "misranking" computation, and the
-// fixed moderate-work NIOSH constants that supported it, were removed when
-// the dashboard reframed around the overlooked-hours claim -- see BUILD_LOG.md.
-// The NIOSH equations now live below with a selectable workload.)
-
 const MONTH_NAMES = ["January","February","March","April","May","June",
   "July","August","September","October","November","December"];
 
@@ -115,9 +110,7 @@ function formatWorkerCount(x) {
 // heavy follow NIOSH's own Table 5-1 -- see methods.html).
 // Occupation examples are ILLUSTRATIVE task intensities, not fixed per-job
 // values -- the same job spans a wide range depending on the specific task.
-// We report the REL (acclimatized-worker) line, because India's chronically
-// heat-exposed outdoor laborers are among the most acclimatized workers
-// anywhere; RAL (unacclimatized) would understate their tolerance.
+// We report the REL (acclimatized-worker) line. Outdoor laborers in India work in heat for much of the year and are likely to be largely acclimatized; Indian field studies (Venugopal et al. 2016) measured heat strain at around these WBGT levels, so the acclimatized line is used.
 //   REL[degC WBGT] = 56.7 - 11.5*log10(M),  M in watts   (NIOSH DHHS 2016-106)
 // ---------------------------------------------------------------------------
 function nioshRelC(m) { return 56.7 - 11.5 * Math.log10(m); }
@@ -157,8 +150,7 @@ function setWorkload(key) {
 // There is no single national work-hour window. Audited state Heat Action
 // Plans differ: IMD national advice 12:00-15:00; Andhra Pradesh 12:00-16:00;
 // Odisha 11:00-15:30; Gujarat (parts) 13:00-17:00. We take the UNION of the
-// audited windows -- earliest start (Odisha's 11:00) to latest end (Gujarat's
-// 17:00) -- so an hour flagged "outside the window" falls outside even the
+// audited windows -- earliest start (Odisha's 11:00) to latest end (Delhi and Ahmedabad, 17:00) -- so an hour flagged "outside the window" falls outside even the
 // most generous afternoon-avoidance guidance any audited state uses. That
 // makes the overlooked-hours count a LOWER BOUND: under any real state window
 // (all narrower), the count can only be higher. No per-state data is claimed.
@@ -283,9 +275,7 @@ function computeWorkableRanges(cityId, latest, relThreshold, todayDateKey) {
  *
  * time_ist is already IST wall-clock time as labeled by Open-Meteo (the
  * pipeline requests timezone=Asia/Kolkata specifically so this is a direct
- * read, not a UTC+5:30 arithmetic conversion done client-side -- an earlier
- * version did that arithmetic and got the label wrong, see BUILD_LOG.md
- * step 7).
+ * read, with no client-side UTC+5:30 conversion).
  */
 function buildHourlySeriesForCity(cityId, latest, relThreshold) {
   const cityLatest = latest.cities.find((c) => c.id === cityId);

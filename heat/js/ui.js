@@ -1,15 +1,15 @@
 /*
- * ui.js — every view except the map and the trend chart: topbar timestamp +
+ * ui.js, every view except the map and the trend chart: topbar timestamp +
  * stale warning, §1 the plans grid + CPR note, the workload control, §2 the
  * finding (headline, KPIs, by-workload bars), §4 the day strip + per-state
  * plan note, §3's district leaderboard, §6 the closing exhibit, the side-nav
  * scrollspy, the sticky city bar, and the shared tooltip. All numbers come
- * from data.js computations — the same functions the map uses, so the views
+ * from data.js computations, the same functions the map uses, so the views
  * can never disagree.
  *
  * Shared state: the selected workload lives in data.js (setWorkload fires
  * "workloadchange"); the selected city lives here (selectCity fires
- * "citychange" — trend.js listens too).
+ * "citychange", trend.js listens too).
  */
 
 let UI = null;              // { cities, latest }
@@ -89,7 +89,7 @@ function renderTimestamp(latest) {
 
 /* ------------------------------------------------------------------ */
 /* §1 The plans: audited state HAPs quoted verbatim + the CPR finding. */
-/* Display-only — nothing here feeds a computed number.                */
+/* Display-only, nothing here feeds a computed number.                */
 /* ------------------------------------------------------------------ */
 function renderPlansGrid() {
   const host = $id("plans-grid");
@@ -103,7 +103,7 @@ function renderPlansGrid() {
 
   const cpr = $id("cpr-note");
   if (cpr) {
-    cpr.innerHTML = `Do the plans have teeth? A 2023 Centre for Policy Research review of 37 Indian
+    cpr.innerHTML = `Are the plans enforceable? A 2023 Centre for Policy Research review of 37 Indian
       Heat Action Plans found that <em>none</em> identified the legal source of its authority, and
       only 11 discussed funding; eight of those asked departments to fund themselves.
       Source: <a href="${_hap.cpr.url}" rel="noopener">CPR 2023</a>${_hap.cpr.source_page ? ", " + _hap.cpr.source_page : ""}.
@@ -143,14 +143,14 @@ function renderFinding() {
   const summary = computeOverlookedSummary(UI.cities, UI.latest, rel);
 
   if (summary.citiesTotal === 0) {
-    $id("hl-count").textContent = "—";
-    $id("hl-total").textContent = "—";
+    $id("hl-count").textContent = "n/a";
+    $id("hl-total").textContent = "n/a";
     $id("finding-foot").textContent = "No current data available: the forecast file has not loaded for today.";
     return;
   }
 
   // Sensitivity of the city count to a uniform ±1°C WBGT shift (a stress
-  // test of the estimate, not a full error bar — see methods).
+  // test of the estimate, not a full error bar, see methods).
   const loose = computeOverlookedSummary(UI.cities, UI.latest, rel - 1);
   const tight = computeOverlookedSummary(UI.cities, UI.latest, rel + 1);
   const cityLo = Math.min(tight.citiesWithShoulder, summary.citiesWithShoulder, loose.citiesWithShoulder);
@@ -172,7 +172,7 @@ function renderFinding() {
     $id("kpi-top-k").innerHTML =
       `Most overlooked hours today: <strong>${top0.shoulder}&thinsp;hr</strong> at ${top0.shoulderHours.map((h) => h.istLabel).join(", ")} IST`;
   } else {
-    $id("kpi-top").textContent = "—";
+    $id("kpi-top").textContent = "n/a";
     $id("kpi-top-k").textContent = `No city crosses the ${w.label.toLowerCase()}-work limit outside the window today`;
   }
   $id("kpi-band").textContent = cityLo === cityHi ? String(cityLo) : `${cityLo}–${cityHi}`;
@@ -202,7 +202,7 @@ function renderSensBars() {
 }
 
 /* ------------------------------------------------------------------ */
-/* §4 The day strip — the signature exhibit. One row per day (today +  */
+/* §4 The day strip, the signature exhibit. One row per day (today +  */
 /* tomorrow), 24 hour-cells, the advisory window drawn as a blue       */
 /* bracket, overlooked hours ringed and notched in the flag crimson.   */
 /* ------------------------------------------------------------------ */
@@ -410,7 +410,7 @@ function initContextBar() {
   function update() {
     ticking = false;
     // Visible while the §4 city selector is above the viewport top and §6
-    // hasn't fully scrolled past — i.e. exactly the city-driven stretch.
+    // hasn't fully scrolled past, i.e. exactly the city-driven stretch.
     const selRow = $id("city-select");
     const start = selRow.getBoundingClientRect().bottom < topbar.offsetHeight;
     const end = last.getBoundingClientRect().bottom > 140;
@@ -507,7 +507,7 @@ function renderClosing() {
   const ticks = [0, 6, 12, 18].map((hr) =>
     `<div class="mini-tick" style="left:${(hr / 24) * 100}%">${String(hr).padStart(2, "0")}</div>`).join("");
 
-  // Row 1 — the advisory's model of the day: a fixed afternoon to avoid,
+  // Row 1, the advisory's model of the day: a fixed afternoon to avoid,
   // everything else implicitly workable.
   const row1 = Array.from({ length: 24 }, (_, hr) => {
     const h = byHour.get(hr);
@@ -515,7 +515,7 @@ function renderClosing() {
     return `<div class="mini-cell ${cls}"></div>`;
   }).join("");
 
-  // Row 2 — the forecast's model: sun-up hours below the limit are workable;
+  // Row 2, the forecast's model: sun-up hours below the limit are workable;
   // sun-up hours over it are not, wherever the clock says they are.
   const row2 = Array.from({ length: 24 }, (_, hr) => {
     const h = byHour.get(hr);
@@ -605,6 +605,6 @@ async function initUi() {
 
 initUi().catch((err) => {
   console.error(err);
-  $id("hl-count").textContent = "—";
+  $id("hl-count").textContent = "n/a";
   $id("finding-foot").textContent = "Could not load data: " + err.message;
 });

@@ -1,7 +1,7 @@
 {
   "meta": {
     "note": "Display-only policy audit. The dashboard's computed avoidance window is always the 11am-5pm union of the audited windows below; nothing here feeds the computation. Verbatim quotes and page numbers match the methods-page HAP source table.",
-    "audited_scope": "Four plans audited to primary sources, plus the national advisory line. 'Not audited' means not audited here - not that the state has no plan."
+    "audited_scope": "Four plans audited to primary sources, plus the national advisory line. 'Not audited' means not audited here; the state may still have a plan."
   },
   "national": {
     "issuer": "NDMA/IMD national advisory",

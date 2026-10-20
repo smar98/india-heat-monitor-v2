@@ -1,14 +1,14 @@
 /*
- * trend.js — §5 the long view: overlooked hours per year, 1980–2024 (ERA5),
+ * trend.js, §5 the long view: overlooked hours per year, 1980–2024 (ERA5),
  * for the selected city and workload. Hand-rolled inline SVG.
  *
  * Statistics come precomputed from heat/data/trend_stats.json (built by
  * scripts/trend_stats.py: tie-corrected Mann-Kendall + Theil–Sen slope with
  * a Sen 1968 95% CI, cross-validated against scipy). "Increasing" is only
  * claimed when MK rejects no-trend at p < 0.05; otherwise the chip says
- * "no detectable trend" — no eyeballed percentages anywhere.
+ * "no detectable trend".
  *
- * Honesty notes rendered with the chart: reanalysis and the live forecast
+ * Notes rendered with the chart: reanalysis and the live forecast
  * are different data products, never mixed; the 11–5 window is TODAY'S
  * audited union applied to all 45 years; the shaded band is the ±1°C
  * sensitivity, matching §2's.

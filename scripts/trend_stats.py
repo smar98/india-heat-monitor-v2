@@ -2,13 +2,7 @@
 Trend statistics for the 1980-2024 overlooked-hours history --
 heat/data/trend_stats.json.
 
-Replaces the old "up ~X% since the 1980s" claim (a bare decade-mean
-comparison with no significance test) with a defensible one: for every
-city x workload x series (ovl, ovl_hi, ovl_lo), a Mann-Kendall trend test
-(two-sided, normal approximation, tie-corrected) and a Theil-Sen slope
-with a Gilbert (1987)/Sen (1968) 95% confidence interval. The decade means
-the old display used are still reported, alongside the honest verdict, so
-the frontend can show both.
+For every city x workload x series (ovl, ovl_hi, ovl_lo): a two-sided, tie-corrected Mann-Kendall trend test and a Theil-Sen slope with a Gilbert (1987)/Sen (1968) 95% CI. Decade means are reported alongside the verdict.
 
 Re-run whenever scripts/compute_trends.py regenerates heat/data/trends.json.
 This script reads trends.json's own meta.generated_at_utc and stamps it

@@ -1,8 +1,8 @@
 /*
- * map.js — the India map (§3). Light "paper" theme, no raster tiles: the
+ * map.js, the India map (§3). Light "paper" theme, no raster tiles: the
  * vendored DataMeet state shapes are the landmass. Three layers:
  *   - districts (DEFAULT): Census-2011 outdoor workers × today's overlooked
- *     hours (sequential heat ramp choropleth, darker = more) — the workers
+ *     hours (sequential heat ramp choropleth, darker = more), the workers
  *     are the point of the page, so they open the map;
  *   - eshram: e-Shram registry registrations (agriculture + construction,
  *     2021–present) as a recency cross-check on the census workforce map;

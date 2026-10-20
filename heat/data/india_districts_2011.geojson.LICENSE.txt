@@ -9,7 +9,7 @@ License: the repository carries an MIT LICENSE file
 states datasets are shared under CC BY 4.0
 (https://creativecommons.org/licenses/by/4.0/) unless stated otherwise.
 This attribution is written to satisfy both: District boundaries (Census
-2011) by the DataMeet India community (http://datameet.org/), used under
+2011) by the DataMeet India community (https://datameet.org/), used under
 MIT / CC BY 4.0.
 
 Modifications: converted from Shapefile to GeoJSON; simplified with

@@ -1,20 +1,18 @@
 """
 Logs active OFFICIAL heat alerts alongside our own REL-exceedance record,
-once per pipeline run. This is a data-collection step only -- nothing on the
-site reads these files yet. The point: months from now, the log can answer
+once per pipeline run. This is a data-collection step only -- nothing on the site reads these files. The point: months from now, the log can answer
 "on days our estimated-WBGT record flagged heat stress in city X, was any
 official heat alert active there?" using REAL warnings, not an approximation
 of IMD's declaration criteria.
 
-Sources (both public, no keys; verified live 2026-07-09):
+Sources (both public, no keys):
   - SACHET, NDMA's Common Alerting Protocol portal (includes state-SDMA
     alerts): GET https://sachet.ndma.gov.in/cap_public_website/FetchAllAlertDetails
   - IMD's official CAP 1.2 alerts, via the Google alert-hub mirror of IMD's
     signed feed: https://cap-sources.s3.amazonaws.com/in-imd-en/rss.xml
     (each RSS item links a per-alert XML that carries real lat,lon polygons,
     so city matching is exact point-in-polygon).
-  IMD's own district-warning API (mausam.imd.gov.in/api/...) is auth-walled
-  (401) and is deliberately NOT used.
+  IMD's own district-warning API (mausam.imd.gov.in/api/...) is auth-walled (401), so it is not used.
 
 Outputs (append-only monthly JSONL, at repo root under data/alerts/ -- not
 under heat/, because the page does not serve these):
@@ -482,7 +480,7 @@ def run():
 
 
 def main():
-    # Hard rule: never block the heat-data pipeline, no matter what breaks.
+    # Never block the heat-data pipeline.
     try:
         run()
     except Exception:
